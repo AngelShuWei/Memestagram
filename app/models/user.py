@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), nullable=False, unique=True)
     name = db.Column(db.String(50))
     email = db.Column(db.String(100), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(50), nullable=False)
+    hashed_password = db.Column(db.String(1050), nullable=False)
     profile_pic = db.Column(db.Text)
     follower_id = db.Column(db.Integer)
     followed_id = db.Column(db.Integer)

@@ -1,0 +1,223 @@
+.page-container {
+    background-color: whitesmoke;
+    height: 100vh;
+  }
+
+  .main-container-login {
+    width: 100%;
+    height: 657px;
+  }
+
+  html {
+    background-color: whitesmoke;
+  }
+
+  .img-form-and-allthegoodstuff {
+    width: 61.6%;
+    height: 100%;
+    margin: 32px auto 0px;
+    max-width: 935px;
+    padding-bottom: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .backgroundimgkindofstuff {
+    height: 100%;
+    width: 380px;
+    position: relative;
+    margin-right: 32px;
+    background-image: url('https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png');
+    background-position: -46px 0;
+    background-size: 468.32px 634.15px;
+
+  }
+
+  .backgroundimgkindofstuff img {
+    position: absolute;
+    top: 26.9px;
+    right: 18px;
+
+  }
+
+  .form-div-i-promise {
+    height: 100%;
+    width: 350px;
+    display: flex;
+    margin: 7.2px 0 0;
+    align-items: center;
+  }
+
+  .daddy-form-allthestuff {
+    width: 100%;
+    height: 98%;
+    margin: 12px 0px 0px;
+  }
+
+  .middle-form-mehstuff {
+    width: 100%;
+    height: 381px;
+    background-color: white;
+    margin: 0 0 10px;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    padding: 10px 0;
+  }
+
+  .memestagram {
+
+    font-family: 'Grand Hotel', cursive;
+    font-size: 45px;
+    margin: 22px 86.5px 12px
+  }
+
+  .small-lower-part-of-the-form {
+    width: 100%;
+    height: 77%;
+
+  }
+
+  .lower-lower-form {
+    width: 100%;
+    height: 100%;
+    margin: 34px 0px 0px;
+    display: grid;
+    grid-template-rows: 38px 38px 38px 38px;
+    grid-row-gap: 6px;
+  }
+
+  .inputs {
+    margin: 0 auto;
+  }
+
+  .input-field {
+    background-color: whitesmoke;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    width: 256px;
+    height: 38px;
+    font-size: 12px;
+    padding: 7px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-button {
+    width: 260px;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: #0095F6;
+    border-radius: 0.25rem;
+    border: none;
+    margin: 8px 40px;
+    cursor: pointer;
+  }
+
+  .fourth-thing {
+    width: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .something {
+    border-bottom: 1px solid #DBDBDB;
+    width: 87px;
+
+  }
+
+  .small-container-login {
+    margin: 0 0 10px;
+    padding: 10px 0px;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    height: 83px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    color: rgba(var(--i1d, 38, 38, 38), 1);
+  }
+
+  .signup-span {
+    color: #0095F6;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+
+  .demo-span {
+    font-weight: 500;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(26, 16, 125, 0.58)
+  }
+
+  /*
+  .login-form-container {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    font-size: 13px;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    border-radius: 0.15rem;
+    height: 381px;
+    width: 350px;
+    margin: 0px 0px 10px;
+  }
+  .inputdiv{
+    margin-top: 25px;
+  }
+
+  .input-field {
+    background-color: whitesmoke;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    width: 256px;
+    height:36px;
+    font-size: 12px;
+    padding: 7px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .login-button {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    background-color: #0095F6;
+    border-radius: 0.25rem;
+    border: none;
+    margin-top: 10px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .small-container-login{
+    margin: 0 0 10px;
+    padding: 10px 0px;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    border-radius: 0.15rem;
+    height: 63px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    background-color: #FFFFFF;
+    color: rgba(var(--i1d,38,38,38),1);
+  }
+  .memestagram{
+
+    font-family: 'Grand Hotel', cursive;
+    font-size: 45px;
+    margin: 22px 86.5px 12px
+  } */

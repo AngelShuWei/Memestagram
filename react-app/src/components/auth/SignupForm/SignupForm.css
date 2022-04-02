@@ -1,0 +1,43 @@
+.form-div-signup-promise {
+    height: 100%;
+    width: 350px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.daddy-form-signup {
+    width: 100%;
+    height: 633px;
+}
+.fourth-thing-signup{
+    width: 256px;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.h2-signup {
+    font-size: 17px;
+    color: #8E8E8E;
+    margin: 15px 40px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.lower-lower-form-signup{
+    width: 100%;
+  height: 100%;
+  margin: 34px 0px 0px;
+  display: grid;
+  grid-row-gap: 14px;
+}
+
+.middle-form-signup {
+    width: 100%;
+    height: 541px;
+    background-color: white;
+    margin: 0 0 10px;
+    border: 1px solid rgba(149, 157, 165, 0.5);
+    padding: 10px 0;
+}

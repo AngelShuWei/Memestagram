@@ -3,7 +3,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import Column, ForeignKey
-# from .user import User
 
 class Comment(db.Model, UserMixin):
     __tablename__ = "comments"

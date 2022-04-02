@@ -1,6 +1,11 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from sqlalchemy.orm import relationship
+from sqlalchemy.schema import Column, ForeignKey
+# from .comment_like import CommentLike
+# from .image_like import ImageLike
+# from .comment import Comment
 
 # follows = db.Table(
 #     "follows",
@@ -21,6 +26,11 @@ class User(db.Model, UserMixin):
     followed_id = db.Column(db.Integer)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
+
+    comments = relationship("Comment", back_populates="user")
+    posts = relationship("Post", back_populates="user")
+    image_likes = relationship("ImageLike", back_populates="user")
+    comment_likes = relationship("CommentLike", back_populates="user")
     # followers = db.relationships(
     # "User",
     # secondary=follows,

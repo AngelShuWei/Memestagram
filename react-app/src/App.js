@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import SignUpForm from './components/auth/SignupForm/SignUpForm';
 import NavBar from './components/NavBar';
@@ -14,11 +14,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
+
+
+  const user = useSelector(state => state.session.user)
+
 
   if (!loaded) {
     return null;
@@ -26,7 +30,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {
+        user ? <NavBar /> : undefined
+      }
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -35,7 +41,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

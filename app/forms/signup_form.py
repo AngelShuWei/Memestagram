@@ -22,7 +22,6 @@ def email_valid(form, field):
         raise ValidationError('Please provide a valid email address')
 
 
-
 def username_exists(form, field):
     # Checking if username is already in use
     username = field.data
@@ -31,20 +30,23 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-
-def password_matches(form, field):
-    # Checking if password matches
-    password = field.data
-    email = form.data['email']
-    user = User.query.filter(User.email == email or User.username== email).first()
-    if not user:
-        raise ValidationError('No such user exists.')
-    if not user.check_password(password):
-        raise ValidationError('Password was incorrect.')
+# def password_matches(form, field):
+#     # Checking if password matches
+#     print('field')
+#     print('form')
+#     password = form.data['password']
+#     confirm_password = field.data['confirm_password']
+#     # email = form.data['email']
+#     # user = User.query.filter(User.email == email or User.username == email).first()
+#     if password == confirm_password:
+#         pass
+#     else:
+#         raise ValidationError('Passwords do not match.')
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists, email_valid])
-    password = StringField('password', validators=[DataRequired(), password_matches])
+    password = StringField('password', validators=[DataRequired()])
+    # confirm_password = StringField('confirmed password', validators=[DataRequired()])

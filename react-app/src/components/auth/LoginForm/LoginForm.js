@@ -19,7 +19,7 @@ const LoginForm = () => {
 
     const interval = setInterval(() => {
       setImgNum(e => {
-        if (e + 1 == 4) {
+        if (e + 1 === 4) {
           e = 0
           return e
         } else {
@@ -114,11 +114,11 @@ const LoginForm = () => {
                         <div style={{ color: '#8E8E8E' }}>Chilling?</div>
                         <div className='something'></div>
                       </div>
-                      <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                      </ul>
                     </div>
                   </form>
+                  <ul>
+                    {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+                  </ul>
                 </div>
 
               </div>

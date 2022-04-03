@@ -120,9 +120,6 @@ const SignUpForm = () => {
 
                     />
                   </div>
-                  <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                  </ul>
                   <div className='inputs'>
 
                     <button className='login-button' type="submit">Sign Up</button>
@@ -131,6 +128,9 @@ const SignUpForm = () => {
 
 
               </form>
+              <ul>
+                {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+              </ul>
             </div>
 
           </div>

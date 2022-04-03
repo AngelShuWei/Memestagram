@@ -16,3 +16,12 @@ class Post(db.Model, UserMixin):
     user = relationship("User", back_populates="posts")
     comments = relationship("Comment", back_populates="post")
     image_likes = relationship("ImageLike", back_populates="post")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'caption': self.caption,
+            'image_url':self.image_url
+        }

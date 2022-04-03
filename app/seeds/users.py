@@ -6,15 +6,22 @@ from datetime import date
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='sifuhothing', email='sifuhothing@gmail.com', password='password',created_at=date.today(),updated_at=date.today())
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password',created_at=date.today(),updated_at=date.today())
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='demo', email='demo@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+    yavuz = User(
+        username='yavuz', email='yavuz@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+    angel = User(
+        username='angel', email='angel@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+    leah = User(
+        username='leah', email='leah@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+    philip = User(
+        username='philip', email='philip@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+
 
     db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(yavuz)
+    db.session.add(angel)
+    db.session.add(leah)
+    db.session.add(philip)
 
     db.session.commit()
 

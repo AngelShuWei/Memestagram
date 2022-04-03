@@ -43,7 +43,7 @@ const LoginForm = () => {
 
   const demouser = async(e) =>{
     e.preventDefault();
-    dispatch(login('sifuhothing', 'password'));
+    dispatch(login('demo', 'password'));
   }
 
 

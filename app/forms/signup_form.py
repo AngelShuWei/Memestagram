@@ -30,23 +30,22 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-# def password_matches(form, field):
-#     # Checking if password matches
-#     print('field')
-#     print('form')
-#     password = form.data['password']
-#     confirm_password = field.data['confirm_password']
-#     # email = form.data['email']
-#     # user = User.query.filter(User.email == email or User.username == email).first()
-#     if password == confirm_password:
-#         pass
-#     else:
-#         raise ValidationError('Passwords do not match.')
+
+def password_matches(form, field):
+    # Checking if password matches
+    password = form.data['password']
+    confirm_password = form.data['confirm_password']
+    # email = form.data['email']
+    # user = User.query.filter(User.email == email or User.username == email).first()
+    print(confirm_password)
+    if password == confirm_password:
+        pass
+    else:
+        raise ValidationError('Passwords do not match.')
 
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists, email_valid])
-    password = StringField('password', validators=[DataRequired()])
-    # confirm_password = StringField('confirmed password', validators=[DataRequired()])
+    username = StringField('username', validators=[DataRequired(), username_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists,email_valid])
+    password = StringField('password', validators=[DataRequired(),password_matches])
+    confirm_password = StringField('confirmpassword', validators=[])

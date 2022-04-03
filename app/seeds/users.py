@@ -17,6 +17,7 @@ def seed_users():
         username='philip', email='philip@aa.io', password='password',created_at=date.today(),updated_at=date.today())
 
 
+
     db.session.add(demo)
     db.session.add(yavuz)
     db.session.add(angel)

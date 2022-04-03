@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav className='navbar'>
+      <nav className={modalOn? 'navbar-close':'navbar'}>
         <div className='narbar-inside-main-div'>
           <div className='everything-inside'>
 
@@ -68,7 +68,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-      {modalOn ? <PostFormPage /> : undefined}
+      {modalOn && <PostFormPage closeModal={setModalOn}/>}
     </div>
   );
 }

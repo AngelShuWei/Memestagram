@@ -3,7 +3,6 @@
     height: 60px;
     background-color: white;
     border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
-
 }
 
 .narbar-inside-main-div{
@@ -11,6 +10,16 @@
     height:100%;
 }
 
+.navbar-close{
+    
+    display: none;
+}
+
+.modelon-navbar-background{
+    width: 100%;
+    width: 100%;
+    background-color: rgba(200,200,200);
+}
 
 .everything-inside h2{
     margin:0;

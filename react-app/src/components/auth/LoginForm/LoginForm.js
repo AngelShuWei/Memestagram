@@ -41,6 +41,12 @@ const LoginForm = () => {
     }
   };
 
+  const demouser = async(e) =>{
+    e.preventDefault();
+    dispatch(login('demo', 'password'));
+  }
+
+
   const updateEmail = (e) => {
     setCredential(e.target.value);
   };
@@ -119,7 +125,7 @@ const LoginForm = () => {
 
               <div className='small-container-login'>
                 <p>Don't have an account? <NavLink exact to={'/signup'}><span className='signup-span'>Sign up</span></NavLink></p>
-                <p>Time is money am I right? <span className='demo-span'>Demo User</span></p>
+                <p>Time is money am I right? <span onClick={demouser} className='demo-span'>Demo User</span></p>
 
               </div>
             </div>

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import { login } from '../../../store/session';
 import './SignupForm.css'
+
 
 
 const SignUpForm = () => {
@@ -23,6 +25,12 @@ const SignUpForm = () => {
       }
     }
   };
+
+  const demouser = async(e) =>{
+    e.preventDefault();
+    dispatch(login('demo', 'password'));
+  }
+
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -129,7 +137,7 @@ const SignUpForm = () => {
 
           <div className='small-container-login'>
             <p>Already have an account? <NavLink exact to={'/login'}><span className='signup-span'>Log in</span></NavLink></p>
-            <p>Time is money am I right? <span className='demo-span'>Demo User</span></p>
+            <p>Time is money am I right? <span onClick={demouser} className='demo-span'>Demo User</span></p>
 
           </div>
         </div>

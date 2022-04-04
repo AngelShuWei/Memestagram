@@ -5,4 +5,7 @@ import { Redirect, NavLink, useHistory } from "react-router-dom";
 import { postImgLikes }  from '../../store/imageLike';
 
 
-function 
+function SpotImgLikes() {
+    const imgLike = useSelector(state => state.likes)
+    console.log(imgLike)
+}

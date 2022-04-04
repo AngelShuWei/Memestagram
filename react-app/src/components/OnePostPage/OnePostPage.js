@@ -16,7 +16,7 @@ function OnePostPage() {
     e.preventDefault();
 
     const data = await dispatch(createCommentThunk(text, user.id, postId))
-
+    setText("");
   }
 
   const user = useSelector(state => state.session.user)
@@ -32,7 +32,7 @@ function OnePostPage() {
     <>
       <div className="main-div-big-one">
         <div className="medium-div-normal-size" >
-          {/* <img className="the-image" src={post?.image_url}></img> */}
+          <img className="the-image" src={post?.image_url}></img>
           <p>{post?.caption}</p>
 
           {user?.id == post?.user_id &&

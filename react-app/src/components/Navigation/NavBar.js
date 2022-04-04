@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div>
 
-   
+
 
       <nav  className='navbar'>
         <div className='narbar-inside-main-div'>
@@ -56,6 +56,7 @@ const NavBar = () => {
 
           </div>
         </div>
+        <LogoutButton />
         {/* <ul>
           <li>
             <NavLink to='/' exact={true} activeClassName='active'>

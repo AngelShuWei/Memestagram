@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @post_routes.route('/')
-# @login_required
+@login_required
 def get_posts():
 
     allUserPosts = Post.query.all()
@@ -25,7 +25,7 @@ def get_posts():
     return {'userPosts': [allUserPost.to_dict() for allUserPost in allUserPosts]}
 
 @post_routes.route('/create/<user_id>', methods=['POST'])
-# @login_required
+@login_required
 def postsFunc(user_id):
 
     form = PostForm()
@@ -47,7 +47,7 @@ def postsFunc(user_id):
 
 
 @post_routes.route('/delete/<post_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_post(post_id):
     post = Post.query.get(post_id)
     db.session.delete(post)
@@ -56,7 +56,7 @@ def delete_post(post_id):
 
 
 @post_routes.route('/update/<post_id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_post(post_id):
 
     form = PostForm()

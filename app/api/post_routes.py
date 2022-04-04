@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import Post, db
 from app.forms import PostForm
 from datetime import date
+import json
 
 post_routes = Blueprint('posts',__name__)
 
@@ -18,6 +19,13 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+@post_routes.route('/')
+@login_required
+def getPosts():
+
+    allUserPosts = Post.query.findAll()
+
+    return json.dumps(dict(allUserPosts))
 
 @post_routes.route('/create/<id>', methods=['POST'])
 @login_required
@@ -26,7 +34,6 @@ def postsFunc(id):
 
     form = PostForm()
 
-    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post(

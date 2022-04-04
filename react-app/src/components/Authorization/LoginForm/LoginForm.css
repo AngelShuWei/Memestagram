@@ -102,6 +102,11 @@
     justify-content: center;
   }
 
+  .input-field:focus{
+    outline: .5px solid rgba(var(--c8c, 168, 168, 168), 1);
+
+  }
+
   .login-button {
     width: 260px;
     height: 30px;

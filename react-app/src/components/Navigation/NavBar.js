@@ -19,6 +19,7 @@ const NavBar = () => {
     setModalOn((a) => !a);
   }
 
+  
   return (
     <div>
       <nav className={modalOn? 'navbar-close':'navbar'}>

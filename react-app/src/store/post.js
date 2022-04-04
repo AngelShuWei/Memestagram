@@ -1,13 +1,30 @@
-const CREATE_POST = 'session/CREATE_POST';
+const CREATE_POST = 'post/CREATE_POST';
 
-
+const LOAD_POST = 'post/LOAD_POST';
 
 const createPost = (post) => ({
     type: CREATE_POST,
     post
 })
 
+const loadPost = (posts) => ({
+    type: LOAD_POST,
+    posts
+})
 
+export const allUserPosts = () => async (dispatch) => {
+
+    const response = await fetch('/api/posts');
+
+    if(response.ok){
+        const data = await response.json();
+        dispatch(loadPost(data.allUserPosts))
+
+    }
+
+    return response
+
+}
 
 export const postCreate = (caption, image_url,userId) => async (dispatch) => {
     const response = await fetch(`/api/posts/create/${userId}`, {
@@ -33,5 +50,15 @@ export const postCreate = (caption, image_url,userId) => async (dispatch) => {
     } else {
         return ['An error occurred. Please try again.']
 
+    }
+}
+
+
+const initialState = {}
+
+export default userPostsReducer = (state = initialState,action)=> {
+
+    switch(action.type){
+        
     }
 }

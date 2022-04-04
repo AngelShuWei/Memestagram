@@ -3,7 +3,7 @@
     height: 60px;
     background-color: white;
     border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
-
+    position: fixed;
 }
 
 .narbar-inside-main-div{
@@ -12,6 +12,21 @@
 }
 
 
+
+.modelon-navbar-background{
+    width: 100%;
+    width: 100%;
+    background-color: rgba(200,200,200);
+}
+
+.whywouldu{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top:0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 100;
+}
 .everything-inside h2{
     margin:0;
     color: #262626;
@@ -64,4 +79,5 @@
 }
 .navbar-things i{
     font-size:22px;
+    cursor: pointer;
 }

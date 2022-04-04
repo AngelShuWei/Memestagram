@@ -7,11 +7,12 @@ import './LoginForm.css'
 const imgs = ['https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png']
 
 const LoginForm = () => {
+  const user = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
+
   const [errors, setErrors] = useState([]);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
-  const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
   const [imgNum, setImgNum] = useState(0)
 
 
@@ -19,7 +20,7 @@ const LoginForm = () => {
 
     const interval = setInterval(() => {
       setImgNum(e => {
-        if (e + 1 == 4) {
+        if (e + 1 === 4) {
           e = 0
           return e
         } else {
@@ -89,7 +90,7 @@ const LoginForm = () => {
                           type="text"
                           value={credential}
                           onChange={updateEmail}
-                          required
+                          // required
                           placeholder='Username or Email'
                         />
                       </div>
@@ -99,7 +100,7 @@ const LoginForm = () => {
                           type="password"
                           value={password}
                           onChange={updatePassword}
-                          required
+                          // required
                           placeholder='Password'
 
                         />
@@ -114,11 +115,11 @@ const LoginForm = () => {
                         <div style={{ color: '#8E8E8E' }}>Chilling?</div>
                         <div className='something'></div>
                       </div>
-                      <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                      </ul>
                     </div>
                   </form>
+                  <ul>
+                    {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+                  </ul>
                 </div>
 
               </div>

@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
     posts = relationship("Post", back_populates="user")
     image_likes = relationship("ImageLike", back_populates="user")
     comment_likes = relationship("CommentLike", back_populates="user")
+    
     # followers = db.relationships(
     # "User",
     # secondary=follows,

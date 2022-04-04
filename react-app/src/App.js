@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LoginForm from './components/auth/LoginForm/LoginForm';
-import SignUpForm from './components/auth/SignupForm/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+import LoginForm from './components/Authorization/LoginForm/LoginForm';
+import SignUpForm from './components/Authorization/SignupForm/SignUpForm';
+import NavBar from './components/Navigation/NavBar';
+import ProtectedRoute from './components/Authorization/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-
+import { allUserPosts } from './store/post';
+import EditPostForm from './components/OnePostPage/EditPostPage';
+import OnePostPage from './components/OnePostPage/OnePostPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
       setLoaded(true);
+
+      dispatch(allUserPosts());
     })();
   }, [dispatch]);
-
 
   const user = useSelector(state => state.session.user)
 
@@ -45,6 +49,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:postId/edit' exact={true}>
+          <EditPostForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:postId' exact={true}>
+          <OnePostPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>Home </h1> */}

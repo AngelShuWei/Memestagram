@@ -1,0 +1,40 @@
+.main-div-big-one{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    margin-top: 70px;
+z-index: -1;
+}
+
+
+.medium-div-normal-size{
+    width: 935px;
+    height:600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+    border: 0.5px solid #dbdbdb;
+    display: flex;
+}
+
+.the-image{
+    width: 598px;
+    height: 100%;
+    object-fit:fill;
+    cursor: pointer;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.background-moda{
+    position: absolute;
+    top:70px
+}
+.right-side-inv-post{
+
+}

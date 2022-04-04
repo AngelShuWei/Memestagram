@@ -1,27 +1,27 @@
+const LOAD_POST = 'post/LOAD_POST';
 const CREATE_POST = 'post/CREATE_POST';
 
-const LOAD_POST = 'post/LOAD_POST';
-
-const createPost = (post) => ({
-    type: CREATE_POST,
-    post
-})
 
 const loadPost = (posts) => ({
     type: LOAD_POST,
     posts
 })
 
+const createPost = (post) => ({
+    type: CREATE_POST,
+    post
+})
+
+
 export const allUserPosts = () => async (dispatch) => {
 
-    const response = await fetch('/api/posts');
+    const response = await fetch('/api/posts/');
 
-    if(response.ok){
+    if (response.ok) {
         const data = await response.json();
-        dispatch(loadPost(data.allUserPosts))
-
+        await dispatch(loadPost(data.userPosts))
     }
-
+    console.log(response)
     return response
 
 }
@@ -54,11 +54,28 @@ export const postCreate = (caption, image_url,userId) => async (dispatch) => {
 }
 
 
-const initialState = {}
+const initialState = {};
 
-export default userPostsReducer = (state = initialState,action)=> {
-
-    switch(action.type){
-        
+const userPostsReducer = (state = initialState, action) => {
+    let newState = {...state};
+    switch (action.type) {
+        case LOAD_POST:
+            action.posts.forEach(post => {
+                return newState[post.id] = post;
+            });
+            return newState;
+        case CREATE_POST:
+            newState[action.post.id] = action.post;
+            return newState;
+        // case UPDATE_POST:
+        //     newState[action.post.id] = action.post;
+        //     return newState;
+        // case DELETE_POST:
+        //     delete newState[action.post];
+        //     return newState;
+        default:
+            return state;
     }
-}
+};
+
+export default userPostsReducer;

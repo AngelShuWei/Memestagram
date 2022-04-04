@@ -8,18 +8,20 @@ import ProtectedRoute from './components/Authorization/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-
+import { allUserPosts } from './store/post';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
       setLoaded(true);
+
+      dispatch(allUserPosts());
     })();
   }, [dispatch]);
-
 
   const user = useSelector(state => state.session.user)
 

@@ -20,12 +20,13 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 @post_routes.route('/')
-@login_required
+# @login_required
 def getPosts():
 
-    allUserPosts = Post.query.findAll()
+    allUserPosts = Post.query.all()
+    print("===============================================", allUserPosts)
 
-    return json.dumps(dict(allUserPosts))
+    return {'userPosts': [allUserPost.to_dict() for allUserPost in allUserPosts]}
 
 @post_routes.route('/create/<id>', methods=['POST'])
 @login_required

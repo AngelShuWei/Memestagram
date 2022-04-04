@@ -24,9 +24,9 @@ def get_posts():
 
     return {'userPosts': [allUserPost.to_dict() for allUserPost in allUserPosts]}
 
-@post_routes.route('/create/<id>', methods=['POST'])
+@post_routes.route('/create/<user_id>', methods=['POST'])
 @login_required
-def postsFunc(id):
+def postsFunc(user_id):
 
     form = PostForm()
 
@@ -35,7 +35,7 @@ def postsFunc(id):
         post = Post(
             image_url=form.data['image_url'],
             caption=form.data['caption'],
-            user_id=id,
+            user_id=user_id,
             created_at=date.today(),
             updated_at=date.today(),
         )
@@ -44,6 +44,8 @@ def postsFunc(id):
         return post.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+
+
 @post_routes.route('/delete/<post_id>', methods=['DELETE'])
 @login_required
 def delete_post(post_id):
@@ -51,3 +53,20 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     return {"post_id": post_id}
+
+
+@post_routes.route('/update/<post_id>', methods=['PUT'])
+@login_required
+def update_post(post_id):
+
+    form = PostForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        post = Post.query.get(post_id)
+
+        post.caption = form.data['caption']
+        db.session.commit()
+        return post.to_dict()
+    
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

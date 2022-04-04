@@ -1,6 +1,7 @@
 const LOAD_POST = 'post/LOAD_POST';
 const CREATE_POST = 'post/CREATE_POST';
 const DELETE_POST = 'post/DELETE_POST';
+const UPDATE_POST = 'post/UPDATE_POST';
 
 
 const loadPost = (posts) => ({
@@ -15,6 +16,11 @@ const createPost = (post) => ({
 
 const deletePost = (post) => ({
     type: DELETE_POST,
+    post
+})
+
+const updatePost = (post) => ({
+    type: UPDATE_POST,
     post
 })
 
@@ -46,17 +52,43 @@ export const postCreate = (caption, image_url, userId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(createPost(data))
-        return null;
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
-    } else {
-        return ['An error occurred. Please try again.']
-
     }
+
+    return response
+
+    //     return null;
+    // } else if (response.status < 500) {
+    //     const data = await response.json();
+    //     if (data.errors) {
+    //         return data.errors;
+    //     }
+    // } else {
+    //     return ['An error occurred. Please try again.']
+
+    // }
 }
+
+// update a post
+export const updateUsersPost = (caption,userId) => async (dispatch) => {
+
+    const response = await fetch(`/api/posts/update/${userId}`,{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            caption
+
+        })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        await dispatch(updatePost(data))
+    }
+    return response
+}
+
 
 // delete a user's post
 export const postDelete = (postId) => async(dispatch) => {
@@ -64,8 +96,8 @@ export const postDelete = (postId) => async(dispatch) => {
         method: 'DELETE',
     })
     if (response.ok) {
-        const id = await response.json();
-        dispatch(deletePost(id));
+        const data = await response.json();
+        dispatch(deletePost(data.post_id));
     }
 }
 
@@ -83,11 +115,11 @@ const userPostsReducer = (state = initialState, action) => {
         case CREATE_POST:
             newState[action.post.id] = action.post;
             return newState;
-        // case UPDATE_POST:
-        //     newState[action.post.id] = action.post;
-        //     return newState;
+        case UPDATE_POST:
+            newState[action.post.id] = action.post;
+            return newState;
         case DELETE_POST:
-            delete newState[action.post.post_id];
+            delete newState[action.post];
             return newState;
         default:
             return state;

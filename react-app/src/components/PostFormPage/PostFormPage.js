@@ -1,8 +1,8 @@
 import './PostFormPage.css';
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, useHistory } from "react-router-dom";
-import {postCreate} from '../../store/post'
+import { postCreate } from '../../store/post'
 
 function PostFormPage({ closeModal }) {
   const dispatch = useDispatch();
@@ -12,28 +12,51 @@ function PostFormPage({ closeModal }) {
   const [imageUrl, setImageUrl] = useState("");
 
   const userId = useSelector(state => state.session.user.id)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = await dispatch(postCreate(caption,imageUrl,userId))
-    console.log(data);
+    const data = await dispatch(postCreate(caption, imageUrl, userId))
+
+    closeModal(false)
   }
 
 
-  const updateCaption = (e) =>{
+  const updateCaption = (e) => {
     setCaption(e.target.value);
 
   }
 
-  const updateImage = (e) =>{
+  const updateImage = (e) => {
     setImageUrl(e.target.value);
 
   }
 
+  let menuRef = useRef()
+
+  useEffect(() => {
+
+    const handler = (event) => {
+
+      if (!menuRef.current.contains(event.target)) {
+
+        closeModal(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handler);
+
+    return () => {
+      document.removeEventListener('mousedown', handler)
+    }
+
+
+  });
+
   return (
     <div className='background-modal'>
 
-      <div className='modal-container'>
+      <div ref={menuRef} className='modal-container'>
         <button onClick={() => closeModal(false)}> X </button>
         <form onSubmit={handleSubmit}>
           <label>Caption</label>

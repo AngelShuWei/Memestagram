@@ -19,36 +19,40 @@ const NavBar = () => {
     setModalOn((a) => !a);
   }
 
-  
+
   return (
     <div>
-      <nav className={modalOn? 'navbar-close':'navbar'}>
+
+      <div onClick={()=>setModalOn(false)} className={modalOn ? 'whywouldu':''}>
+      </div>
+
+      <nav  className='navbar'>
         <div className='narbar-inside-main-div'>
           <div className='everything-inside'>
 
             <div className='navbar-h2'>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              <h2 className='memestagram'>
-                Memestagram
-              </h2>
+              <NavLink to='/' exact={true} activeClassName='active'>
+                <h2 className='memestagram'>
+                  Memestagram
+                </h2>
               </NavLink>
             </div>
 
             <div className='navbar-search'>
               <input className='search-navbar'
-              type='search'
-              placeholder='Search'
+                type='search'
+                placeholder='Search'
               />
               <i className="fa-solid fa-magnifying-glass fa-sm icon-search-glass"></i>
 
             </div>
 
             <div className='navbar-things'>
-            <i className="fa-solid fa-house"></i>
-            <i className="fa-regular fa-paper-plane"></i>
-            <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
-            <i className="fa-regular fa-compass"></i>
-            <i className="fa-regular fa-heart"></i>
+              <i className="fa-solid fa-house"></i>
+              <i className="fa-regular fa-paper-plane"></i>
+              <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
+              <i className="fa-regular fa-compass"></i>
+              <i className="fa-regular fa-heart"></i>
             </div>
 
           </div>
@@ -69,7 +73,8 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-      {modalOn && <PostFormPage closeModal={setModalOn}/>}
+
+      {modalOn && <PostFormPage closeModal={setModalOn} />}
     </div>
   );
 }

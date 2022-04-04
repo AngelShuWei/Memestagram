@@ -27,9 +27,7 @@ export const allUserPosts = () => async (dispatch) => {
         const data = await response.json();
         await dispatch(loadPost(data.userPosts))
     }
-    console.log(response)
     return response
-
 }
 
 // create a user's post

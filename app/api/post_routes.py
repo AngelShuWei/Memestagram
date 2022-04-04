@@ -3,11 +3,8 @@ from flask_login import login_required
 from app.models import Post, db
 from app.forms import PostForm
 from datetime import date
-import json
 
 post_routes = Blueprint('posts',__name__)
-
-
 
 def validation_errors_to_error_messages(validation_errors):
     """

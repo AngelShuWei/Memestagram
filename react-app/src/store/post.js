@@ -1,5 +1,6 @@
 const LOAD_POST = 'post/LOAD_POST';
 const CREATE_POST = 'post/CREATE_POST';
+const DELETE_POST = 'post/DELETE_POST';
 
 
 const loadPost = (posts) => ({
@@ -12,10 +13,15 @@ const createPost = (post) => ({
     post
 })
 
+const deletePost = (post) => ({
+    type: DELETE_POST,
+    post
+})
 
+// pulling ALL users posts
 export const allUserPosts = () => async (dispatch) => {
 
-    const response = await fetch('/api/posts/');
+    const response = await fetch('/api/posts');
 
     if (response.ok) {
         const data = await response.json();
@@ -26,7 +32,8 @@ export const allUserPosts = () => async (dispatch) => {
 
 }
 
-export const postCreate = (caption, image_url,userId) => async (dispatch) => {
+// create a user's post
+export const postCreate = (caption, image_url, userId) => async (dispatch) => {
     const response = await fetch(`/api/posts/create/${userId}`, {
         method: 'POST',
         headers: {
@@ -53,6 +60,17 @@ export const postCreate = (caption, image_url,userId) => async (dispatch) => {
     }
 }
 
+// delete a user's post
+export const postDelete = (postId) => async(dispatch) => {
+    const response = await fetch(`/api/posts/delete/${postId}`, {
+        method: 'DELETE',
+    })
+    if (response.ok) {
+        const id = await response.json();
+        dispatch(deletePost(id));
+    }
+}
+
 
 const initialState = {};
 
@@ -70,9 +88,9 @@ const userPostsReducer = (state = initialState, action) => {
         // case UPDATE_POST:
         //     newState[action.post.id] = action.post;
         //     return newState;
-        // case DELETE_POST:
-        //     delete newState[action.post];
-        //     return newState;
+        case DELETE_POST:
+            delete newState[action.post];
+            return newState;
         default:
             return state;
     }

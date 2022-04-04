@@ -21,17 +21,15 @@ def validation_errors_to_error_messages(validation_errors):
 
 @post_routes.route('/')
 # @login_required
-def getPosts():
+def get_posts():
 
     allUserPosts = Post.query.all()
-    print("===============================================", allUserPosts)
 
     return {'userPosts': [allUserPost.to_dict() for allUserPost in allUserPosts]}
 
 @post_routes.route('/create/<id>', methods=['POST'])
 @login_required
 def postsFunc(id):
-
 
     form = PostForm()
 
@@ -48,3 +46,11 @@ def postsFunc(id):
         db.session.commit()
         return post.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@post_routes.route('/delete/<post_id>', methods=['DELETE'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    return {"post_id": post_id}

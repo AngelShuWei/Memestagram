@@ -9,8 +9,10 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { allUserPosts } from './store/post';
+import { allImgLikes } from './store/imageLike';
 import EditPostForm from './components/OnePostPage/EditPostPage';
 import OnePostPage from './components/OnePostPage/OnePostPage';
+import ImgLikes from './components/ImgLikes/ImgLikes';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function App() {
       setLoaded(true);
 
       dispatch(allUserPosts());
+      dispatch(allImgLikes());
     })();
   }, [dispatch]);
 
@@ -55,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/post/:postId' exact={true}>
           <OnePostPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:postId' exact={true}>
+          <ImgLikes />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>Home </h1> */}

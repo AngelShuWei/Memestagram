@@ -87,7 +87,7 @@ const userPostsReducer = (state = initialState, action) => {
         //     newState[action.post.id] = action.post;
         //     return newState;
         case DELETE_POST:
-            delete newState[action.post];
+            delete newState[action.post.post_id];
             return newState;
         default:
             return state;

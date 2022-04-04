@@ -10,7 +10,7 @@ def user_exists(form, field):
     user = User.query.filter(User.email == email or User.username == email).first()
 
     if not user:
-        raise ValidationError('Credential provided not found.')
+        raise ValidationError('Credentials provided do not match a user.')
 
 
 def password_matches(form, field):

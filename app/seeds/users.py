@@ -6,15 +6,15 @@ from datetime import date
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='demo', email='demo@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='demo', email='demo@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     yavuz = User(
-        username='yavuz', email='yavuz@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='yavuz', email='yavuz@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     angel = User(
-        username='angel', email='angel@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='angel', email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     leah = User(
-        username='leah', email='leah@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='leah', email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     philip = User(
-        username='philip', email='philip@aa.io', password='password',created_at=date.today(),updated_at=date.today())
+        username='philip', email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
 
 
 

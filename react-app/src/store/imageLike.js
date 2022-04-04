@@ -59,4 +59,23 @@ export const deletingImgLike = (photoId) => async(dispatch) => {
 
 const initialState = {};
 
-const likesReducer = (state = initial)
+const likesReducer = (state = initialState, action) => {
+    let newState = {...state};
+    switch(action.type) {
+        case LOAD_IMG_LIKE:
+            action.likes.forEach(like => {
+                return newState[like.id] = like;
+            });
+            return newState;
+        case CREATE_IMG_LIKE:
+            newState[action.like.id] = action.like;
+            return newState;
+        case DELETE_IMG_LIKE:
+            delete newState[action.id];
+            return newState;
+        default:
+            return state;
+    }
+};
+
+export default likesReducer;

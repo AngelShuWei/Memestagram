@@ -28,4 +28,14 @@ export const allLikes = () => async (dispatch) => {
     return response
 }
 
-export const 
+export const postLikes = (userId, ) => async(dispatch) => {
+    const response = await fetch(`/api/like/create/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+
+        })
+    })
+}

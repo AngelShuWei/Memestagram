@@ -17,3 +17,11 @@ class Comment(db.Model, UserMixin):
     user = relationship("User", back_populates="comments")
     post = relationship("Post", back_populates="comments")
     comment_likes = relationship("CommentLike", back_populates="comment")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+            'text': self.text
+        }

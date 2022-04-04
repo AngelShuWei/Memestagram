@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import { allUserPosts } from './store/post';
 import EditPostForm from './components/OnePostPage/EditPostPage';
 import OnePostPage from './components/OnePostPage/OnePostPage';
+import { allPostComments } from './store/comments';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function App() {
       setLoaded(true);
 
       dispatch(allUserPosts());
+      dispatch(allPostComments());
     })();
   }, [dispatch]);
 

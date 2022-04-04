@@ -3,15 +3,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './OnePostPage.css'
 import { postDelete } from '../../store/post';
+import {createComment, createCommentThunk, deleteComment} from '../../store/comments';
+
 function OnePostPage() {
 
   const dispatch = useDispatch();
   const { postId } = useParams();
 
+  const [text, setText] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = await dispatch(createCommentThunk(text, user.id, postId))
+
+  }
+
   const user = useSelector(state => state.session.user)
 
   const post = useSelector(state => state.posts[+postId])
 
+  const allComments = useSelector(state => Object.values(state.comments))
+
+  const comments = allComments.filter(comment => comment.postId === postId)
 
   return (
     <>
@@ -27,6 +41,17 @@ function OnePostPage() {
 
             (<NavLink exact to={`/post/${post?.id}/edit`}><button>Update Caption</button></NavLink>)
           }
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type='text'
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
+              <button type='submit'>Add Comment</button>
+            </form>
+          </div>
+
         </div>
 
       </div>

@@ -23,8 +23,7 @@ const NavBar = () => {
   return (
     <div>
 
-      <div onClick={()=>setModalOn(false)} className={modalOn ? 'whywouldu':''}>
-      </div>
+   
 
       <nav  className='navbar'>
         <div className='narbar-inside-main-div'>

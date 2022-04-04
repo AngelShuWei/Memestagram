@@ -8,19 +8,25 @@ function OnePostPage() {
   const dispatch = useDispatch();
   const { postId } = useParams();
 
+  const user = useSelector(state => state.session.user)
 
   const post = useSelector(state => state.posts[+postId])
 
-// console.log(post);
 
   return (
     <>
       <div className="main-div-big-one">
-        <div className="medium-div-normal-size">
-            <img className="the-image" src={post?.image_url}></img>
-            <p>{post?.caption}</p>
-            <NavLink exact to={`/users/${post?.user_id}`}><button onClick={() => dispatch(postDelete(post?.id))}>Delete Post</button></NavLink>
-            <NavLink exact to={`/post/${post?.id}/edit`}><button>Update Caption</button></NavLink>
+        <div className="medium-div-normal-size" >
+          <img className="the-image" src={post?.image_url}></img>
+          <p>{post?.caption}</p>
+
+          {user?.id == post?.user_id &&
+            (<NavLink exact to={`/users/${post?.user_id}`}><button onClick={() => dispatch(postDelete(post?.id))}>Delete Post</button></NavLink>)
+          }
+          {user?.id == post?.user_id &&
+
+            (<NavLink exact to={`/post/${post?.id}/edit`}><button>Update Caption</button></NavLink>)
+          }
         </div>
 
       </div>

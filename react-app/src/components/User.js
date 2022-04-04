@@ -51,13 +51,9 @@ function User() {
       <div>
         {userPosts.map(post =>
           <div key={post.id}>
-            {/* TODO */}
-            {/* <Link> */}
-            <NavLink to={`/post/${post.id}`}><img  src={post?.image_url} alt="pic" style={{ width: "200px" }} /></NavLink>
-            <button onClick={() => dispatch(postDelete(post.id))}>Delete</button>
-            <button>Update</button>
 
-            {/* </Link> */}
+            <NavLink to={`/post/${post.id}`}><img  src={post?.image_url} alt="pic" style={{ width: "200px" }} /></NavLink>
+            
           </div>
         )}
       </div>

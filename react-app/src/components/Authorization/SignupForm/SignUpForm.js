@@ -19,7 +19,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     // if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password,confirmPassword));
+      const data = await dispatch(signUp(username, email, password, confirmPassword));
       if (data) {
         setErrors(data)
       // }
@@ -85,7 +85,7 @@ const SignUpForm = () => {
                       type="text"
                       value={email}
                       onChange={updateEmail}
-                      required
+                      // required
                       placeholder='Email'
                     />
                   </div>
@@ -95,7 +95,7 @@ const SignUpForm = () => {
                       type="text"
                       value={username}
                       onChange={updateUsername}
-                      required
+                      // required
                       placeholder='Username'
 
                     />
@@ -105,7 +105,7 @@ const SignUpForm = () => {
                       type="password"
                       value={password}
                       onChange={updatePassword}
-                      required
+                      // required
                       placeholder='Password'
 
                     />
@@ -115,7 +115,7 @@ const SignUpForm = () => {
                       type="password"
                       value={confirmPassword}
                       onChange={updateconfirmPassword}
-                      required
+                      // required
                       placeholder='Confirm Password'
 
                     />

@@ -7,11 +7,12 @@ import './LoginForm.css'
 const imgs = ['https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png']
 
 const LoginForm = () => {
+  const user = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
+
   const [errors, setErrors] = useState([]);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
-  const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
   const [imgNum, setImgNum] = useState(0)
 
 

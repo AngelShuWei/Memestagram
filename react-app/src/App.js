@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { allUserPosts } from './store/post';
+import EditPostForm from './components/OnePostPage/EditPostPage';
+import OnePostPage from './components/OnePostPage/OnePostPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -47,6 +49,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:postId/edit' exact={true}>
+          <EditPostForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:postId' exact={true}>
+          <OnePostPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>Home </h1> */}

@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { postDelete } from '../store/post';
+import { postDelete, updateUsersPost } from '../store/post';
+import EditPostForm from './OnePostPage/EditPostPage';
 
 function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { userId } = useParams();
 
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     //+ is cheat way for parseInt
     return post.user_id === +userId;
   }))
 
-  // const deletePost = (e) => {
-  //   e.preventDefault()
-  // }
 
   useEffect(() => {
     if (!userId) {
@@ -28,13 +26,18 @@ function User() {
     })();
   }, [userId]);
 
+
+
+
   if (!user) {
     return null;
   }
 
+  // onClick={() => dispatch(updateUsersPost(post.id))}
+
   return (
     <>
-      <ul>
+      <ul className='ullinkfix'>
         <li>
           <strong>User Id</strong> {userId}
         </li>
@@ -50,8 +53,10 @@ function User() {
           <div key={post.id}>
             {/* TODO */}
             {/* <Link> */}
-              <img src={post?.image_url} alt="pic" style={{width:"200px"}}/>
-              <button onClick={() => dispatch(postDelete(post.id))}>Delete</button>
+            <NavLink to={`/post/${post.id}`}><img  src={post?.image_url} alt="pic" style={{ width: "200px" }} /></NavLink>
+            <button onClick={() => dispatch(postDelete(post.id))}>Delete</button>
+            <button>Update</button>
+
             {/* </Link> */}
           </div>
         )}

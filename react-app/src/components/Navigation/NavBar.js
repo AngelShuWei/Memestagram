@@ -16,7 +16,7 @@ const NavBar = () => {
 
   const handleModal = (e) => {
     e.preventDefault();
-    setModalOn((a) => !a);
+    setModalOn((open) => !open);
   }
 
 
@@ -57,7 +57,7 @@ const NavBar = () => {
 
           </div>
         </div>
-        <ul>
+        {/* <ul>
           <li>
             <NavLink to='/' exact={true} activeClassName='active'>
               Home
@@ -71,7 +71,7 @@ const NavBar = () => {
           <li>
             <LogoutButton />
           </li>
-        </ul>
+        </ul> */}
       </nav>
 
       {modalOn && <PostFormPage closeModal={setModalOn} />}

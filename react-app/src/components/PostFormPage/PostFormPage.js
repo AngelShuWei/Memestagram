@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, useHistory } from "react-router-dom";
 import {postCreate} from '../../store/post'
+
 function PostFormPage({ closeModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -29,14 +30,11 @@ function PostFormPage({ closeModal }) {
 
   }
 
-
-
-
   return (
     <div className='background-modal'>
 
       <div className='modal-container'>
-        <button onClick={() => closeModal(false)}> X</button>
+        <button onClick={() => closeModal(false)}> X </button>
         <form onSubmit={handleSubmit}>
           <label>Caption</label>
           <input placeholder='Write a caption...'

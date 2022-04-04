@@ -11,7 +11,7 @@
 }
 
 .navbar-close{
-    
+
     display: none;
 }
 
@@ -73,4 +73,5 @@
 }
 .navbar-things i{
     font-size:22px;
+    cursor: pointer;
 }

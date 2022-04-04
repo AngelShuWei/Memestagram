@@ -8,6 +8,10 @@ import { postImgLikes }  from '../../store/imageLike';
 function ImgLikes() {
     const imgLike = useSelector(state => state.likes)
     console.log(imgLike)
+
+    return(
+        <div></div>
+    )
 }
 
 export default ImgLikes;

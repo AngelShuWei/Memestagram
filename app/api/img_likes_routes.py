@@ -2,9 +2,9 @@ from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
 from app.models import ImageLike, db
 
-likes_routes = Blueprint('like', __name__)
+img_likes_routes = Blueprint('img_likes', __name__)
 
-@likes_routes.route('/')
+@img_likes_routes.route('/')
 def get_likes():
 
     all_img_likes = ImageLike.query.all()

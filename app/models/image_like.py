@@ -15,3 +15,11 @@ class ImageLike(db.Model, UserMixin):
 
     user = relationship("User", back_populates="image_likes")
     post = relationship("Post", back_populates="image_likes")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+        }

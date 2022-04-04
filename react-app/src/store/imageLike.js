@@ -3,9 +3,9 @@ const CREATE_IMG_LIKE = 'like/CREATE_LIKE';
 const DELETE_IMG_LIKE = 'like/DELETE_LIKE';
 
 
-const loadImgLike = (like) => ({
+const loadImgLike = (likes) => ({
     type: LOAD_IMG_LIKE,
-    like
+    likes
 })
 
 const createImgLike = (like) => ({
@@ -19,7 +19,7 @@ const deleteImgLike = (id) => ({
 })
 
 export const allImgLikes = () => async (dispatch) => {
-    const response = await fetch('/api/like');
+    const response = await fetch('/api/img_likes');
 
     if (response.ok) {
         const data = await response.json();
@@ -29,7 +29,7 @@ export const allImgLikes = () => async (dispatch) => {
 }
 
 export const postImgLikes = (userId, photoId) => async(dispatch) => {
-    const response = await fetch(`/api/like/create/${userId}`, {
+    const response = await fetch(`/api/img_likes/create/${userId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export const postImgLikes = (userId, photoId) => async(dispatch) => {
 }
 
 export const deletingImgLike = (photoId) => async(dispatch) => {
-    const response = await fetch(`api/like/delete/${photoId}`, {
+    const response = await fetch(`api/img_likes/delete/${photoId}`, {
         method: 'DELETE',
     })
     if (response.ok) {

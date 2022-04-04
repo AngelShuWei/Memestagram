@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './OnePostPage.css'
 import { postDelete } from '../../store/post';
-import {createComment, createCommentThunk, deleteComment} from '../../store/comments';
+import { createCommentThunk, commentDelete} from '../../store/comments';
 
 function OnePostPage() {
 
@@ -25,13 +25,14 @@ function OnePostPage() {
 
   const allComments = useSelector(state => Object.values(state.comments))
 
-  const comments = allComments.filter(comment => comment.postId === postId)
+  const comments = allComments.filter(comment => comment.post_id === +postId)
+
 
   return (
     <>
       <div className="main-div-big-one">
         <div className="medium-div-normal-size" >
-          <img className="the-image" src={post?.image_url}></img>
+          {/* <img className="the-image" src={post?.image_url}></img> */}
           <p>{post?.caption}</p>
 
           {user?.id == post?.user_id &&
@@ -47,9 +48,17 @@ function OnePostPage() {
                 type='text'
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-              />
+                />
               <button type='submit'>Add Comment</button>
             </form>
+                <div>
+                  {comments?.map(comment => (
+                    <ul key={comment.id}>
+                    <li>{comment.text}</li>
+                    <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
+                    </ul>
+                  ))}
+                </div>
           </div>
 
         </div>

@@ -12,6 +12,7 @@ import { allUserPosts } from './store/post';
 import EditPostForm from './components/OnePostPage/EditPostPage';
 import OnePostPage from './components/OnePostPage/OnePostPage';
 import { allPostComments } from './store/comments';
+import { allImgLikes } from './store/imageLike'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
 
       dispatch(allUserPosts());
       dispatch(allPostComments());
+      dispatch()
     })();
   }, [dispatch]);
 

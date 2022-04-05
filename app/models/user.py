@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), nullable=False, unique=True)
     hashed_password = db.Column(db.String(1050), nullable=False)
     profile_pic = db.Column(db.Text)
+    profile_bio = db.Column(db.String(500))
     follower_id = db.Column(db.Integer)
     followed_id = db.Column(db.Integer)
     created_at = db.Column(db.Date, nullable=False)
@@ -28,7 +29,7 @@ class User(db.Model, UserMixin):
     posts = relationship("Post", back_populates="user")
     image_likes = relationship("ImageLike", back_populates="user")
     comment_likes = relationship("CommentLike", back_populates="user")
-    
+
     # followers = db.relationships(
     # "User",
     # secondary=follows,
@@ -54,5 +55,9 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            'name': self.name,
+            'profile_pic':self.profile_pic,
+            'profile_bio':self.profile_bio,
+
             # add name and profileUrl
         }

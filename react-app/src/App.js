@@ -65,7 +65,7 @@ function App() {
           <EditCommentPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          {/* <h1>Home </h1> */}
+          <h1>Home </h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

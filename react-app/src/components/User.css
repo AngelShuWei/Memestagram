@@ -47,6 +47,10 @@
   grid-column-gap: 28px;
 }
 
+.userlistdemo{
+  position: absolute;
+  top: 50px;
+}
 /* .prof-post-container:hover {
   background-color: #262626;
   position: absolute;

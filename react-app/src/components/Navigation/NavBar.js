@@ -68,9 +68,9 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <LogoutButton />
           </li>
         </ul> */}
+        <LogoutButton />
       </nav>
 
 

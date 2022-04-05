@@ -45,7 +45,7 @@ function OnePostPage() {
 
             <div className='comments-top-part'>
             <p>{post?.caption}</p>
-            <i onClick={handleModal} class="fa-solid fa-ellipsis"></i>
+            <i onClick={handleModal} className="fa-solid fa-ellipsis"></i>
             </div>
 
             {user?.id == post?.user_id &&

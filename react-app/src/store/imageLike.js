@@ -22,7 +22,7 @@ export const allImgLikes = () => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        await dispatch(loadImgLike(data.img_likes))
+        await dispatch(loadImgLike(data.all_img_likes))
     }
     return response
 }

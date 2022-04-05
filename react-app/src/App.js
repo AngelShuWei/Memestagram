@@ -26,7 +26,7 @@ function App() {
 
       dispatch(allUserPosts());
       dispatch(allPostComments());
-      dispatch()
+      dispatch(allImgLikes());
     })();
   }, [dispatch]);
 

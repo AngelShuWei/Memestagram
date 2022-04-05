@@ -27,7 +27,7 @@ const updatePost = (post) => ({
 // pulling ALL users posts
 export const allUserPosts = () => async (dispatch) => {
 
-    const response = await fetch('/api/posts');
+    const response = await fetch('/api/posts/');
 
     if (response.ok) {
         const data = await response.json();

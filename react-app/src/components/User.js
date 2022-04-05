@@ -41,8 +41,16 @@ function User() {
     <>
       <div className='prof-page-container'>
         <div className='prof-info-container'>
-          <div className='prof-username'>{user.username}</div>
-          <div className='prof-name'>{user.name}</div>
+          <div>
+            <img style={{ width: "150px", height: "150px", 'borderRadius':'100px'}} src={user.profile_pic}></img>
+          </div>
+          <div className='prof-username'><h3>{user.username}</h3></div>
+          <div className='prof-name'><h4>{user.name}</h4></div>
+          <div>
+            <p>
+              {user.profile_bio}
+            </p>
+          </div>
         </div>
         <div className='prof-posts-img'>POSTS</div>
         <div className='prof-posts-container'>

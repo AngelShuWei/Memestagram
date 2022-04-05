@@ -24,7 +24,7 @@ const deleteComment = (id) => ({
 // load all comments on a post
 export const allPostComments = () => async (dispatch) => {
 
-    const response = await fetch('/api/comments');
+    const response = await fetch('/api/comments/');
 
     if (response.ok) {
         const data = await response.json();

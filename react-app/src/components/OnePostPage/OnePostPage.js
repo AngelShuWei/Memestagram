@@ -41,20 +41,39 @@ function OnePostPage() {
   }
 
 
+  let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
 
+  let deleteLike;
+
+  if (userLike.length) {
+    deleteLike = (
+      <>
+    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-solid fa-heart`}></i>
+    </>
+    )
+  }
+
+  let createLike;
+
+  if (userLike.length === 0) {
+    createLike = (
+      <>
+    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart`}></i>
+    </>
+    )
+  }
 
   const handleClick = (e, postId) => {
     e.preventDefault();
 
     const userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
 
-
     if (userLike.length) {
 
-      setClicked('regular')
+      // setClicked('regular')
       dispatch(deletingImgLike(userLike[0].id))
     } else {
-      setClicked('solid')
+      // setClicked('solid')
       dispatch(postImgLikes(realUserId, postId))
     }
 
@@ -97,9 +116,11 @@ function OnePostPage() {
                   </ul>
                 ))}
               </div>
-              <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-${clicked} fa-heart`}></i>
+                  <div>
+                  {createLike}
+                  {deleteLike}
+                  </div>
               <p>{allImgLikes.filter(like => like?.post_id === post?.id).length}</p>
-
             </div>
           </div>
 

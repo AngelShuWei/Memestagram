@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './OnePostPage.css'
 import { postDelete } from '../../store/post';
-import { createCommentThunk, commentDelete } from '../../store/comments';
+import { createCommentThunk, commentDelete, updateUserComment} from '../../store/comments';
 import EditDeletePostModal from './EditDeletePostModal';
 
 function OnePostPage() {
@@ -69,6 +69,7 @@ function OnePostPage() {
                   <ul key={comment.id}>
                     <li>{comment.text}</li>
                     <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
+                    <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
                   </ul>
                 ))}
               </div>

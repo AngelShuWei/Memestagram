@@ -33,10 +33,7 @@ function EditPostForm() {
 
   }
 
-  const updateImage = (e) => {
-    setImageUrl(e.target.value);
 
-  }
 
   return (
     <div className='background-moda'>

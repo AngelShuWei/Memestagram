@@ -1,6 +1,7 @@
 const LOAD_COMMENTS = 'comment/LOAD_COMMENTS';
 const CREATE_COMMENT = 'comment/CREATE_COMMENT';
 const DELETE_COMMENT = 'comment/DELETE_COMMENT';
+const UPDATE_COMMENT = 'comment/UPDATE_COMMENT';
 
 
 
@@ -19,6 +20,11 @@ const deleteComment = (id) => ({
     id
 })
 
+const updateComment = (comment) => ({
+    type: UPDATE_COMMENT,
+    comment
+})
+
 
 
 // load all comments on a post
@@ -33,6 +39,27 @@ export const allPostComments = () => async (dispatch) => {
     return response
 }
 
+// update a comment
+export const updateUserComment = (text, commentId) => async (dispatch) => {
+
+    const response = await fetch(`/api/comments/update/${commentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            text,
+
+        })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        await dispatch(updateComment(data))
+    }
+    return response
+}
+
 
 // create a comment on a post
 export const createCommentThunk = (text, userId, postId) => async dispatch => {
@@ -40,7 +67,7 @@ export const createCommentThunk = (text, userId, postId) => async dispatch => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-},
+        },
         body: JSON.stringify({
             text,
             postId,
@@ -53,7 +80,7 @@ export const createCommentThunk = (text, userId, postId) => async dispatch => {
 }
 
 //delete a comment
-export const commentDelete = (commentId) => async(dispatch) => {
+export const commentDelete = (commentId) => async (dispatch) => {
     const response = await fetch(`/api/comments/delete/${commentId}`, {
         method: 'DELETE',
     })
@@ -67,7 +94,7 @@ export const commentDelete = (commentId) => async(dispatch) => {
 const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
-    let newState = {...state};
+    let newState = { ...state };
     switch (action.type) {
         case LOAD_COMMENTS:
             action.comments.forEach(comment => {
@@ -79,6 +106,9 @@ const commentReducer = (state = initialState, action) => {
             return newState;
         case DELETE_COMMENT:
             delete newState[action.id];
+            return newState;
+        case UPDATE_COMMENT:
+            newState[action.comment.id] = action.comment;
             return newState;
         default:
             return state;

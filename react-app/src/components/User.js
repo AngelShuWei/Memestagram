@@ -10,8 +10,7 @@ function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
-  // const users = useSelector(state => state.session)
-  // console.log(users);
+  
 
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     //+ is cheat way for parseInt
@@ -35,7 +34,6 @@ function User() {
     return null;
   }
 
-  // onClick={() => dispatch(updateUsersPost(post.id))}
 
   return (
     <>

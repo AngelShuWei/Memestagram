@@ -51,3 +51,21 @@ def delete_comments(comment_id):
     db.session.delete(comment)
     db.session.commit()
     return {"comment_id": comment_id}
+
+
+
+@comments_routes.route('/update/<comment_id>', methods=['PUT'])
+@login_required
+def update_post(comment_id):
+
+    form = CommentForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment.query.get(comment_id)
+
+        comment.text = form.data['text']
+        db.session.commit()
+        return comment.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -43,6 +43,7 @@
     border: none;
     font-size: 23px;
     padding-left: 18px;
+    cursor: pointer;
 }
 
 .modal-top-part {

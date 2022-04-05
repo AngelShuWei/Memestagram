@@ -12,7 +12,7 @@ import { allUserPosts } from './store/post';
 import EditPostForm from './components/OnePostPage/EditPostPage';
 import OnePostPage from './components/OnePostPage/OnePostPage';
 import { allPostComments } from './store/comments';
-
+import EditCommentPage from './components/OnePostPage/EditCommentPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -58,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/post/:postId' exact={true}>
           <OnePostPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/comment/:commentId/edit' exact={true}>
+          <EditCommentPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>Home </h1> */}

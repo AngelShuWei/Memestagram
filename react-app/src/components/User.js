@@ -20,7 +20,6 @@ function User() {
   }))
   const allImgLikes = useSelector(state => Object.values(state.likes))
 
-  console.log(allImgLikes);
   useEffect(() => {
     if (!userId) {
       return;
@@ -53,7 +52,6 @@ function User() {
     }
 
   }
-  console.log(clicked);
 
   return (
     <>
@@ -75,8 +73,6 @@ function User() {
           {userPosts.map(post =>
             <div className='prof-post-container' key={post?.id}>
               <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px" }} /></NavLink>
-              <i onClick={(e) => handleClick(e, post.id)} className={`fa-${clicked} fa-heart`}></i>
-              <p>{allImgLikes.filter(like => like?.post_id === post?.id).length}</p>
             </div>
 
 

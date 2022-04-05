@@ -13,6 +13,7 @@ const NavBar = () => {
   //   })
   //   return () => document.removeEventListener("click", () => {setModalOn(false)})
   // }, [])
+  //.
 
   const handleModal = (e) => {
     e.preventDefault();

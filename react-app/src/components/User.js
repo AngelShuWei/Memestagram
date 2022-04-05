@@ -1,3 +1,4 @@
+import './User.css'
 import React, { useState, useEffect } from 'react';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,8 +28,6 @@ function User() {
   }, [userId]);
 
 
-
-
   if (!user) {
     return null;
   }
@@ -37,25 +36,29 @@ function User() {
 
   return (
     <>
-      <ul className='ullinkfix'>
-        <li>
-          <strong>User Id</strong> {userId}
-        </li>
-        <li>
-          <strong>Username</strong> {user.username}
-        </li>
-        <li>
-          <strong>Email</strong> {user.email}
-        </li>
-      </ul>
-      <div>
-        {userPosts.map(post =>
-          <div key={post.id}>
-
-            <NavLink to={`/post/${post.id}`}><img  src={post?.image_url} alt="pic" style={{ width: "200px" }} /></NavLink>
-            
-          </div>
-        )}
+      <div className='page-container'>
+        <div className='prof-info-container'>
+          <ul className='ullinkfix'>
+            <li>
+              <strong>User Id</strong> {userId}
+            </li>
+            <li>
+              <strong>Username</strong> {user.username}
+            </li>
+            <li>
+              <strong></strong> {user.email}
+            </li>
+          </ul>
+          <p> IS THIS SHOWING</p>
+        </div>
+        <div className='prof-posts-img'>POSTS</div>
+        <div className='prof-posts-container'>
+          {userPosts.map(post =>
+            <div key={post.id}>
+              <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px"}} /></NavLink>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

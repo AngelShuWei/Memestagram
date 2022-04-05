@@ -67,14 +67,13 @@ function OnePostPage() {
     e.preventDefault();
 
     const userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
-    console.log(userLike)
 
     if (userLike.length) {
 
-      setClicked('regular')
+      // setClicked('regular')
       dispatch(deletingImgLike(userLike[0].id))
     } else {
-      setClicked('solid')
+      // setClicked('solid')
       dispatch(postImgLikes(realUserId, postId))
     }
 

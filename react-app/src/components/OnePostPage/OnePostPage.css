@@ -20,6 +20,15 @@ z-index: -1;
     display: flex;
 }
 
+.littleHearts{
+    font-size: 24px;
+    color: black;
+}
+.redthingy{
+    color: rgb(251, 57, 88);
+}
+
+
 .the-image{
     width: 598px;
     height: 100%;

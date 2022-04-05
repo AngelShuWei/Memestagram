@@ -48,7 +48,7 @@ function OnePostPage() {
   if (userLike.length) {
     deleteLike = (
       <>
-    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-solid fa-heart`}></i>
+    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-solid fa-heart redthingy littleHearts`}></i>
     </>
     )
   }
@@ -58,7 +58,7 @@ function OnePostPage() {
   if (userLike.length === 0) {
     createLike = (
       <>
-    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart`}></i>
+    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart littleHearts`}></i>
     </>
     )
   }

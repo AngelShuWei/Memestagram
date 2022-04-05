@@ -50,6 +50,9 @@ function User() {
             </li>
           </ul>
           <p> IS THIS SHOWING</p>
+        <div>
+          <p>Testing</p>
+        </div>
         </div>
         <div className='prof-posts-img'>POSTS</div>
         <div className='prof-posts-container'>

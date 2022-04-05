@@ -25,7 +25,7 @@ const NavBar = () => {
 
 
 
-      <nav  className='navbar'>
+      <nav className='navbar'>
         <div className='narbar-inside-main-div'>
           <div className='everything-inside'>
 
@@ -56,7 +56,6 @@ const NavBar = () => {
 
           </div>
         </div>
-        <LogoutButton />
         {/* <ul>
           <li>
             <NavLink to='/' exact={true} activeClassName='active'>
@@ -74,7 +73,8 @@ const NavBar = () => {
         </ul> */}
       </nav>
 
-      {modalOn && <PostFormPage closeModal={setModalOn} />}
+
+        {modalOn && <PostFormPage closeModal={setModalOn} />}
     </div>
   );
 }

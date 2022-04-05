@@ -1,7 +1,7 @@
-.background-modal{
+.background-modal {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
     position: fixed;
     display: flex;
     justify-content: center;
@@ -10,11 +10,143 @@
 
 
 
-.modal-container{
-    width:500px;
-    height: 500px;
+.modal-container {
+    width: 55vw;
+    height: 80vh;
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    position: absolute;
+    top: -1000px;
+    animation: drop .4s ease forwards;
+    border-radius: 8px;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(1200px);
+    }
+
+    100% {
+        transform: translateY(1090px);
+        opacity: 1;
+    }
+}
+
+
+.xButton {
+    background: none;
+    border: none;
+    font-size: 23px;
+    padding-left: 18px;
+}
+
+.modal-top-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid #dbdbdb;
+    height: 42px;
+
+}
+
+.createNewPost {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+._8-yf5 {
+    color: rgb(38, 38, 38);
+    fill: rgb(38, 38, 38);
+    height: 77;
+    width: 96;
+}
+
+.share-submit-form-post {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0095f6;
+    padding: 0 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.left-part-form-modal {
+    width: 37.5vw;
+    border-right: 0.5px solid #dbdbdb;
+    height: calc(80vh - 42px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.h1-drag-photos-here {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(var(--i1d, 38, 38, 38), 1);
+}
+
+.input-form-modal {
+    background: none;
+    border: 0.5px solid #dbdbdb;
+    border-radius: 4px;
+    outline: none;
+}
+
+.someparts {
+    display: flex;
+}
+
+.right-side-form-modal {
+    width: 20vw;
+    height:100%;
+}
+
+.half-right-side-grid{
+    height: 50%;
+    width: 100%;
+    border-bottom: 0.5px solid #dbdbdb;
+    display: grid;
+    grid-template-rows: 20% 1fr 15%;
+}
+
+.username-fornm-modal-post{
+    padding: 5px 16px;
+}
+.input-caption{
+    width:100%;
+    border: none;
+    height:100%;
+    padding: 0 15px;
+    outline: none;
+    resize: none;
+}
+
+.bottom-part-grid{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 13px;
+}
+
+.bottom-part-grid p{
+
+    color: rgba(var(--i1d,38,38,38),1);
+    font-size: 14px;
+    line-height: 16px;
 }

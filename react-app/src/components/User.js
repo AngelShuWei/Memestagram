@@ -74,8 +74,6 @@ function User() {
             <div className='prof-post-container' key={post?.id}>
               <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px" }} /></NavLink>
             </div>
-
-
           )}
         </div>
       </div>

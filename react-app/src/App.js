@@ -15,6 +15,8 @@ import { allPostComments } from './store/comments';
 import EditCommentPage from './components/OnePostPage/EditCommentPage';
 import { allImgLikes } from './store/imglikes';
 import { getAllTheUsers } from './store/session';
+import ExplorePage from './components/ExplorePage/ExplorePage';
+import AboutPage from './components/AboutPage/AboutPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -68,6 +70,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>Home </h1>
+        </ProtectedRoute>
+        <ProtectedRoute path='/explore'>
+          <ExplorePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/about'>
+          <AboutPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

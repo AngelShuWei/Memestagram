@@ -18,15 +18,8 @@ def add_followers(userid):
 
     db.session.add(user)
     db.session.commit()
+    print("==========", current_user.get_followed())
+    return {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
 
-    return user.to_dict()
 
-
-# @follower_routes.route('/unfollow/<userid>')
-# def delete_follower(userid):
-#     user = User.query.get(userid)
-#     g = current_user.unfollow(user)
-#     db.session.delete(g)
-#     db.session.commit()
-
-#     return user.to_dict()
+# @follower_routes.route('/')

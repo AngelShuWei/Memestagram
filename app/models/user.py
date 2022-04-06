@@ -82,3 +82,6 @@ class User(db.Model, UserMixin):
             followers, (followers.c.followed_id == Post.user_id)).filter(
                 followers.c.follower_id == self.id).order_by(
                     Post.updated_at.desc()).all()
+
+    def get_followed(self):
+        return self.followed.all()

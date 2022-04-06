@@ -14,7 +14,8 @@ function User() {
   const { userId } = useParams();
   const [clicked,setClicked] = useState('regular')
   const realUserId = useSelector(state=> state.session.user.id);
-  // const follower =use
+  const follower =useSelector(state=> state.session.followers)
+  console.log(follower)
 
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
 

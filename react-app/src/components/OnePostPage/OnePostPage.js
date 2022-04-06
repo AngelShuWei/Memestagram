@@ -108,20 +108,23 @@ function OnePostPage() {
             } */}
             <div className='all-comment-section'>
               <div className='comments-section'>
+                <div className='comments-section-real-this-time'>
+                <img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img>
+
+                    <p><span className='username-inthecomments'>{post?.username}</span> <span className='texts-inthecomments'>{post?.caption}</span></p>
+
+                </div>
                 {comments?.map(comment => (
                   <div key={comment.id} className='comments-section-real-this-time'>
-                    <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
-                    <div>
-                      <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
-                      {/* {post?.user_id === user?.id &&
-                        (<i onClick={handleModal} className="fa-solid fa-ellipsis commentDeleteUpdate"></i>)
 
-                      } */}
+                    <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
+                    <div className='ptagcaption'>
+                      <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
                     </div>
-                    {post?.user_id === user?.id &&
+                    {(post?.user_id === user?.id || comment?.user_id === user?.id) &&
                       <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
                     }
-                    {post?.user_id === user?.id &&
+                    {comment?.user_id === user?.id &&
                       <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
                     }
                   </div>

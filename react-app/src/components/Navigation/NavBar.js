@@ -53,6 +53,7 @@ const NavBar = () => {
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass"></i>
               <i className="fa-regular fa-heart"></i>
+              <i className="fa-solid fa-circle-question"></i>
             </div>
 
           </div>

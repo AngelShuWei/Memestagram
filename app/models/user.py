@@ -4,11 +4,11 @@ from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import Column, ForeignKey
 
-# follows = db.Table(
-#     "follows",
-#     db.Column("follower_id", db.Integer, db.ForeignKey("users.id")),
-#     db.Column("followed_id", db.Integer, db.ForeignKey("users.id"))
-# )
+followers = db.Table(
+    "followers",
+    db.Column("follower_id", db.Integer, db.ForeignKey("users.id")),
+    db.Column("followed_id", db.Integer, db.ForeignKey("users.id"))
+)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -20,8 +20,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(1050), nullable=False)
     profile_pic = db.Column(db.Text)
     profile_bio = db.Column(db.String(500))
-    follower_id = db.Column(db.Integer)
-    followed_id = db.Column(db.Integer)
+    # follower_id = db.Column(db.Integer)
+    # followed_id = db.Column(db.Integer)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
 
@@ -30,7 +30,7 @@ class User(db.Model, UserMixin):
     image_likes = relationship("ImageLike", back_populates="user")
     comment_likes = relationship("CommentLike", back_populates="user")
 
-    followed = db.relationships(
+    followed = db.relationship(
     "User",
     secondary=followers,
     primaryjoin=(followers.c.follower_id == id),

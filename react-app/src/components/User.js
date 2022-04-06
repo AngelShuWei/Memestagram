@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postDelete, updateUsersPost } from '../store/post';
 import EditPostForm from './OnePostPage/EditPostPage';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
+import { postsImg } from './Styles'
 
 function User() {
   const dispatch = useDispatch()
@@ -57,18 +58,17 @@ function User() {
     <>
       <div className='prof-page-container'>
         <div className='prof-info-container'>
-          <div>
+          <div className='prof-info-left'>
             <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user.profile_pic}></img>
           </div>
-          <div className='prof-username'><h3>{user.username}</h3></div>
-          <div className='prof-name'><h4>{user.name}</h4></div>
-          <div>
-            <p>
-              {user.profile_bio}
-            </p>
+          <div className='profile-info-right'>
+            <div className='prof-username'>{user.username}</div>
+            <div className='prof-name'>{user.name}</div>
+            <div className='prof-bio'>{user.profile_bio}</div>
           </div>
         </div>
-        <div className='prof-posts-img'>POSTS</div>
+        <div className='prof-posts-line'></div>
+        <div className='prof-posts-img'>{postsImg} POSTS</div>
         <div className='prof-posts-container'>
           {userPosts.map(post =>
             <div className='prof-post-container' key={post?.id}>

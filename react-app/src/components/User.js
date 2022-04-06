@@ -14,6 +14,7 @@ function User() {
   const { userId } = useParams();
   const [clicked,setClicked] = useState('regular')
   const realUserId = useSelector(state=> state.session.user.id);
+  // const follower =use
 
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
 
@@ -56,6 +57,7 @@ function User() {
   }
 const handleFollowClick = (e) => {
   e.preventDefault()
+  // if ()
   dispatch(createFollower(userId))
 }
 

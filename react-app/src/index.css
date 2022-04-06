@@ -5,8 +5,7 @@ body {
 
   * {
     margin: 0px;
-    font-family: helvetica, arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
     text-decoration: none;
   }
-  

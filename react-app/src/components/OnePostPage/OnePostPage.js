@@ -48,8 +48,8 @@ function OnePostPage() {
   if (userLike.length) {
     deleteLike = (
       <>
-    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-solid fa-heart redthingy littleHearts`}></i>
-    </>
+        <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-solid fa-heart redthingy littleHearts`}></i>
+      </>
     )
   }
 
@@ -58,8 +58,8 @@ function OnePostPage() {
   if (userLike.length === 0) {
     createLike = (
       <>
-    <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart littleHearts`}></i>
-    </>
+        <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart littleHearts`}></i>
+      </>
     )
   }
 
@@ -70,14 +70,19 @@ function OnePostPage() {
 
     if (userLike.length) {
 
-      // setClicked('regular')
       dispatch(deletingImgLike(userLike[0].id))
     } else {
-      // setClicked('solid')
       dispatch(postImgLikes(realUserId, postId))
     }
 
   }
+
+  const users = useSelector(state => Object.values(state.session))
+
+  const postUser = users?.filter(asas => asas.id === post?.user_id);
+
+
+
 
   return (
     <>
@@ -87,7 +92,10 @@ function OnePostPage() {
           <div className='individual-post-right-side'>
 
             <div className='comments-top-part'>
-              <p>{post?.caption}</p>
+              <div className='ikilistuff'>
+                <img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img>
+                <p>{postUser[0]?.username}</p>
+              </div>
               <i onClick={handleModal} className="fa-solid fa-ellipsis"></i>
             </div>
 
@@ -116,10 +124,10 @@ function OnePostPage() {
                   </ul>
                 ))}
               </div>
-                  <div>
-                  {createLike}
-                  {deleteLike}
-                  </div>
+              <div>
+                {createLike}
+                {deleteLike}
+              </div>
               <p>{allImgLikes.filter(like => like?.post_id === post?.id).length}</p>
             </div>
           </div>

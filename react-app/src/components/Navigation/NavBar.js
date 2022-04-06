@@ -88,8 +88,19 @@ const NavBar = () => {
                   <ul className="profile-dropdown">
                   <ul>{user.username}</ul>
                   <ul>
-                  <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
-                  <button className="profile-btn" onClick={logoutUser}>Log Out</button>
+                  <div className="profile-btn-container-with-icon">
+                    <i className="fa-solid fa-user" ></i>
+                    <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                  </div>
+
+                  <div className="about-site-creators-container">
+                    <i class="fa-solid fa-code"></i>
+                    <button className="profile-btn" onClick={() => history.push(`/about`)}>About the Site Creators</button>
+                  </div>
+
+                  <div className="logout-btn-container">
+                    <button className="profile-btn" onClick={logoutUser}>Log Out</button>
+                  </div>
                   </ul>
                   </ul>
               )}

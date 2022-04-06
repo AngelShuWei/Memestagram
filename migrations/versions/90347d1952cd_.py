@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: c8421d88b5b3
-Revises:
-Create Date: 2022-04-05 09:04:19.798739
+Revision ID: 90347d1952cd
+Revises: 
+Create Date: 2022-04-06 14:19:48.727932
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c8421d88b5b3'
+revision = '90347d1952cd'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,13 +26,17 @@ def upgrade():
     sa.Column('hashed_password', sa.String(length=1050), nullable=False),
     sa.Column('profile_pic', sa.Text(), nullable=True),
     sa.Column('profile_bio', sa.String(length=500), nullable=True),
-    sa.Column('follower_id', sa.Integer(), nullable=True),
-    sa.Column('followed_id', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.Date(), nullable=False),
     sa.Column('updated_at', sa.Date(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
+    )
+    op.create_table('followers',
+    sa.Column('follower_id', sa.Integer(), nullable=True),
+    sa.Column('followed_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['followed_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], )
     )
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -84,5 +88,6 @@ def downgrade():
     op.drop_table('image_likes')
     op.drop_table('comments')
     op.drop_table('posts')
+    op.drop_table('followers')
     op.drop_table('users')
     # ### end Alembic commands ###

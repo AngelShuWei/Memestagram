@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postDelete, updateUsersPost } from '../store/post';
 import EditPostForm from './OnePostPage/EditPostPage';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
+import { createFollower, deleteFollower } from '../store/followers';
 import { postsImg } from './Styles'
 
 function User() {
@@ -53,6 +54,11 @@ function User() {
     }
 
   }
+const handleFollowClick = (e) => {
+  e.preventDefault()
+  dispatch(createFollower(userId))
+}
+
 
   return (
     <>
@@ -62,7 +68,7 @@ function User() {
             <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user.profile_pic}></img>
           </div>
           <div className='profile-info-right'>
-            <div className='prof-username'>{user.username}</div>
+            <div className='prof-username'>{user.username} <button onClick={(e) => handleFollowClick(e)}>FOLLOW NOW</button></div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>
           </div>

@@ -81,15 +81,15 @@ const NavBar = () => {
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
-              <button onClick={openMenu}>
+              <button className="prof-btn" onClick={openMenu}>
               <i className="fa-solid fa-circle-question" />
-              </button>
+              </button  >
                  {showMenu && (
                   <ul className="profile-dropdown">
                   <ul>{user.username}</ul>
                   <ul>
-                  <button onClick={logoutUser}>Log Out</button>
-                  <button onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                  <button className="profile-btn" onClick={logoutUser}>Log Out</button>
+                  <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
                   </ul>
                   </ul>
               )}

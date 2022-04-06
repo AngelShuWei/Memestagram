@@ -81,3 +81,40 @@
     font-size:22px;
     cursor: pointer;
 }
+
+.profile-dropdown {
+    position: absolute;
+    left:0;
+    top: calc(100% + .25rem);
+    background-color:  white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    opacity: 1;
+    margin-left: 80%;
+}
+
+.profile-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
+/* .profile-btn button:hover {
+    color:#ff385c;
+    background-color:#FFFFFF;
+    border: 0.1em solid #ff385c;
+} */
+
+.fa-solid fa-circle-question {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.prof-btn {
+    border: none;
+    outline: none;
+    background: none;
+}

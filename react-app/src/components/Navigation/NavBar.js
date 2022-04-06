@@ -84,7 +84,7 @@ const NavBar = () => {
               <button className="prof-btn" onClick={openMenu}>
               <i className="fa-solid fa-circle-question" />
               </button  >
-                 {showMenu && (
+                {showMenu && (
                   <ul className="profile-dropdown">
                   <ul>{user.username}</ul>
                   <ul>

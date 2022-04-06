@@ -4,17 +4,37 @@
     font-family: "Open Sans",sans-serif;
     font-family: "Roboto",sans-serif;
     color: #555;
-  }
+}
 
-  .explore-page-container {
+
+.explore-page-container {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 350px;
+  padding-right: 350px;
+  padding-top: 100px; */
+  padding-top: 90px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 100px;
-  }
+    justify-self: center;
+    margin: 0 auto;
+    width: 1300px;
+    padding-bottom: 30px;
+}
 
-  .explore-pg-img-container {
-      margin: 11px;
-  }
+.explore-imgs-container {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* .explore-pg-img-container {
+  margin: 11px;
+} */

@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import Column, ForeignKey
+from .post import Post
 
 followers = db.Table(
     "followers",

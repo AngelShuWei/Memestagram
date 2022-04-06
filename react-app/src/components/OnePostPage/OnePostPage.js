@@ -118,10 +118,10 @@ function OnePostPage() {
 
                       } */}
                     </div>
-                    {post?.user_id === user?.id &&
+                    {post?.user_id === user?.id || comment?.user_id === user?.id &&
                       <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
                     }
-                    {post?.user_id === user?.id &&
+                    {comment?.user_id === user?.id &&
                       <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
                     }
                   </div>

@@ -122,7 +122,6 @@ const NavBar = () => {
           <li>
           </li>
         </ul> */}
-        <LogoutButton />
       </nav>
 
 

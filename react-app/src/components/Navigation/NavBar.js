@@ -1,15 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../Authorization/LogoutButton';
 import PostFormPage from '../PostFormPage/PostFormPage';
 import './Navbar.css'
-import { useHistory } from 'react-router-dom';
+import { logout } from '../../store/session';
+
 
 const NavBar = () => {
   const [modalOn, setModalOn] = useState(false)
   const history = useHistory();
   const userId = useSelector((state) => state.session.user.id)
+  const [showMenu, setShowMenu] = useState(false)
+
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user)
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  const logoutUser = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    history.push('/')
+  };
+
 
   // useEffect(() => {
   //   document.addEventListener("click", () => {
@@ -53,9 +81,20 @@ const NavBar = () => {
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
-              <i className="fa-solid fa-circle-question" onClick={() => history.push(`/users/${userId}`)}></i>
+              <button onClick={openMenu}>
+              <i className="fa-solid fa-circle-question" />
+              </button>
+                 {showMenu && (
+                  <ul className="profile-dropdown">
+                  <ul>{user.username}</ul>
+                  <ul>
+                  <button onClick={logoutUser}>Log Out</button>
+                  <button onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                  </ul>
+                  </ul>
+              )}
+              {/* <i className="fa-solid fa-circle-question"></i> */}
             </div>
-
           </div>
         </div>
         {/* <ul>

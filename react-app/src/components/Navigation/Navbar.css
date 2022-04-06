@@ -103,15 +103,11 @@
     outline: none;
     cursor: pointer;
     background: none;
-    font-size: 15px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;
     padding-left: 10px;
     /* padding-top: 5px; */
 }
-
-/* .profile-dropdown-content {
-    width: 100%;
-} */
 
 .profile-btn-container-with-icon, .about-site-creators-container, .logout-btn-container{
     padding: 8px 16px;
@@ -132,13 +128,14 @@
     font-size: 14px;
 }
 
+.fa-solid.fa-code {
+    font-size: 14px;
+}
+
 .logout-btn-container {
     border-top: 1px solid #d5d5d5;
 }
 
-.fa-solid.fa-code {
-    font-size: 14px;
-}
 /* .profile-btn-container-with-icon {
     margin: 5px;
 } */

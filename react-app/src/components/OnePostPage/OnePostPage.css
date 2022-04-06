@@ -3,7 +3,7 @@
     height: 100vh;
     position: fixed;
     margin-top: 70px;
-z-index: -1;
+    z-index: -1;
 }
 
 
@@ -38,6 +38,8 @@ z-index: -1;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+    border-right: 0.5px solid #dbdbdb;
+
 }
 
 .background-moda{
@@ -58,4 +60,25 @@ z-index: -1;
     padding: 14px 14px 14px 16px;
     align-items: center;
     justify-content: space-between;
+}
+
+.poriflePostUserPic{
+    width:32px;
+    height:32px;
+    border-radius: 50px;
+}
+
+.ikilistuff{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ikilistuff p{
+    font-size: 14px;
+    color: #262626;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
 }

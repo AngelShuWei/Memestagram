@@ -14,6 +14,7 @@ import OnePostPage from './components/OnePostPage/OnePostPage';
 import { allPostComments } from './store/comments';
 import EditCommentPage from './components/OnePostPage/EditCommentPage';
 import { allImgLikes } from './store/imglikes';
+import { getAllTheUsers } from './store/session';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
       dispatch(allUserPosts());
       dispatch(allPostComments());
       dispatch(allImgLikes());
+      dispatch(getAllTheUsers());
     })();
   }, [dispatch]);
 

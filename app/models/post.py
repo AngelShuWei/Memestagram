@@ -23,5 +23,5 @@ class Post(db.Model, UserMixin):
             'id': self.id,
             'user_id': self.user_id,
             'caption': self.caption,
-            'image_url':self.image_url
+            'image_url':self.image_url,
         }

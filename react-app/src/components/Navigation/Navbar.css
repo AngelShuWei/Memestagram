@@ -99,22 +99,19 @@
     outline: none;
     cursor: pointer;
     background: none;
-}
-
-/* .profile-btn button:hover {
-    color:#ff385c;
-    background-color:#FFFFFF;
-    border: 0.1em solid #ff385c;
-} */
-
-.fa-solid fa-circle-question {
-    border: none;
-    outline: none;
-    background: none;
+    font-size: 15px;
 }
 
 .prof-btn {
     border: none;
     outline: none;
     background: none;
+}
+
+.profile-dropdown button {
+    width: 76px;
+}
+
+.profile-dropdown button:hover {
+    background: whitesmoke;
 }

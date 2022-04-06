@@ -84,13 +84,13 @@
 .profile-dropdown {
     position: absolute;
     left:0;
-    top: calc(100% + .25rem);
+    top: calc(90% + .25rem);
     background-color:  white;
     padding: .75rem;
     border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 0 2px #f0f0f0;
     opacity: 1;
-    margin-left: 80%;
+    margin-left: 65%;
 }
 
 .profile-btn {

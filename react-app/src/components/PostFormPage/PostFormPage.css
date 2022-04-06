@@ -18,7 +18,7 @@
     flex-direction: column;
     position: absolute;
     top: -1000px;
-    animation: drop .4s ease forwards;
+    animation: drop .5s ease forwards;
     border-radius: 8px;
 }
 

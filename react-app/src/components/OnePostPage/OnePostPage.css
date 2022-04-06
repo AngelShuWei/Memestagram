@@ -1,4 +1,4 @@
-.main-div-big-one{
+.main-div-big-one {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -7,9 +7,9 @@
 }
 
 
-.medium-div-normal-size{
+.medium-div-normal-size {
     width: 935px;
-    height:600px;
+    height: 600px;
     margin: 0 auto;
     margin-top: 40px;
     border-radius: 4px;
@@ -20,38 +20,43 @@
     display: flex;
 }
 
-.littleHearts{
+.littleHearts {
     font-size: 24px;
     color: black;
+    cursor: pointer;
+
 }
-.redthingy{
+
+.redthingy {
     color: rgb(251, 57, 88);
 }
 
 
-.the-image{
+.the-image {
     width: 598px;
     height: 100%;
-    object-fit:fill;
+    object-fit: fill;
     cursor: pointer;
     image-rendering: auto;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
-    border-right: 0.5px solid #dbdbdb;
+    border-right: 1px solid rgba(var(--b6a, 219, 219, 219), .8);
+
 
 }
 
-.background-moda{
+.background-moda {
     position: absolute;
-    top:70px
+    top: 70px
 }
-.individual-post-right-side{
-    width:100%;
+
+.individual-post-right-side {
+    width: 100%;
 
 }
 
-.comments-top-part{
+.comments-top-part {
     display: flex;
     width: 100%;
     border-bottom: 0.5px solid #dbdbdb;
@@ -62,23 +67,132 @@
     justify-content: space-between;
 }
 
-.poriflePostUserPic{
-    width:32px;
-    height:32px;
+.poriflePostUserPic {
+    width: 33px;
+    height: 33px;
     border-radius: 50px;
 }
 
-.ikilistuff{
+
+
+.ikilistuff {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.ikilistuff p{
+.ikilistuff p {
     font-size: 14px;
     color: #262626;
     font-weight: 500;
     cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
+
+.add-a-comment-form {
+    bottom: 0;
+}
+
+.all-comment-section {
+    height: 100%;
+    width: 100%;
+}
+
+.comments-section {
+    height: 68%;
+    width: 100%;
+    padding:15.5px;
+    border-bottom: 0.5px solid #dbdbdb;
+    overflow: scroll;
+}
+
+.comments-section::-webkit-scrollbar {
+    display: none;
+}
+
+.galp {
+    width: 100%;
+    height: 12%;
+    padding: 10px 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #dbdbdb;
+    color: #262626;
+}
+
+.galp p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #262626;
+    font-weight: 500;
+}
+
+
+.add-a-comment-form {
+    display: flex;
+    width: 100%;
+    height: 9.7%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-caption2 {
+
+    border: none;
+    outline: none;
+    width: 230px;
+    height: 40px;
+    background: none;
+    margin-left: 9px;
+    padding-top: 16px;
+    resize: none;
+
+}
+
+.somestuff {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    line-height: 30px;
+}
+
+.input-caption2::-webkit-scrollbar {
+    display: none;
+}
+
+
+.comments-section-real-this-time {
+   display: flex;
+   align-items: flex-start;
+   margin-bottom: 30px;
+}
+
+.poriflePostUserPic2 {
+    width: 33px;
+    height: 33px;
+    border-radius: 50px;
+    margin-right: 16px;
+}
+
+.username-inthecomments{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.texts-inthecomments{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 3px;
+    line-height: 2px;
+    word-break: break-all;
+}
+
+.commentDeleteUpdate{
+    margin-top: 30px;
 }

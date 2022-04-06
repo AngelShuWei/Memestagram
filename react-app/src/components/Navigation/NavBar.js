@@ -48,7 +48,7 @@ const NavBar = () => {
             </div>
 
             <div className='navbar-things'>
-              <i className="fa-solid fa-house"></i>
+              <NavLink exact to={'/'}><i className="fa-solid fa-house"></i></NavLink>
               <i className="fa-regular fa-paper-plane"></i>
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass"></i>

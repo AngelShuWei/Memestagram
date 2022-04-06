@@ -50,11 +50,24 @@
   padding-bottom: 20px;
 }
 
+.prof-posts-line {
+  border-top: 1px solid black;
+  width: 55px;
+  margin: auto;
+}
+
 .prof-posts-img {
-    display: flex;
-    justify-content: center;
-    color: #262626;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  color: #262626;
+  margin: auto;
+  align-items: center;
+  font-size: 12px;
+  height: 53px;
+  grid-gap: 3px;
+  gap: 3px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .prof-posts-container {

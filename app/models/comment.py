@@ -23,5 +23,7 @@ class Comment(db.Model, UserMixin):
             'id': self.id,
             'user_id': self.user_id,
             'post_id': self.post_id,
-            'text': self.text
+            'text': self.text,
+            # 'created_at':self.created_at,
+            # 'updated_at':self.updated_at,
         }

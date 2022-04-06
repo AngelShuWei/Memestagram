@@ -1,0 +1,68 @@
+.modal-container-edit-delete-post {
+
+    width: 400px;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -1000px;
+    animation: dropDeleteUpdatePost .4s ease forwards;
+    border-radius: 8px;
+
+}
+
+.edit-delete-post-modal-divs{
+    width: 100%;
+    min-height: 48px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color: #262626;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.edit-caption{
+    border-top: 1px solid rgba(var(--b6a,219,219,219),.8);
+    border-bottom: 1px solid rgba(var(--b6a,219,219,219),.8);
+}
+
+.navlink-delete{
+    background: none;
+    border: none;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color: #ed4956;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Temporarly code */
+.navlink-update{
+    background: none;
+    border: none;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+
+@keyframes dropDeleteUpdatePost {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(1500px);
+    }
+
+    100% {
+        transform: translateY(1310px);
+        opacity: 1;
+    }
+}

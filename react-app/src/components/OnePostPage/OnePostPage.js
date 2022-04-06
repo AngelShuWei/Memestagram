@@ -8,12 +8,11 @@ import EditDeletePostModal from './EditDeletePostModal';
 import { postImgLikes, deletingImgLike } from '../../store/imglikes';
 
 function OnePostPage() {
-  const [modalOn, setModalOn] = useState(false)
+  const [modalOn, setModalOn] = useState(false);
+  const [commentModalOn, setCommentModalOn] = useState(false);
 
   const dispatch = useDispatch();
   const { postId } = useParams();
-
-  const [clicked, setClicked] = useState('solid')
 
   const [text, setText] = useState("")
 
@@ -83,6 +82,7 @@ function OnePostPage() {
 
 
 
+  const likesNumber = allImgLikes.filter(like => like?.post_id === post?.id).length;
 
   return (
     <>
@@ -99,36 +99,57 @@ function OnePostPage() {
               <i onClick={handleModal} className="fa-solid fa-ellipsis"></i>
             </div>
 
-            {user?.id == post?.user_id &&
+            {/* {user?.id == post?.user_id &&
               (<NavLink exact to={`/users/${post?.user_id}`}><button onClick={() => dispatch(postDelete(post?.id))}>Delete Post</button></NavLink>)
             }
             {user?.id == post?.user_id &&
 
               (<NavLink exact to={`/post/${post?.id}/edit`}><button>Update Caption</button></NavLink>)
-            }
-            <div>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type='text'
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                />
-                <button type='submit'>Add Comment</button>
-              </form>
-              <div>
+            } */}
+            <div className='all-comment-section'>
+              <div className='comments-section'>
                 {comments?.map(comment => (
-                  <ul key={comment.id}>
-                    <li>{comment.text}</li>
-                    <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
-                    <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
-                  </ul>
+                  <div key={comment.id} className='comments-section-real-this-time'>
+                    <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
+                    <div>
+                      <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
+                      {/* {post?.user_id === user?.id &&
+                        (<i onClick={handleModal} className="fa-solid fa-ellipsis commentDeleteUpdate"></i>)
+
+                      } */}
+                    </div>
+                    {post?.user_id === user?.id &&
+                      <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
+                    }
+                    {post?.user_id === user?.id &&
+                      <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
+                    }
+                  </div>
                 ))}
               </div>
-              <div>
+              <div className='galp'>
                 {createLike}
                 {deleteLike}
+                <p>{likesNumber} {likesNumber <= 1 ? 'like' : 'likes'}</p>
               </div>
-              <p>{allImgLikes.filter(like => like?.post_id === post?.id).length}</p>
+              <div className='add-a-comment-form'>
+                <div className='somestuff'>
+
+                  <svg aria-label="Emoji" className="_8-yf5 " style={{ 'cursor': 'pointer' }} color="#8e8e8e" fill="#8e8e8e" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
+
+                  <form onSubmit={handleSubmit}>
+                    <textarea className='input-caption2' placeholder='Add a comment...'
+                      type="textarea"
+                      value={text}
+                      required
+                      onChange={(e) => setText(e.target.value)}
+                    />
+
+                  </form>
+                </div>
+                <button className='share-submit-form-post' onClick={handleSubmit} type='submit' >Post</button>
+              </div>
+
             </div>
           </div>
 

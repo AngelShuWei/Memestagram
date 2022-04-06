@@ -57,15 +57,13 @@ function User() {
     <>
       <div className='prof-page-container'>
         <div className='prof-info-container'>
-          <div>
+          <div className='prof-info-left'>
             <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user.profile_pic}></img>
           </div>
-          <div className='prof-username'><h3>{user.username}</h3></div>
-          <div className='prof-name'><h4>{user.name}</h4></div>
-          <div>
-            <p>
-              {user.profile_bio}
-            </p>
+          <div className='profile-info-right'>
+            <div className='prof-username'>{user.username}</div>
+            <div className='prof-name'>{user.name}</div>
+            <div className='prof-bio'>{user.profile_bio}</div>
           </div>
         </div>
         <div className='prof-posts-img'>POSTS</div>
@@ -74,8 +72,6 @@ function User() {
             <div className='prof-post-container' key={post?.id}>
               <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px" }} /></NavLink>
             </div>
-
-
           )}
         </div>
       </div>

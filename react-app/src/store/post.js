@@ -37,16 +37,11 @@ export const allUserPosts = () => async (dispatch) => {
 }
 
 // create a user's post
-export const postCreate = (caption, image_url, userId) => async (dispatch) => {
+// no json.stringify because it will destory the data form
+export const postCreate = (data, userId) => async (dispatch) => {
     const response = await fetch(`/api/posts/create/${userId}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            caption,
-            image_url,
-        })
+        body: data
     });
 
     if (response.ok) {

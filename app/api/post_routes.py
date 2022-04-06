@@ -3,10 +3,52 @@ from flask_login import current_user, login_required
 from app.models import Post, db
 from app.forms import PostForm
 from datetime import date
-from app.s3_helpers import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+import boto3
+import botocore
+import os
+import uuid
 
 post_routes = Blueprint('posts',__name__)
+
+BUCKET_NAME = os.environ.get("S3_BUCKET")
+S3_LOCATION = f"https://memestagram-bucket.s3.amazonaws.com/"
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+
+s3 = boto3.client(
+   "s3",
+   aws_access_key_id=os.environ.get("S3_KEY"),
+   aws_secret_access_key=os.environ.get("S3_SECRET")
+)
+
+
+def allowed_file(filename):
+    return "." in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def get_unique_filename(filename):
+    ext = filename.rsplit(".", 1)[1].lower()
+    unique_filename = uuid.uuid4().hex
+    return f"{unique_filename}.{ext}"
+
+
+def upload_file_to_s3(file, acl="public-read"):
+    try:
+        s3.upload_fileobj(
+            file,
+            BUCKET_NAME,
+            file.filename,
+            ExtraArgs={
+                "ACL": acl,
+                "ContentType": file.content_type
+            }
+        )
+    except Exception as e:
+        # in case the our s3 upload fails
+        return {"errors": str(e)}
+
+    return {"url": f"{S3_LOCATION}{file.filename}"}
+
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -30,7 +72,7 @@ def get_posts():
 @login_required
 def postsFunc(user_id):
     if "image" not in request.files:
-    return {"errors": "image required"}, 400
+        return {"errors": "image required"}, 400
 
     image = request.files["image"]
     caption = request.values['caption']
@@ -42,6 +84,7 @@ def postsFunc(user_id):
 
     #uploading to amazon and their response is an obj with url
     upload = upload_file_to_s3(image)
+    print("==================================================", upload)
 
     if "url" not in upload:
         # if the dictionary doesn't have a url key
@@ -63,7 +106,8 @@ def postsFunc(user_id):
         )
     db.session.add(post)
     db.session.commit()
-    return {"url": url}
+    #to_dict convert to python dictionary and gets packaged before sends to frontend as json
+    return post.to_dict()
     # =================================================
     # the form regular post
     # form = PostForm()

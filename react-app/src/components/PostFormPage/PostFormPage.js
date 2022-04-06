@@ -25,15 +25,12 @@ function PostFormPage({ closeModal }) {
     setImageLoading(true);
 
     if (await dispatch(postCreate(formData, userId))) {
-      history.push('/')
     } else {
       setImageLoading(false);
-      console.log('error');
     }
 
     closeModal(false)
   }
-
 
 
   const updateCaption = (e) => {

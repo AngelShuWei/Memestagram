@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useSelector } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../Authorization/LogoutButton';
 import PostFormPage from '../PostFormPage/PostFormPage';
@@ -8,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 const NavBar = () => {
   const [modalOn, setModalOn] = useState(false)
   const history = useHistory();
-  // const userId = useSelector(state => state.session.user.id)
+  const userId = useSelector((state) => state.session.user)
 
   // useEffect(() => {
   //   document.addEventListener("click", () => {
@@ -52,7 +53,7 @@ const NavBar = () => {
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
-              <i className="fa-solid fa-circle-question" onClick={() => history.push(`/users`)}></i>
+              <i className="fa-solid fa-circle-question" onClick={() => history.push(`/users/${userId}`)}></i>
             </div>
 
           </div>

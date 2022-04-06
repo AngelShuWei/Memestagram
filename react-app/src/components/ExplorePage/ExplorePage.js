@@ -1,5 +1,6 @@
 import './ExplorePage.css';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 
 function ExplorePage() {
@@ -9,7 +10,7 @@ function ExplorePage() {
         <div>
             {userPosts.map(post => (
                 <div>
-                    {post.image_url}
+                    <img src={post.image_url}></img>
                 </div>
             ))}
         </div>

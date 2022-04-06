@@ -86,11 +86,16 @@
     left:0;
     top: calc(90% + .25rem);
     background-color:  white;
-    padding: .75rem;
-    border-radius: .25rem;
+    border-radius: 8px;
     box-shadow: 0 0 0 2px #f0f0f0;
     opacity: 1;
     margin-left: 65%;
+}
+
+.prof-btn {
+    border: none;
+    outline: none;
+    background: none;
 }
 
 .profile-btn {
@@ -101,21 +106,27 @@
     font-size: 15px;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     padding-left: 10px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
 }
 
-.prof-btn {
-    border: none;
-    outline: none;
-    background: none;
+/* .profile-dropdown-content {
+    width: 100%;
+} */
 
+.profile-btn-container-with-icon, .about-site-creators-container, .logout-btn-container{
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    grid-gap: 10px;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
 }
 
-
-.profile-dropdown button:hover {
+.profile-btn-container-with-icon:hover, .about-site-creators-container:hover, .logout-btn-container:hover {
     background: whitesmoke;
 }
-
 
 .fa-solid.fa-user {
     font-size: 14px;
@@ -123,17 +134,16 @@
 
 .logout-btn-container {
     border-top: 1px solid #d5d5d5;
-
-}
-
-.profile-btn-container-with-icon {
-    margin: 5px;
 }
 
 .fa-solid.fa-code {
     font-size: 14px;
 }
+/* .profile-btn-container-with-icon {
+    margin: 5px;
+} */
 
+/*
 .about-site-creators-container {
     margin-bottom: 5px;
-}
+} */

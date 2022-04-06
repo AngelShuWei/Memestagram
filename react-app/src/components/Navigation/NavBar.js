@@ -85,24 +85,24 @@ const NavBar = () => {
               <i className="fa-solid fa-circle-question" />
               </button  >
                 {showMenu && (
-                  <ul className="profile-dropdown">
-                  <ul>{user.username}</ul>
-                  <ul>
-                  <div className="profile-btn-container-with-icon">
-                    <i className="fa-solid fa-user" ></i>
-                    <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
-                  </div>
+                  <div className="profile-dropdown">
+                    <div>{user.username}</div>
+                    {/* <div className='profile-dropdown-contents'> */}
+                      <div className="profile-btn-container-with-icon">
+                        <i className="fa-solid fa-user" ></i>
+                        <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                      </div>
 
-                  <div className="about-site-creators-container">
-                    <i class="fa-solid fa-code"></i>
-                    <button className="profile-btn" onClick={() => history.push(`/about`)}>About the Site Creators</button>
-                  </div>
+                      <div className="about-site-creators-container">
+                        <i className="fa-solid fa-code"></i>
+                        <button className="profile-btn" onClick={() => history.push(`/about`)}>About the Site Creators</button>
+                      </div>
 
-                  <div className="logout-btn-container">
-                    <button className="profile-btn" onClick={logoutUser}>Log Out</button>
-                  </div>
-                  </ul>
-                  </ul>
+                      <div className="logout-btn-container">
+                        <button className="profile-btn" onClick={logoutUser}>Log Out</button>
+                      </div>
+                    </div>
+                  // </div>
               )}
               {/* <i className="fa-solid fa-circle-question"></i> */}
             </div>

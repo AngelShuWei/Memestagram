@@ -88,8 +88,8 @@ const NavBar = () => {
                   <ul className="profile-dropdown">
                   <ul>{user.username}</ul>
                   <ul>
-                  <button className="profile-btn" onClick={logoutUser}>Log Out</button>
                   <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                  <button className="profile-btn" onClick={logoutUser}>Log Out</button>
                   </ul>
                   </ul>
               )}

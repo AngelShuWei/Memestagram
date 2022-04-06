@@ -12,10 +12,10 @@ function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId } = useParams();
-  const [clicked,setClicked] = useState('regular')
   const realUserId = useSelector(state=> state.session.user.id);
-  const follower =useSelector(state=> state.session.followers)
-  console.log(follower)
+  const followed =useSelector(state=> Object.values(state.followed))
+  const followedArray = useSelector(state => Object.values(state.followed))
+
 
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
 
@@ -47,11 +47,8 @@ function User() {
 
 
     if (userLike.length) {
-
-      setClicked('regular')
       dispatch(deletingImgLike(userLike[0].id))
     } else {
-      setClicked('solid')
       dispatch(postImgLikes(realUserId, postId))
     }
 
@@ -61,6 +58,10 @@ const handleFollowClick = (e) => {
   // if ()
   dispatch(createFollower(userId))
 }
+
+
+const followedYes = followedArray.filter(follower => follower.id === +userId)
+console.log(followedArray)
 
 
   return (

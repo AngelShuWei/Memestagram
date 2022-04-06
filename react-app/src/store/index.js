@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   posts: userPostsReducer,
   comments: commentReducer,
   likes: likesReducer,
-  followers: followedReducer
+  followed: followedReducer
 });
 
 

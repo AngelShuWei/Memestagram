@@ -18,8 +18,10 @@ def add_followers(userid):
 
     db.session.add(user)
     db.session.commit()
-    print("==========", current_user.get_followed())
     return {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
 
 
-# @follower_routes.route('/')
+@follower_routes.route('/followed/get')
+def get_followed():
+    followed = {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
+    return followed

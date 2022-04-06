@@ -31,7 +31,7 @@
   font-size: 28px;
   font-weight: 300;
   margin-top: 5px;
-  margin-bottom: 60px;
+  margin-bottom: 65px;
 }
 
 .prof-name {
@@ -43,7 +43,7 @@
 
 .prof-bio {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
   color: #262626;
   overflow-wrap: break-word;
   word-break: break-word;

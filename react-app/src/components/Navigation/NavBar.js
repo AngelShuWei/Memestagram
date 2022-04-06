@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 const NavBar = () => {
   const [modalOn, setModalOn] = useState(false)
   const history = useHistory();
-  const userId = useSelector((state) => state.session.user)
+  const userId = useSelector((state) => state.session.user.id)
 
   // useEffect(() => {
   //   document.addEventListener("click", () => {
@@ -48,7 +48,7 @@ const NavBar = () => {
             </div>
 
             <div className='navbar-things'>
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house" onClick={() => history.push('/')}></i>
               <i className="fa-regular fa-paper-plane"></i>
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>

@@ -24,6 +24,7 @@ class Comment(db.Model, UserMixin):
             'user_id': self.user_id,
             'post_id': self.post_id,
             'text': self.text,
+            'user': self.user.to_dict()
             # 'created_at':self.created_at,
             # 'updated_at':self.updated_at,
         }

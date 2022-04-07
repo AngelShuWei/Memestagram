@@ -87,8 +87,8 @@ function User() {
             </div>
             <div className='prof-stats'>
               <div><span className='prof-posts-num'>{userPosts.length}</span> posts</div>
-              <div><span className='prof-followers-num'>{followersArray.length}</span> followers</div>
-              <div><span className='prof-following-num'>{followedArray.length}</span> following</div>
+              <div><span className='prof-followers-num'>{followedArray.length}</span> followers</div>
+              <div><span className='prof-following-num'>{followersArray.length}</span> following</div>
             </div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>

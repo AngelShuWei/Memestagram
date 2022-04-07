@@ -1,0 +1,61 @@
+
+.heart-likes{
+    height: 70px;
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+
+.add-a-comment-forma{
+    bottom: 0;
+    height: 60px;
+    position: absolute;
+    display: flex;
+    width: 100%;
+
+    height: 9.7%;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid #dbdbdb;
+}
+
+.userFeedIndivBigDiv{
+    position: relative;
+}
+
+.input-caption22{
+    border: none;
+  outline: none;
+  width: 570px;
+  height: 40px;
+  background: none;
+  margin-left: 9px;
+  padding-top: 16px;
+  resize: none;
+
+}
+
+.input-caption22::-webkit-scrollbar {
+    display: none;
+}
+
+.img-thingy-usernameEdit{
+    margin: 10px 20px 0px;
+}
+
+.viewAllCommentsThingy{
+    font-size: 14px;
+    color: #262626;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 10px 20px 0px;
+}
+
+.username-comment-thingy{
+    display: flex;
+}

@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans",sans-serif;
-  font-family: "Roboto",sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #555;
 }
 
@@ -24,7 +24,6 @@
   grid-gap: 100px;
   gap: 100px;
   min-height: 25vh;
-  border-bottom: 0.5px solid #dbdbdb;
 }
 
 .profile-info-right {
@@ -84,7 +83,9 @@
   gap: 30px;
 }
 
-.prof-posts-num, .prof-followers-num, .prof-following-num {
+.prof-posts-num,
+.prof-followers-num,
+.prof-following-num {
   font-weight: 600;
 }
 
@@ -135,13 +136,31 @@
   grid-column-gap: 28px;
 }
 
-.userlistdemo{
+.userlistdemo {
   position: absolute;
   top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 /* .prof-post-container:hover {
   background-color: #262626;
   position: absolute;
   grid-area: 1/1;
   z-index: -1;
 } */
+
+.userFeedIndivBigDiv {
+  border: 1px solid #000;
+  width: 700px;
+  height: 950px;
+}
+
+.indivImgFeed {
+
+  min-width: 100%;
+  max-width: 100%;
+  height: 613px;
+}

@@ -8,12 +8,17 @@ import EditDeletePostModal from './EditDeletePostModal';
 import { postImgLikes, deletingImgLike } from '../../store/imglikes';
 import DeleteModal from './DeleteModal/DeleteModal';
 import EditPostForm from './EditPostPage';
+import EditDeleteCommentModal from './EditDeleteCommentModal/EditDeleteCommentModal';
+import DeleteCommentModal from './DeleteCommentUpdateCommentModals/DeleteComment';
+import UpdateModalComment from './DeleteCommentUpdateCommentModals/UpdateComment';
 
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
-  const [commentModalOn, setCommentModalOn] = useState(false);
+  const [modalOn2, setModalOn2] = useState([false,0]);
   const [deleteModalOn, setDeleteModalOn] = useState(false)
   const [updateModalOn, setUpdateModalOn] = useState(false)
+  const [updateCommentModalOn, setUpdateCommentModalOn] = useState([false,0])
+  const [deleteCommentModalOn, setDeleteCommentModalOn] = useState([false,0])
 
   const dispatch = useDispatch();
   const { postId } = useParams();
@@ -81,12 +86,16 @@ function OnePostPage() {
   }
 
   const users = useSelector(state => Object.values(state.session))
-
   const postUser = users?.filter(asas => asas.id === post?.user_id);
-
-
-
   const likesNumber = allImgLikes.filter(like => like?.post_id === post?.id).length;
+
+
+
+  const handleModalOn2 = (commentIdd) => {
+
+
+    setModalOn2([true,commentIdd]);
+  }
 
   return (
     <>
@@ -100,37 +109,38 @@ function OnePostPage() {
                 <img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img>
                 <p>{postUser[0]?.username}</p>
               </div>
-              <i onClick={handleModal} className="fa-solid fa-ellipsis"></i>
+              <i onClick={handleModal} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
             </div>
 
-            {/* {user?.id == post?.user_id &&
-              (<NavLink exact to={`/users/${post?.user_id}`}><button onClick={() => dispatch(postDelete(post?.id))}>Delete Post</button></NavLink>)
-            }
-            {user?.id == post?.user_id &&
-
-              (<NavLink exact to={`/post/${post?.id}/edit`}><button>Update Caption</button></NavLink>)
-            } */}
             <div className='all-comment-section'>
               <div className='comments-section'>
                 <div className='comments-section-real-this-time'>
-                <img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img>
 
+
+                  <div className='img-thingy-username'>
+                    <img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img>
                     <p><span className='username-inthecomments'>{post?.username}</span> <span className='texts-inthecomments'>{post?.caption}</span></p>
+                  </div>
 
                 </div>
                 {comments?.map(comment => (
                   <div key={comment.id} className='comments-section-real-this-time'>
+                    <div className='img-thingy-username'>
 
-                    <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
-                    <div className='ptagcaption'>
-                      <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
+                      <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
+                      <div className='ptagcaption'>
+                        <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
+                      </div>
                     </div>
-                    {(post?.user_id === user?.id || comment?.user_id === user?.id) &&
+                    {/* {(post?.user_id === user?.id || comment?.user_id === user?.id) &&
                       <button onClick={() => dispatch(commentDelete(comment?.id))}>Delete Comment</button>
                     }
                     {comment?.user_id === user?.id &&
                       <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
-                    }
+                    } */}
+
+                    <i onClick={() => handleModalOn2(comment.id)} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
+
                   </div>
                 ))}
               </div>
@@ -164,9 +174,12 @@ function OnePostPage() {
 
 
       </div>
-      {modalOn && <EditDeletePostModal postId={postId} deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} />}
-      {deleteModalOn && <DeleteModal deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} postId={postId}/>}
-      {updateModalOn && <EditPostForm  updateModalSomeStuff={setUpdateModalOn} closeModal={setModalOn} postId={postId}/>}
+      {modalOn && <EditDeletePostModal postId={postId} updateModalSomeStuff={setUpdateModalOn} deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} />}
+      {deleteModalOn && <DeleteModal deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} postId={postId} />}
+      {updateModalOn && <EditPostForm updateModalSomeStuff={setUpdateModalOn} closeModal={setModalOn} postId={postId} />}
+      {modalOn2[0] && <EditDeleteCommentModal updateModalSomeStuff={setUpdateCommentModalOn} deleteModalSomeStuff={setDeleteCommentModalOn} closeModal2={setModalOn2} commentIdd={modalOn2[1]}/>}
+      {deleteCommentModalOn[0] &&<DeleteCommentModal  closeModal2={setModalOn2} deleteModalSomeStuff={setDeleteCommentModalOn} commentId={deleteCommentModalOn[1]}/>}
+      {updateCommentModalOn[0] && <UpdateModalComment closeModal2={setModalOn2} updateModalSomeStuff={setUpdateCommentModalOn}commentId={updateCommentModalOn[1]} />}
     </>
   )
 }

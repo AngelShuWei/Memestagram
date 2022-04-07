@@ -1,37 +1,34 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, NavLink, useHistory, useParams } from "react-router-dom";
-import { updateUsersPost } from "../../store/post";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { updateUserComment } from "../../../store/comments";
+import { updateUsersPost } from "../../../store/post";
 
-const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
 
-  closeModal(false)
+const UpdateModalComment = ({closeModal2, commentId,updateModalSomeStuff}) => {
+    const dispatch = useDispatch();
 
-  const post = useSelector(state => state.posts[+postId])
+    closeModal2(false)
 
-  const [caption, setCaption] = useState(post?.caption);
-  const [imageUrl, setImageUrl] = useState(post?.image_url);
+  const comment = useSelector(state => state.comments[+commentId])
+
+  const [text, setText] = useState(comment?.text);
+
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = await dispatch(updateUsersPost(caption, imageUrl, post.id))
+    const data = await dispatch(updateUserComment(text,commentId))
 
     updateModalSomeStuff(false);
 
-
   }
-
-
-  const updateCaption = (e) => {
-    setCaption(e.target.value);
-  }
-  
   let menuRef = useRef();
 
+  const updateText = (e) => {
+    setText(e.target.value);
+  }
   useEffect(() => {
     const handler = (event) => {
       if (!menuRef.current.contains(event.target)) {
@@ -46,6 +43,7 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
     }
   });
 
+
   return (
     <div className='background-modal'>
 
@@ -54,16 +52,16 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
 
           <textarea className='input-caption-update' placeholder='Write a caption...'
             type="textarea"
-            value={caption}
+            value={text}
             required
-            onChange={updateCaption}
+            onChange={updateText}
           />
 
-          <p className="some-caption">{caption.length}/500</p>
+          <p className="some-caption">{text.length}/500</p>
 
         </div>
         <div className="edit-modal-button" onClick={handleSubmit}>
-          <button className="update-button-blue">Update</button>
+          <button className="update-button-blue">Edit Comment</button>
         </div>
         <div className="edit-delete-post-modal-divs" onClick={() => updateModalSomeStuff(false)}>
           Cancel
@@ -74,4 +72,4 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
   )
 }
 
-export default EditPostForm;
+export default UpdateModalComment

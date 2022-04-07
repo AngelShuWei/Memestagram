@@ -27,6 +27,10 @@
 
 }
 
+.ptagcaption{
+    width: 220px;
+}
+
 .redthingy {
     color: rgb(251, 57, 88);
 }
@@ -162,11 +166,14 @@
     display: none;
 }
 
-
+.img-thingy-username{
+    display: flex;
+}
 .comments-section-real-this-time {
    display: flex;
    align-items: flex-start;
    margin-bottom: 30px;
+   justify-content: space-between;
 }
 
 .poriflePostUserPic2 {
@@ -197,5 +204,11 @@
     margin-top: 30px;
 }
 
+.thinggylil{
+    cursor: pointer;
+}
 
-
+.notclicklabel{
+    opacity: .4;
+    pointer-events: none;
+}

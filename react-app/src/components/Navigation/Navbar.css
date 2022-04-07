@@ -149,3 +149,8 @@
 .fa-solid.fa-users {
     font-size: 16px;
 }
+
+.welcome-username {
+    margin: 5px;
+    margin-left: 15px;
+}

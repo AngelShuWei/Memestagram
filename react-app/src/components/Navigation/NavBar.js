@@ -86,7 +86,7 @@ const NavBar = () => {
               </button  >
                 {showMenu && (
                   <div className="profile-dropdown">
-                    <div>{user.username}</div>
+                    <div className="welcome-username">{user.username}</div>
                     {/* <div className='profile-dropdown-contents'> */}
                       <div className="profile-btn-container-with-icon">
                         <i className="fa-regular fa-circle-user"></i>

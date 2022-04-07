@@ -27,18 +27,72 @@
   border-bottom: 0.5px solid #dbdbdb;
 }
 
+.profile-info-right {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+  gap: 30px;
+}
+
 .prof-username {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-size: 28px;
   font-weight: 300;
   margin-top: 5px;
-  margin-bottom: 65px;
+}
+
+.follow-prof-btn {
+  background-color: #0095f6;
+  border: none;
+  color: white;
+  font-weight: 500;
+  height: 30px;
+  width: 89px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.followed-prof-btn {
+  font-weight: 500;
+  cursor: pointer;
+  height: 30px;
+  width: 90px;
+  border-radius: 4px;
+  border: 0.5px solid #dbdbdb;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  **** for when we implement edit profile button
+  font-weight: 500;
+  cursor: pointer;
+  height: 30px;
+  width: 90px;
+  border-radius: 4px;
+  border: 1px solid #dbdbdb;
+  background-color: transparent; */
+
+.prof-stats {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  gap: 30px;
+}
+
+.prof-posts-num, .prof-followers-num, .prof-following-num {
+  font-weight: 600;
 }
 
 .prof-name {
   font-size: 16px;
   font-weight: 500;
   color: #262626;
-  /* margin-bottom: -15px; */
+  margin-bottom: -30px;
 }
 
 .prof-bio {

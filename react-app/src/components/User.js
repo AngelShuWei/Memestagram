@@ -1,4 +1,5 @@
 import './User.css'
+import followingIcon from '../assets/following-icon-transparent.png'
 import React, { useState, useEffect } from 'react';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +21,6 @@ function User() {
     return post.user_id === +userId;
   }))
   const allImgLikes = useSelector(state => Object.values(state.likes))
-  // useSelector(state => state.posts)
 
   useEffect(() => {
     if (!userId) {
@@ -69,8 +69,17 @@ const followedYes = followedArray.filter(follower => follower.id === +userId)
             <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic}></img>
           </div>
           <div className='profile-info-right'>
-
-            <div className='prof-username'>{user.username} {+userId!==realUserId &&<button onClick={(e) => handleFollowClick(e)}>{ followedYes.length?'Unfollow':'Follow'}</button>}</div>
+            <div className='prof-username'>
+              {user.username}
+              {+userId!==realUserId && <button className='follow-prof-btn' onClick={(e) => handleFollowClick(e)}>{ followedYes.length? <div className="followed-prof-btn">
+                <img src={followingIcon}/>
+                </div>:'Follow' }</button>}
+            </div>
+            <div className='prof-stats'>
+              <div><span className='prof-posts-num'>{userPosts.length}</span> posts</div>
+              <div><span className='prof-followers-num'>?</span> followers</div>
+              <div><span className='prof-following-num'>{followedArray.length}</span> following</div>
+            </div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>
           </div>

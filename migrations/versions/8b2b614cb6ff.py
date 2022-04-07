@@ -1,8 +1,8 @@
 """empty message
 
 Revision ID: 8b2b614cb6ff
-Revises: 
-Create Date: 2022-04-06 18:16:22.692077
+Revises:
+Create Date: 2022-04-06 20:59:31.741178
 
 """
 from alembic import op

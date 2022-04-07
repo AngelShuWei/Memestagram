@@ -82,24 +82,24 @@ const NavBar = () => {
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
               <button className="prof-btn" onClick={openMenu}>
-              <i className="fa-solid fa-circle-question" />
+              <div className='profile-icon-btn'><i className="fa-solid fa-circle-question"/></div>
               </button  >
                 {showMenu && (
                   <div className="profile-dropdown">
                     <div>{user.username}</div>
                     {/* <div className='profile-dropdown-contents'> */}
-                      <div className="profile-btn-container-with-icon">
+                      <div className="profile-btn-container-with-icon" onClick={() => history.push(`/users/${userId}`)}>
                         <i className="fa-solid fa-user" ></i>
-                        <button className="profile-btn" onClick={() => history.push(`/users/${userId}`)}>Profile</button>
+                        Profile
                       </div>
 
-                      <div className="about-site-creators-container">
+                      <div className="about-site-creators-container" onClick={() => history.push(`/about`)}>
                         <i className="fa-solid fa-code"></i>
-                        <button className="profile-btn" onClick={() => history.push(`/about`)}>About the Site Creators</button>
+                        About the Site Creators!
                       </div>
 
-                      <div className="logout-btn-container">
-                        <button className="profile-btn" onClick={logoutUser}>Log Out</button>
+                      <div className="logout-btn-container" onClick={logoutUser}>
+                      Log Out
                       </div>
                     </div>
                   // </div>

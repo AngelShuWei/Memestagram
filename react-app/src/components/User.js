@@ -15,6 +15,7 @@ function User() {
   const { userId } = useParams();
   const realUserId = useSelector(state=> state.session.user.id);
   const followedArray = useSelector(state => Object.values(state.followed))
+  const followersArray = useSelector(state => Object.values(state.followers))
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
 
     //+ is cheat way for parseInt
@@ -77,7 +78,7 @@ const followedYes = followedArray.filter(follower => follower.id === +userId)
             </div>
             <div className='prof-stats'>
               <div><span className='prof-posts-num'>{userPosts.length}</span> posts</div>
-              <div><span className='prof-followers-num'>?</span> followers</div>
+              <div><span className='prof-followers-num'>{followersArray.length}</span> followers</div>
               <div><span className='prof-following-num'>{followedArray.length}</span> following</div>
             </div>
             <div className='prof-name'>{user.name}</div>

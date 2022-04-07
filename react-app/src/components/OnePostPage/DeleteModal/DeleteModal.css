@@ -20,7 +20,7 @@
 
 .pareyousure {
     display: flex;
-    height: 80px;
+    height: 100px;
     flex-direction: column;
     padding: 10px;
     justify-content: space-around;

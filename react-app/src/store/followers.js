@@ -33,36 +33,45 @@ export const getAllFollowed = () => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
+        console.log(data.followedUsers);
         dispatch(getFollowed(data.followedUsers))
-    }
-}
 
-export const deleteFollower = (userid) => async (dispatch) => {
-    const response = await fetch(`/api/followers/follow/${userid}`)
-
-    if (response.ok) {
-        const data = await response.json()
-        dispatch(removeFollower(data))
     }
+
     return response
-
 }
+
+// export const deleteFollower = (userid) => async (dispatch) => {
+//     const response = await fetch(`/api/followers/follow/${userid}`)
+
+//     if (response.ok) {
+//         const data = await response.json()
+//         dispatch(removeFollower(data))
+//     }
+//     return response
+
+// }
 
 const initialState = {};
 
 const followedReducer = (state = initialState, action) => {
-    let newState = {...state};
+    let newState = { ...state };
     switch (action.type) {
         case ADD_FOLLOWER:
-            action.followedUsers.forEach(followedUser => {
-               return newState[followedUser.id] = followedUser;
-               });
-               return newState;
+
+            if(Array.isArray(action.followedUsers)){
+                action.followedUsers.forEach(followedUser => {
+                    return newState[followedUser.id] = followedUser;
+                });
+            }else{
+                delete newState[action.followedUsers];
+            }
+            return newState;
 
 
         case GET_FOLLOWED:
             action.followed.forEach(follower => {
-            return newState[follower.id] = follower;
+                return newState[follower.id] = follower;
             });
             return newState;
 

@@ -11,14 +11,15 @@ def add_followers(userid):
 
     if current_user.is_following(user):
         g = current_user.unfollow(user)
+        db.session.add(user)
+        db.session.commit()
 
+        return {'followedUsers': userid}
     else:
-
         g = current_user.follow(user)
-
-    db.session.add(user)
-    db.session.commit()
-    return {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
+        db.session.add(user)
+        db.session.commit()
+        return {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
 
 
 @follower_routes.route('/followed/get')

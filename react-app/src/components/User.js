@@ -61,7 +61,6 @@ const handleFollowClick = (e) => {
 
 
 const followedYes = followedArray.filter(follower => follower.id === +userId)
-console.log(followedArray)
 
 
   return (
@@ -69,10 +68,11 @@ console.log(followedArray)
       <div className='prof-page-container'>
         <div className='prof-info-container'>
           <div className='prof-info-left'>
-            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user.profile_pic}></img>
+            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic}></img>
           </div>
           <div className='profile-info-right'>
-            <div className='prof-username'>{user.username} <button onClick={(e) => handleFollowClick(e)}>FOLLOW NOW</button></div>
+
+            <div className='prof-username'>{user.username} {+userId!==realUserId &&<button onClick={(e) => handleFollowClick(e)}>{ followedYes.length?'Unfollow':'Follow'}</button>}</div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>
           </div>

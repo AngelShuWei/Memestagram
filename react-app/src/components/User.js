@@ -68,7 +68,7 @@ const followedYes = followedArray.filter(follower => follower.id === +userId)
             <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic}></img>
           </div>
           <div className='profile-info-right'>
-            <div className='prof-username'>{user.username} {+userId!==realUserId &&<button onClick={(e) => handleFollowClick(e)}>{ followedYes.length?'Unfollow':'Follow'}</button>}</div>
+            <div className='prof-username'>{user.username} {+userId!==realUserId && <button className='follow-prof-btn' onClick={(e) => handleFollowClick(e)}>{ followedYes.length? <div className = "followed-prof-btn"><img src="https://img.icons8.com/material-sharp/24/000000/checked-user-male.png" style={{'width': '18px', 'height':'18px'}}/></div>:'Follow'}</button>}</div>
             <div className='prof-stats'>
               <div><span className='prof-posts-num'>{userPosts.length}</span> posts</div>
               <div><span className='prof-followers-num'>?</span> followers</div>

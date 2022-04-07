@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { postDelete } from "../../store/post";
-import './EditDeletePostModal.css'
-const EditDeletePostModal = ({ deleteModalSomeStuff, updateModalSomeStuff, closeModal, postId }) => {
 
+
+
+const EditDeleteCommentModal = ({closeModal2, commentIdd,updateModalSomeStuff,deleteModalSomeStuff}) =>{
 
     let menuRef = useRef()
 
@@ -12,7 +10,7 @@ const EditDeletePostModal = ({ deleteModalSomeStuff, updateModalSomeStuff, close
         const handler = (event) => {
             if (!menuRef.current.contains(event.target)) {
 
-                closeModal(false);
+                closeModal2(false);
             }
         }
         document.addEventListener('mousedown', handler);
@@ -21,30 +19,25 @@ const EditDeletePostModal = ({ deleteModalSomeStuff, updateModalSomeStuff, close
             document.removeEventListener('mousedown', handler)
         }
     });
-
-
-
     const handleDeleteModal = () => {
-        deleteModalSomeStuff(true)
+        deleteModalSomeStuff([true,commentIdd])
     }
     const handleUpdateModal = () => {
 
-        updateModalSomeStuff(true)
+        updateModalSomeStuff([true,commentIdd])
     }
-    // onClick={() => dispatch(postDelete(post?.id))}
-    // <NavLink exact to={`/users/${post?.user_id}`}><button className="navlink-delete" >Delete Post</button></NavLink>
 
     return (
         <div className='background-modal'>
             <div ref={menuRef} className="modal-container-edit-delete-post">
                 <div className="edit-delete-post-modal-divs navlink-delete" onClick={handleDeleteModal} >
-                    <button className="navlink-delete" >Delete Post</button>
+                    <button className="navlink-delete" >Delete Comment</button>
                 </div>
                 <div className="edit-delete-post-modal-divs edit-caption" onClick={handleUpdateModal} >
-                    <button className="navlink-update">Edit caption</button>
+                    <button className="navlink-update">Edit Comment</button>
 
                 </div>
-                <div className="edit-delete-post-modal-divs" onClick={() => closeModal(false)}>
+                <div className="edit-delete-post-modal-divs" onClick={() => closeModal2(false)}>
                     Cancel
                 </div>
             </div>
@@ -52,4 +45,4 @@ const EditDeletePostModal = ({ deleteModalSomeStuff, updateModalSomeStuff, close
     )
 }
 
-export default EditDeletePostModal
+export default EditDeleteCommentModal

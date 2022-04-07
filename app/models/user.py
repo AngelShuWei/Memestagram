@@ -85,3 +85,6 @@ class User(db.Model, UserMixin):
 
     def get_followed(self):
         return self.followed.all()
+
+    def get_followers(self):
+        return self.followers.all()

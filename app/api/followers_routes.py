@@ -8,6 +8,7 @@ follower_routes = Blueprint('followers', __name__)
 @follower_routes.route('/follow/<userid>')
 def add_followers(userid):
     user = User.query.get(userid)
+    print("wheeeee",current_user.get_followers())
 
     if current_user.is_following(user):
         g = current_user.unfollow(user)
@@ -26,3 +27,9 @@ def add_followers(userid):
 def get_followed():
     followed = {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
     return followed
+
+@follower_routes.route('/followers/get')
+def get_followers():
+    print("WHEEEEEEE", current_user.get_followers())
+    followers = {'followerUsers': [followerUser.to_dict() for followerUser in current_user.get_followers()]}
+    return followers

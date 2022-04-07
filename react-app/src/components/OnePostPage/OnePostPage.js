@@ -138,8 +138,9 @@ function OnePostPage() {
                     {comment?.user_id === user?.id &&
                       <NavLink exact to={`/comment/${comment?.id}/edit`}><button>Update Comment</button></NavLink>
                     } */}
+                    {/* ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'} */}
 
-                    <i onClick={() => handleModalOn2(comment.id)} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
+                    <i onClick={() => handleModalOn2(comment.id)} className={`fa-solid fa-ellipsis thinggylil ${((realUserId !== post?.user_id && comment?.user_id === realUserId) || (realUserId=== post?.user_id)  ) ? 'clickbale' : 'notclicklabel'}`}></i>
 
                   </div>
                 ))}

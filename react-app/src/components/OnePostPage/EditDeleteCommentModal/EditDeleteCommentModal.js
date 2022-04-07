@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react"
+import { useSelector } from "react-redux";
 
 
 
-const EditDeleteCommentModal = ({closeModal2, commentIdd,updateModalSomeStuff,deleteModalSomeStuff}) =>{
+const EditDeleteCommentModal = ({ closeModal2, commentIdd, updateModalSomeStuff, deleteModalSomeStuff }) => {
 
     let menuRef = useRef()
 
@@ -20,12 +21,18 @@ const EditDeleteCommentModal = ({closeModal2, commentIdd,updateModalSomeStuff,de
         }
     });
     const handleDeleteModal = () => {
-        deleteModalSomeStuff([true,commentIdd])
+        deleteModalSomeStuff([true, commentIdd])
     }
     const handleUpdateModal = () => {
 
-        updateModalSomeStuff([true,commentIdd])
+        updateModalSomeStuff([true, commentIdd])
     }
+    const userId = useSelector(state => state.session.user.id);
+    const comments = useSelector(state => Object.values(state.comments));
+    const theComment = comments.filter(ls => ls.id === commentIdd)[0];
+
+
+    console.log(theComment?.user_id === userId);
 
     return (
         <div className='background-modal'>
@@ -33,10 +40,12 @@ const EditDeleteCommentModal = ({closeModal2, commentIdd,updateModalSomeStuff,de
                 <div className="edit-delete-post-modal-divs navlink-delete" onClick={handleDeleteModal} >
                     <button className="navlink-delete" >Delete Comment</button>
                 </div>
-                <div className="edit-delete-post-modal-divs edit-caption" onClick={handleUpdateModal} >
-                    <button className="navlink-update">Edit Comment</button>
+                {theComment?.user_id === userId &&
+                    <div className="edit-delete-post-modal-divs edit-caption" onClick={handleUpdateModal} >
+                        <button className="navlink-update">Edit Comment</button>
 
-                </div>
+                    </div>
+                }
                 <div className="edit-delete-post-modal-divs" onClick={() => closeModal2(false)}>
                     Cancel
                 </div>

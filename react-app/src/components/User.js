@@ -75,8 +75,8 @@ const followedYes = followedArray.filter(follower => follower.id === +userId)
           <div className='profile-info-right'>
             <div className='prof-username'>{user.username} {+userId!==realUserId &&<button onClick={(e) => handleFollowClick(e)}>{ followedYes.length?'Unfollow':'Follow'}</button>}</div>
             <div className='prof-stats'>
-              <div> <span className='prof-posts-num'>{+userId ===  session.user.id ? userPosts.length : undefined}</span> {userPosts.length ? 'posts':'post'}</div>
-              <div> <span className='prof-followers-num'></span></div>
+              <div> <span className='prof-posts-num'>{userPosts.length}</span> posts</div>
+              <div> <span className='prof-followers-num'></span> followers</div>
               <div> <span className='prof-following-num'>{followedArray.length}</span> following</div>
             </div>
             <div className='prof-name'>{user.name}</div>

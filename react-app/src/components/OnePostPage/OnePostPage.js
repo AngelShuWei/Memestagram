@@ -6,10 +6,14 @@ import { postDelete } from '../../store/post';
 import { createCommentThunk, commentDelete, updateUserComment } from '../../store/comments';
 import EditDeletePostModal from './EditDeletePostModal';
 import { postImgLikes, deletingImgLike } from '../../store/imglikes';
+import DeleteModal from './DeleteModal/DeleteModal';
+import EditPostForm from './EditPostPage';
 
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
   const [commentModalOn, setCommentModalOn] = useState(false);
+  const [deleteModalOn, setDeleteModalOn] = useState(false)
+  const [updateModalOn, setUpdateModalOn] = useState(false)
 
   const dispatch = useDispatch();
   const { postId } = useParams();
@@ -160,7 +164,9 @@ function OnePostPage() {
 
 
       </div>
-      {modalOn && <EditDeletePostModal postId={postId} closeModal={setModalOn} />}
+      {modalOn && <EditDeletePostModal postId={postId} deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} />}
+      {deleteModalOn && <DeleteModal deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} postId={postId}/>}
+      {updateModalOn && <EditPostForm  updateModalSomeStuff={setUpdateModalOn} closeModal={setModalOn} postId={postId}/>}
     </>
   )
 }

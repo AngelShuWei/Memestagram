@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, useHistory, useParams } from "react-router-dom";
 import { updateUsersPost } from "../../store/post";
 
-function EditPostForm() {
+function EditPostForm({updateModalSomeStuff,closeModal,postId}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const {postId} = useParams()
 
   const post = useSelector(state => state.posts[+postId])
 
@@ -40,7 +39,6 @@ function EditPostForm() {
 
       <div className='modal-containe'>
         <form onSubmit={handleSubmit}>
-          <label>Caption</label>
           <input placeholder='Write a caption...'
             type="text"
             value={caption}

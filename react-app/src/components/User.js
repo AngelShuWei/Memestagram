@@ -5,13 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postDelete, updateUsersPost } from '../store/post';
 import EditPostForm from './OnePostPage/EditPostPage';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
+import { createFollower, deleteFollower } from '../store/followers';
 import { postsImg } from './Styles'
 
 function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId } = useParams();
-  const [clicked, setClicked] = useState('regular')
+  const realUserId = useSelector(state=> state.session.user.id);
+  const followed = useSelector(state=> Object.values(state.followed))
+  const followedArray = useSelector(state => Object.values(state.followed))
 
   const realUserId = useSelector(state=> state.session.user.id);
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
@@ -45,25 +48,32 @@ function User() {
 
 
     if (userLike.length) {
-
-      setClicked('regular')
       dispatch(deletingImgLike(userLike[0].id))
     } else {
-      setClicked('solid')
       dispatch(postImgLikes(realUserId, postId))
     }
 
   }
+const handleFollowClick = (e) => {
+  e.preventDefault()
+  // if ()
+  dispatch(createFollower(userId))
+}
+
+
+const followedYes = followedArray.filter(follower => follower.id === +userId)
+
 
   return (
     <>
       <div className='prof-page-container'>
         <div className='prof-info-container'>
           <div className='prof-info-left'>
-            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user.profile_pic}></img>
+            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic}></img>
           </div>
           <div className='profile-info-right'>
-            <div className='prof-username'>{user.username}</div>
+
+            <div className='prof-username'>{user.username} {+userId!==realUserId &&<button onClick={(e) => handleFollowClick(e)}>{ followedYes.length?'Unfollow':'Follow'}</button>}</div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>
           </div>

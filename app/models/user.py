@@ -21,8 +21,6 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(1050), nullable=False)
     profile_pic = db.Column(db.Text)
     profile_bio = db.Column(db.String(500))
-    # follower_id = db.Column(db.Integer)
-    # followed_id = db.Column(db.Integer)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
 
@@ -48,8 +46,6 @@ class User(db.Model, UserMixin):
             'name': self.name,
             'profile_pic':self.profile_pic,
             'profile_bio':self.profile_bio,
-
-            # add name and profileUrl
         }
 
     @property

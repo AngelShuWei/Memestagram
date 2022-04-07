@@ -13,16 +13,17 @@ function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
   const realUserId = useSelector(state=> state.session.user.id);
-  const followed =useSelector(state=> Object.values(state.followed))
+  const followed = useSelector(state=> Object.values(state.followed))
   const followedArray = useSelector(state => Object.values(state.followed))
 
-
+  const realUserId = useSelector(state=> state.session.user.id);
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
 
     //+ is cheat way for parseInt
     return post.user_id === +userId;
   }))
   const allImgLikes = useSelector(state => Object.values(state.likes))
+  // useSelector(state => state.posts)
 
   useEffect(() => {
     if (!userId) {

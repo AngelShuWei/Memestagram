@@ -103,10 +103,32 @@
 }
 
 .input-form-modal {
-    background: none;
-    border: 0.5px solid #dbdbdb;
+    width: 170px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+}
+
+.imgdivdiv {
+    height: 30px;
+    position: relative;
+    width: 170px;
+    cursor: pointer;
+    background-color: rgba(var(--d69, 0, 149, 246), 1);
+    border: 1px solid #0000;
     border-radius: 4px;
-    outline: none;
+    padding: 3px 0;
+}
+
+.imgdivdiv p {
+    text-align: center;
+    cursor: pointer;
+    color: rgba(var(--eca, 255, 255, 255), 1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+
 }
 
 .someparts {
@@ -115,10 +137,10 @@
 
 .right-side-form-modal {
     width: 20vw;
-    height:100%;
+    height: 100%;
 }
 
-.half-right-side-grid{
+.half-right-side-grid {
     height: 50%;
     width: 100%;
     border-bottom: 0.5px solid #dbdbdb;
@@ -126,28 +148,29 @@
     grid-template-rows: 20% 1fr 15%;
 }
 
-.username-fornm-modal-post{
+.username-fornm-modal-post {
     padding: 5px 16px;
 }
-.input-caption{
-    width:100%;
+
+.input-caption {
+    width: 100%;
     border: none;
-    height:100%;
+    height: 100%;
     padding: 0 15px;
     outline: none;
     resize: none;
 }
 
-.bottom-part-grid{
+.bottom-part-grid {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 13px;
 }
 
-.bottom-part-grid p{
+.bottom-part-grid p {
 
-    color: rgba(var(--i1d,38,38,38),1);
+    color: rgba(var(--i1d, 38, 38, 38), 1);
     font-size: 14px;
     line-height: 16px;
 }

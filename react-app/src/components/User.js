@@ -32,7 +32,7 @@ function User() {
       setUser(user);
     })();
   }, [userId]);
- 
+
 
   if (!user) {
     return null;
@@ -87,7 +87,7 @@ const followedYes = followedArray.filter(follower => follower.id === +userId)
         <div className='prof-posts-line'></div>
         <div className='prof-posts-img'>{postsImg} POSTS</div>
         <div className='prof-posts-container'>
-          {userPosts.map(post =>
+          {userPosts.reverse().map(post =>
             <div className='prof-post-container' key={post?.id}>
               <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px" }} /></NavLink>
             </div>

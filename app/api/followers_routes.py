@@ -37,14 +37,12 @@ def get_followers():
 @follower_routes.route('/followedPost/get')
 def followedPostGet():
     posts = current_user.followed_posts()
-    print(posts, "==========================================")
     return {'followedPostsGet': [post.to_dict() for post in posts]}
 
 
 @follower_routes.route('/followed/<userid>')
 def getUserFollowed(userid):
     user = User.query.get(userid)
-
     return {'userSpecificFollowed': [userFollowed.to_dict() for userFollowed in user.get_followed()]}
 
 @follower_routes.route('/follower/<userid>')

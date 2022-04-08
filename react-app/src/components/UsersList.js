@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
 import './UserList.css'
-
+import { getAllPostFollowed } from '../store/followedPosts';
 function UsersList() {
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
@@ -19,6 +19,7 @@ function UsersList() {
       const response = await fetch('/api/users/');
       const responseData = await response.json();
       setUsers(responseData.users);
+      dispatch(getAllPostFollowed());
     }
     fetchData();
   }, []);
@@ -77,12 +78,12 @@ function UsersList() {
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
       <div className='comments-top-part'>
         <div className='ikilistuff'>
-          <img className='poriflePostUserPic' src={`${followedPost?.user?.profile_pic}`}></img>
-          <p>{followedPost?.user?.username}</p>
+        <NavLink exact to={`/users/${followedPost?.user?.id}`}><img className='poriflePostUserPic' src={`${followedPost?.user?.profile_pic}`}></img></NavLink>
+          <NavLink exact to={`/users/${followedPost?.user?.id}`}><p>{followedPost?.user?.username}</p></NavLink>
         </div>
         <i className={`fa-solid fa-ellipsis thinggylil ${realUserId === followedPost?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
       </div>
-      <img className={'indivImgFeed'} src={followedPost.image_url}></img>
+      <NavLink exact to={`/post/${followedPost?.id}`}><img className={'indivImgFeed'} src={followedPost.image_url}></img></NavLink>
 
       <div className={'heart-likes'}>
 
@@ -98,19 +99,19 @@ function UsersList() {
         <p>{allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length} {allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length <= 1 ? 'like' : 'likes'}</p>
       </div>
       <div className='img-thingy-usernameEdit'>
-        <p><span className='username-inthecomments'>{followedPost.user?.username}</span> <span className='texts-inthecomments'>{followedPost?.caption}</span></p>
+        <p><span className='username-inthecomments'><NavLink exact to={`/users/${followedPost?.user?.id}`}>{followedPost.user?.username}</NavLink></span> <span className='texts-inthecomments'>{followedPost?.caption}</span></p>
       </div>
       {
         comments.filter(some => some?.post_id === followedPost.id).length >= 2 &&
         <div className='viewAllCommentsThingy'>
-          View all {comments.filter(some => some?.post_id === followedPost.id).length} comments
+          <NavLink exact to={`/post/${followedPost?.id}`}>View all {comments.filter(some => some?.post_id === followedPost.id).length} comments</NavLink>
         </div>
       }
       <div className='comment-box'>
 
       {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
       <div className='username-comment-thingy'>
-        {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.username}
+        <NavLink exact to={`/users/${comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.id}`}>{comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.username}</NavLink>
       </div>
       }
 

@@ -83,4 +83,4 @@ class User(db.Model, UserMixin):
         return self.followed.all()
 
     def get_followers(self):
-        return self.followers.all()
+        return self.followers.filter(followers.c.followed_id == self.id).all()

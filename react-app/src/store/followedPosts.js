@@ -23,16 +23,17 @@ const initialState = {};
 
 
 const getAllFollowedPostReducer = (state = initialState, action) => {
-    let newState = {...state}
+    
 
     switch(action.type) {
 
         case GET_FOLLOWER_POST:
+            let postFollow = {};
 
-            action.postsFollowed.forEach(follower => {
-                return newState[follower.id] = follower;
+             action.postsFollowed.forEach(follower => {
+                postFollow[follower.id] = follower;
             });
-            return newState;
+            return {...postFollow};
         default:
             return state
     }

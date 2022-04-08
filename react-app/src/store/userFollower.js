@@ -13,6 +13,7 @@ export const getAllUserFollowers = (userId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getUserFollowers(data.userSpecificFollowers))
+        console.log(data.userSpecificFollowers,'=========================HAHAH');
     }
 
     return response
@@ -25,13 +26,13 @@ const getAllUserFollowerReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case GET_USERFOLLOWERS:
-            let userFollower = {};
+            let userFollower2 = {};
+
             action.userFollower.forEach(userFolloweds => {
-                userFollower[userFolloweds.id] = userFolloweds
+                userFollower2[userFolloweds.id] = userFolloweds
             })
-            return {
-                ...userFollower
-            }
+            return {...userFollower2}
+
         default:
             return state;
     }

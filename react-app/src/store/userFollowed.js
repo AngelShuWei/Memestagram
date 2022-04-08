@@ -13,7 +13,9 @@ export const getAllUserFollowed = (userId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getUserFollowed(data.userSpecificFollowed))
-        // console.log(data.userSpecificFollowed);
+
+        console.log(data.userSpecificFollowed,'=========================Followed');
+
     }
 
     return response
@@ -23,7 +25,7 @@ const initialState = {};
 
 
 const getAllUserFollowedReducer = (state = initialState, action) => {
-    
+
     switch (action.type) {
         case GET_USERFOLLOWED:
             let userFollowed = {};

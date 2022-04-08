@@ -20,8 +20,9 @@ import AboutPage from './components/AboutPage/AboutPage';
 import {getAllFollowed} from './store/followers'
 import { getAllFollowers } from './store/followerstwo';
 import { getAllPostFollowed } from './store/followedPosts';
-
+import { getAllUserFollowers } from './store/userFollower';
 function App() {
+
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -37,8 +38,7 @@ function App() {
       dispatch(getAllTheUsers());
       dispatch(getAllFollowed());
       dispatch(getAllFollowers());
-      dispatch(getAllPostFollowed());
-      
+
     })();
   }, [dispatch]);
 

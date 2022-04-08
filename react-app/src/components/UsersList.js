@@ -106,20 +106,21 @@ function UsersList() {
           View all {comments.filter(some => some?.post_id === followedPost.id).length} comments
         </div>
       }
+      <div className='comment-box'>
 
       {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
       <div className='username-comment-thingy'>
         {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.username}
       </div>
-
       }
+
       {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
-      <div className='username-comment-thingy'>
+      <div className='username-comment-thingy commentText'>
 
          {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.text}
       </div>
       }
-
+      </div>
 
       <div className='add-a-comment-forma'>
         <div className='somestuff'>

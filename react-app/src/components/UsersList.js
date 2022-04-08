@@ -136,23 +136,26 @@ function UsersList() {
 
       <div className='add-a-comment-forma'>
         <div className='somestuff'>
-          <form onSubmit={handleSubmit}>
-            <textarea className='input-caption22' placeholder='Add a comment...'
-              type="textarea"
-              value={text}
-              required
-              onChange={(e) => setText(e.target.value)}
-            />
-            <div className="adding-emoji-comment-container">
-              <img
-                className="adding-emoji-comment-post"
-                src={happyFace}
-                onClick={() => setShowPicker(val => !val)} />
-              {showPicker && <Picker
-                pickerStyle={{ width: '100%' }}
-                onEmojiClick={emojiClick} />}
-            </div>
-          </form>
+          <div className="adding-emoji-comment-container">
+            <img
+              className="adding-emoji-comment-post"
+              src={happyFace}
+              onClick={() => setShowPicker(val => !val)} />
+            {showPicker && <Picker
+              pickerStyle={{ width: '100%' }}
+              onEmojiClick={emojiClick} />}
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <textarea className='input-caption22' placeholder='Add a comment...'
+                type="textarea"
+                value={text}
+                required
+                onChange={(e) => setText(e.target.value)}
+              />
+
+            </form>
+          </div>
         </div>
         <button className='share-submit-form-post' onClick={(e) => handleSubmit(e, followedPost.id)} type='submit' >Post</button>
       </div>
@@ -170,6 +173,7 @@ function UsersList() {
       }
 
     </div >
+
 
   );
 }

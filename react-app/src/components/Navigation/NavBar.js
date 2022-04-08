@@ -167,7 +167,7 @@ const NavBar = () => {
         {/* <ul>
           <li>
             <NavLink to='/' exact={true} activeClassName='active'>
-              Home
+              Home[](../../../../../../../../../external/jkEH93rJAlNe6fErFb2OU0-uRHNS2G1xCddvtJhqKms/?width=678&height=643/https/media.discordapp.net/attachments/900341135136923649/903118218531590144/IMG-20201231-WA0002.jpg)
             </NavLink>
           </li>
           <li>

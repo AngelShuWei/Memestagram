@@ -164,8 +164,9 @@ function UsersList() {
   )
 
   return (
-    <div className='userlistdemo'>
+    <div className='home-container'>
       <div className='home-left-c'>{ followedUserPosts }</div>
+      <div className='home-c'></div>
       <div className='home-right-c'>{ userComponents }</div>
     </div >
   );

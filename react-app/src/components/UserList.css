@@ -1,4 +1,26 @@
 
+.home-container {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.home-c {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 16px;
+}
+
+.home-right-c {
+    position: sticky;
+    margin-top: 60px;
+}
+
 .heart-likes{
     height: 70px;
     padding-left: 20px;

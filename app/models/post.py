@@ -25,5 +25,7 @@ class Post(db.Model, UserMixin):
             'caption': self.caption,
             'image_url':self.image_url,
             'user':self.user.to_dict(),
-            'comments': [comment.to_dict() for comment in self.comments]
+            'comments': [comment.to_dict() for comment in self.comments],
+            'image_likes': [image_like.to_dict() for image_like in self.image_likes],
+            
         }

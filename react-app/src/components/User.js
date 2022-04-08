@@ -10,18 +10,20 @@ import { createFollower, deleteFollower } from '../store/followers';
 import { postsImg } from './Styles'
 import { getAllUserFollowed } from '../store/userFollowed';
 import { getAllUserFollowers } from '../store/userFollower';
+// import { allPostComments } from '../store/comments';
+
 function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
   const realUserId = useSelector(state => state.session.user.id);
+  const allImgLikes = useSelector(state => Object.values(state.likes))
   const followedArray = useSelector(state => Object.values(state.userSpecificFollowed))
   const followersArray = useSelector(state => Object.values(state.userSpecificFollower))
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     return post.user_id === +userId;
   }))
-  const allImgLikes = useSelector(state => Object.values(state.likes))
 
 
   useEffect(() => {
@@ -57,7 +59,6 @@ function User() {
 
 
 
-
   return (
     <>
       <div className='prof-page-container'>
@@ -86,7 +87,17 @@ function User() {
         <div className='prof-posts-container'>
           {userPosts.reverse().map(post =>
             <div className='prof-post-container' key={post?.id}>
-              <NavLink to={`/post/${post.id}`}><img src={post?.image_url} alt="pic" style={{ width: "293px", height: "293px" }} /></NavLink>
+              <NavLink to={`/post/${post.id}`}><img className='prof-post-imgs' src={post?.image_url} alt="pic" /></NavLink>
+              <div className='prof-post-hover'>
+                <div className='prof-likes'>
+                  <i className="fa-solid fa-heart"></i>
+                  <div className='prof-likes-count'>{post.image_likes.length}</div>
+                </div>
+                <div className='prof-comments'>
+                  <i class="fa-solid fa-comment"></i>
+                  <div className='prof-comments-count'>{post.comments.length}</div>
+                </div>
+              </div>
             </div>
           )}
         </div>

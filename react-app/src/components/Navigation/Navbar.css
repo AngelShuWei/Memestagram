@@ -258,3 +258,11 @@
     color: #8e8e8e;
     margin-top: 4px;
 }
+
+.navbar-prof-pic-btn {
+    border-radius: 100px;
+}
+
+.prof-btn {
+    margin-top: 3px;
+}

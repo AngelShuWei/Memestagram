@@ -21,6 +21,8 @@ const NavBar = () => {
 
   const user = useSelector((state) => state.session.user)
 
+  const userImg = useSelector((state) => state.session.user.profile_pic)
+
   const users = useSelector(state => Object.values(state.session));
   users.pop();
 
@@ -109,7 +111,6 @@ const NavBar = () => {
                 value={search}
                 onClick={(e) => setSearch('')}
               />
-              <i className="fa-solid fa-magnifying-glass fa-sm icon-search-glass"></i>
               <div onMouseLeave={(e) => setFilter([])} className={filterData?.length == 0 ? 'search-name-container' : 'search-name-container-clickled'}>
                 {filterData?.slice(0, 10).map((value, key) => {
                   return <NavLink key={key} exact to={`/users/${value.id}`}><div className='dataItem' onClick={(e) => handleClickSearch(value.username)} key={key}>{
@@ -127,6 +128,7 @@ const NavBar = () => {
                 })}
               </div>
             </div>
+              {/* <i className="fa-solid fa-magnifying-glass fa-sm icon-search-glass"></i> */}
 
             <div className='navbar-things'>
               <div className='home-icon' onClick={() => history.push('/')}>{ homeIcon }</div>
@@ -136,7 +138,7 @@ const NavBar = () => {
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
               <button className="prof-btn" onClick={openMenu}>
-                <div className='profile-icon-btn'><i className="fa-solid fa-circle-question" /></div>
+                  {user && userImg ? <img className="navbar-prof-pic-btn"src={userImg} style={{height:'22px'}}/>:  <i className="fa-regular fa-circle-user"></i>}
               </button  >
               {showMenu && (
                 <div className="profile-dropdown">

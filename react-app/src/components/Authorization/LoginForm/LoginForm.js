@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 import './LoginForm.css'
-
+import { getAllPostFollowed } from '../../../store/followedPosts';
 const imgs = ['https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png', 'https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png']
 
 const LoginForm = () => {
@@ -40,6 +40,8 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+    // dispatch(getAllPostFollowed());
+
   };
 
   const demouser = async(e) =>{

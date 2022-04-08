@@ -47,7 +47,7 @@ function OnePostPage() {
     e.preventDefault();
     setModalOn(true);
   }
-  
+
 
 
   let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
@@ -107,8 +107,8 @@ function OnePostPage() {
 
             <div className='comments-top-part'>
               <div className='ikilistuff'>
-                <img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img>
-                <p>{postUser[0]?.username}</p>
+              <NavLink exact to={`/users/${postUser[0]?.id}`}><img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img></NavLink>
+              <NavLink exact to={`/users/${postUser[0]?.id}`}> <p>{postUser[0]?.username}</p></NavLink>
               </div>
               <i onClick={handleModal} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
             </div>
@@ -119,7 +119,7 @@ function OnePostPage() {
 
 
                   <div className='img-thingy-username'>
-                    <img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img>
+                  <NavLink exact to={`/users/${postUser[0]?.id}`}><img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img></NavLink>
                     <p><span className='username-inthecomments'>{post?.username}</span> <span className='texts-inthecomments'>{post?.caption}</span></p>
                   </div>
 
@@ -128,9 +128,9 @@ function OnePostPage() {
                   <div key={comment.id} className='comments-section-real-this-time'>
                     <div className='img-thingy-username'>
 
-                      <img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img>
+                    <NavLink exact to={`/users/${comment?.user_id}`}><img className='poriflePostUserPic2' src={`${users.filter(user => user.id === comment?.user_id)[0]?.profile_pic}`}></img></NavLink>
                       <div className='ptagcaption'>
-                        <p><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span> <span className='texts-inthecomments'>{comment.text}</span></p>
+                        <p><NavLink exact to={`/users/${comment?.user_id}`}><span className='username-inthecomments'>{users.filter(user => user.id === comment?.user_id)[0]?.username}</span></NavLink> <span className='texts-inthecomments'>{comment.text}</span></p>
                       </div>
                     </div>
                     {/* {(post?.user_id === user?.id || comment?.user_id === user?.id) &&

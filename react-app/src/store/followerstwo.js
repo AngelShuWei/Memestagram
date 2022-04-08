@@ -11,7 +11,6 @@ export const getAllFollowers = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getFollower(data.followerUsers))
-        console.log("followerssss", data.followerUsers)
 
     }
 
@@ -25,7 +24,6 @@ const followersReducer = (state = initialState, action) => {
     let newState = { ...state };
     switch (action.type) {
         case GET_FOLLOWER:
-            console.log(action.followers)
             action.followers.forEach(follower => {
                 return newState[follower.id] = follower;
             });

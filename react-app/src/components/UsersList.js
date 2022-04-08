@@ -52,7 +52,7 @@ function UsersList() {
   // let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
 
 
-  // let createLike;
+  // let createLike.;
 
   // if (userLike.length === 0) {
   //   createLike = (

@@ -4,10 +4,10 @@ This is our clone of Instagram with a focus on all memes, good and bad.
 
 # Technology Used
 <p float="left">
-<img src="frontend/public/img/python.png" width="100">
-<img src="frontend/public/img/javascript.png" width="100">
-<img src="frontend/public/img/react.png" width="100">
-<img src="frontend/public/img/redux.png" width="100">
+<img src="react-app/public/img/python.png" width="100">
+<img src="react-app/public/img/javascript.png" width="100">
+<img src="react-app/public/img/react.png" width="100">
+<img src="react-app/public/img/redux.png" width="100">
 </p>
 
 ## Getting started finding the memes

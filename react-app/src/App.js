@@ -30,7 +30,6 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      setLoaded(true);
 
       dispatch(allUserPosts());
       dispatch(allPostComments());
@@ -38,6 +37,8 @@ function App() {
       dispatch(getAllTheUsers());
       dispatch(getAllFollowed());
       dispatch(getAllFollowers());
+      
+      setLoaded(true);
 
     })();
   }, [dispatch]);

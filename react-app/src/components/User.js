@@ -16,7 +16,7 @@ function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId } = useParams();
-
+  const [hoveredOver, setHoveredOver] = useState(false)
   const realUserId = useSelector(state => state.session.user.id);
   const allImgLikes = useSelector(state => Object.values(state.likes))
   const followedArray = useSelector(state => Object.values(state.userSpecificFollowed))
@@ -38,14 +38,14 @@ function User() {
       const user = await response.json();
       setUser(user);
     })();
-  }, [dispatch,userId]);
+  }, [dispatch, userId]);
 
 
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(getAllUserFollowers(userId));
     dispatch(getAllUserFollowed(userId));
-  },[dispatch, followed])
+  }, [dispatch, followed])
 
 
 
@@ -93,16 +93,19 @@ function User() {
           {userPosts.reverse().map(post =>
             <div className='prof-post-container' key={post?.id}>
               <NavLink to={`/post/${post.id}`}><img className='prof-post-imgs' src={post?.image_url} alt="pic" /></NavLink>
-              <div className='prof-post-hover'>
-                <div className='prof-likes'>
-                  <i className="fa-solid fa-heart"></i>
-                  <div className='prof-likes-count'>{post.image_likes.length}</div>
+              <NavLink to={`/post/${post.id}`}><div className='overlay'>
+                <div className='prof-post-hover'>
+                  <div className='prof-likes'>
+                    <i className="fa-solid fa-heart laka"></i>
+                    <div className='prof-likes-count laka'>{post.image_likes.length}</div>
+                  </div>
+                  <div className='prof-comments'>
+                    <i class="fa-solid fa-comment laka"></i>
+                    <div className='prof-comments-count laka'>{post.comments.length}</div>
+                  </div>
                 </div>
-                <div className='prof-comments'>
-                  <i class="fa-solid fa-comment"></i>
-                  <div className='prof-comments-count'>{post.comments.length}</div>
-                </div>
-              </div>
+              </div></NavLink>
+
             </div>
           )}
         </div>

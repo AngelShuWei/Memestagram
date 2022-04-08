@@ -142,7 +142,10 @@ function UsersList() {
               src={happyFace}
               onClick={() => setShowPicker(val => !val)} />
             {showPicker && <Picker
-              pickerStyle={{ width: '100%' }}
+              pickerStyle={{
+                position: "absolute",
+                width: '100%'
+               }}
               onEmojiClick={emojiClick} />}
           </div>
           <div>

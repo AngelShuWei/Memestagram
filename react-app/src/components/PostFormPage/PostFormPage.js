@@ -13,15 +13,13 @@ function PostFormPage({ closeModal }) {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
-
   const [showPicker, setShowPicker] = useState(false);
-
 
   const user = useSelector(state => state.session.user)
   const userId = useSelector(state => state.session.user.id)
 
 
-  const emojiClick = (event, emojiObject) => {
+  const emojiClick = (e, emojiObject) => {
     setCaption(prevInput => prevInput + emojiObject.emoji);
     setShowPicker(false);
   };
@@ -114,6 +112,8 @@ function PostFormPage({ closeModal }) {
                 />
 
               </div>
+
+              <div className="adding-emoji-container">
                 <img
                   className="adding-emoji-post"
                   src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
@@ -121,6 +121,12 @@ function PostFormPage({ closeModal }) {
                 {showPicker && <Picker
                   pickerStyle={{ width: '100%' }}
                   onEmojiClick={emojiClick} />}
+                <div className="post-form-p-wordcount">
+                  <p>{caption.length}/500</p>
+
+                </div>
+
+              </div>
               {/* <div className='bottom-part-grid'>
                 <svg aria-label="Emoji" className="_8-yf5 " style={{ 'cursor': 'pointer' }} color="#8e8e8e" fill="#8e8e8e" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
                 <div>

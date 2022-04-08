@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, useHistory } from "react-router-dom";
 import { postCreate } from '../../store/post'
 import Picker from 'emoji-picker-react';
+import happyFace from '../IconPics/ig-happy-face.png';
 
 
 function PostFormPage({ closeModal }) {
@@ -116,7 +117,7 @@ function PostFormPage({ closeModal }) {
               <div className="adding-emoji-container">
                 <img
                   className="adding-emoji-post"
-                  src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+                  src={happyFace}
                   onClick={() => setShowPicker(val => !val)} />
                 {showPicker && <Picker
                   pickerStyle={{ width: '100%' }}

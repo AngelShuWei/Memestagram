@@ -12,6 +12,7 @@ import EditDeleteCommentModal from './EditDeleteCommentModal/EditDeleteCommentMo
 import DeleteCommentModal from './DeleteCommentUpdateCommentModals/DeleteComment';
 import UpdateModalComment from './DeleteCommentUpdateCommentModals/UpdateComment';
 import Picker from 'emoji-picker-react';
+import happyFace from '../IconPics/ig-happy-face.png';
 
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
@@ -169,7 +170,7 @@ function OnePostPage() {
                     <div className="adding-emoji-comment-container">
                       <img
                         className="adding-emoji-comment-post"
-                        src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+                        src={happyFace}
                         onClick={() => setShowPicker(val => !val)} />
                       {showPicker && <Picker
                         pickerStyle={{ width: '100%' }}
@@ -185,8 +186,6 @@ function OnePostPage() {
           </div>
 
         </div>
-
-
       </div>
       {modalOn && <EditDeletePostModal postId={postId} updateModalSomeStuff={setUpdateModalOn} deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} />}
       {deleteModalOn && <DeleteModal deleteModalSomeStuff={setDeleteModalOn} closeModal={setModalOn} postId={postId} />}

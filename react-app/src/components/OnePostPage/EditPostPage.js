@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink, useHistory, useParams } from "react-router-dom";
 import { updateUsersPost } from "../../store/post";
 import Picker from 'emoji-picker-react';
+import happyFace from '../IconPics/ig-happy-face.png';
 
 const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
           <div className="adding-emoji-edit-container">
             <img
               className="adding-emoji-edit-post"
-              src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+              src={happyFace}
               onClick={() => setShowPicker(val => !val)} />
             {showPicker && <Picker
               pickerStyle={{ width: '100%' }}

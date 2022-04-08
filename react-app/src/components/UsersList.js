@@ -40,9 +40,9 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
+      <div key={user.id}>
         <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </li>
+      </div>
     );
   });
 
@@ -85,7 +85,7 @@ function UsersList() {
   }
 
 
-  const something = followedPosts?.map(followedPost => (
+  const followedUserPosts = followedPosts?.map(followedPost => (
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
       <div className='comments-top-part'>
         <div className='ikilistuff'>
@@ -97,17 +97,13 @@ function UsersList() {
       <NavLink exact to={`/post/${followedPost?.id}`}><img className={'indivImgFeed'} src={followedPost.image_url}></img></NavLink>
 
       <div className={'heart-likes'}>
-
-
-
         {allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length === 0 ? (
           <i onClick={(e) => handleClick(e, followedPost.id)} className={`fa-regular fa-heart littleHearts`}></i>
         ) : (
-
           <i onClick={(e) => handleClick(e, followedPost.id)} className={`fa-solid fa-heart redthingy littleHearts`}></i>
         )
         }
-        <p>{allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length} {allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length <= 1 ? 'like' : 'likes'}</p>
+        <div className='home-post-likes'>{allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length} {allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length <= 1 ? 'like' : 'likes'}</div>
       </div>
       <div className='img-thingy-usernameEdit'>
         <p><span className='username-inthecomments'><NavLink exact to={`/users/${followedPost?.user?.id}`}>{followedPost.user?.username}</NavLink></span> <span className='texts-inthecomments'>{followedPost?.caption}</span></p>
@@ -169,15 +165,9 @@ function UsersList() {
 
   return (
     <div className='userlistdemo'>
-      <ul>{userComponents}</ul>
-
-      {
-        something
-      }
-
+      <div className='home-left-c'>{ followedUserPosts }</div>
+      <div className='home-right-c'>{ userComponents }</div>
     </div >
-
-
   );
 }
 

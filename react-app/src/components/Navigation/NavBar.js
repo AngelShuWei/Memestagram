@@ -133,10 +133,10 @@ const NavBar = () => {
             <div className='navbar-things'>
               <div className='home-icon' onClick={() => history.push('/')}>{ homeIcon }</div>
               {/* <i className="fa-solid fa-house" onClick={() => history.push('/')}></i> */}
-              <i className="fa-regular fa-paper-plane"></i>
+              {/* <i className="fa-regular fa-paper-plane"></i> */}
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
-              <i className="fa-regular fa-heart"></i>
+              {/* <i className="fa-regular fa-heart"></i> */}
               <button className="prof-btn" onClick={openMenu}>
                   {user && userImg ? <img className="navbar-prof-pic-btn"src={userImg} style={{height:'22px'}}/>:  <i className="fa-regular fa-circle-user"></i>}
               </button  >

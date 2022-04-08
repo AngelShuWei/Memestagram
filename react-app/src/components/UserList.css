@@ -6,7 +6,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
 
+.home-post-likes {
+    font-size: 14px;
+    font-weight: 500;
 }
 
 

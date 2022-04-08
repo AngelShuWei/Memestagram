@@ -167,3 +167,87 @@
     margin: 5px;
     margin-left: 12px;
 }
+
+.search-name-container{
+    height:130px;
+    width:100%;
+    background-color: white;
+    position: absolute;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:20px;
+    opacity: 0;
+    transition: all .4s;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    overflow-y: auto;
+    border: 1px solid rgba(0,0,0,.1);
+    z-index: -1;
+    transform: translateY(-40px);
+
+}
+
+.search-name-container-clickled{
+    height: auto ;
+    border: 1px solid rgba(0,0,0,.1);
+
+    box-sizing: border-box;
+    width:100%;
+    background-color: white;
+    position: absolute;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius:6px;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all .5s;
+    z-index: -1;
+
+}
+
+.search-name-container-clickled::-webkit-scrollbar{
+    display: none;
+}
+
+.dataItem{
+    color: black;
+    font-size: 15px;
+    height: 60px;
+    width: 100%;
+    font-size: 14px;
+    color: #262626;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+}
+
+.dataItem:hover{
+    background-color: whitesmoke;
+
+}
+
+.profilepicIntheSearchBar{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+}
+
+.thingythingy{
+    display: flex;
+    gap:9px;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.asdadsa{
+    color: #262626;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.biothingy{
+    font-size: 14px;
+    color: #8e8e8e;
+    margin-top: 4px;
+}

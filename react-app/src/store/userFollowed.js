@@ -14,7 +14,6 @@ export const getAllUserFollowed = (userId) => async (dispatch) => {
         const data = await response.json()
         dispatch(getUserFollowed(data.userSpecificFollowed))
 
-        console.log(data.userSpecificFollowed,'=========================Followed');
 
     }
 

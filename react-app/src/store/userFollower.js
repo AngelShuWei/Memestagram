@@ -13,7 +13,6 @@ export const getAllUserFollowers = (userId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getUserFollowers(data.userSpecificFollowers))
-        console.log(data.userSpecificFollowers,'=========================HAHAH');
     }
 
     return response

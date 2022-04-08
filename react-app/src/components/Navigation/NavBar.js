@@ -12,9 +12,16 @@ const NavBar = () => {
   const history = useHistory();
   const userId = useSelector((state) => state.session.user.id)
   const [showMenu, setShowMenu] = useState(false)
+  const [filterData, setFilter] = useState([]);
+  const [search, setSearch] = useState('');
+
 
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.session.user)
+
+  const users = useSelector(state => Object.values(state.session));
+  users.pop();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -52,6 +59,33 @@ const NavBar = () => {
     setModalOn((open) => !open);
   }
 
+  const handleFilter = (e) => {
+    const search = e.target.value
+
+
+    const newFilter = users.filter((val) => {
+      return val?.username.toLowerCase().includes(search?.toLowerCase());
+    })
+
+
+    setSearch(search)
+
+    if (search === '') {
+      setFilter([]);
+    } else {
+      setFilter(newFilter);
+    }
+
+  }
+
+  const handleClickSearch = (e) => {
+
+    setSearch(e);
+
+    setFilter([]);
+  }
+
+
   return (
     <div>
       <nav className='navbar'>
@@ -66,13 +100,31 @@ const NavBar = () => {
               </NavLink>
             </div>
 
-            <div className='navbar-search'>
+            <div className='navbar-search' >
               <input className='search-navbar'
                 type='search'
                 placeholder='Search'
+                onChange={handleFilter}
+                value={search}
+                onClick={(e) => setSearch('')}
               />
               <i className="fa-solid fa-magnifying-glass fa-sm icon-search-glass"></i>
+              <div onMouseLeave={(e) => setFilter([])} className={filterData?.length == 0 ? 'search-name-container' : 'search-name-container-clickled'}>
+                {filterData?.slice(0, 10).map((value, key) => {
+                  return <NavLink key={key} exact to={`/users/${value.id}`}><div className='dataItem' onClick={(e) => handleClickSearch(value.username)} key={key}>{
+                    <div className='thingythingy'>
+                      <img className='profilepicIntheSearchBar' src={value.profile_pic} ></img>
+                      <div>
+                        <p className='asdadsa'>{value.username}</p>
+                        <p className='biothingy'>{value.profile_bio}</p>
+                      </div>
+                    </div>}
 
+                  </div>
+
+                  </NavLink>
+                })}
+              </div>
             </div>
 
             <div className='navbar-things'>
@@ -82,27 +134,27 @@ const NavBar = () => {
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               <i className="fa-regular fa-heart"></i>
               <button className="prof-btn" onClick={openMenu}>
-              <div className='profile-icon-btn'><i className="fa-solid fa-circle-question"/></div>
+                <div className='profile-icon-btn'><i className="fa-solid fa-circle-question" /></div>
               </button  >
-                {showMenu && (
-                  <div className="profile-dropdown">
-                    <div className="prof-btn-username">{user.username}</div>
-                    {/* <div className='profile-dropdown-contents'> */}
-                      <div className="profile-btn-container-with-icon" onClick={() => history.push(`/users/${userId}`)}>
-                        <i className="fa-regular fa-circle-user"></i>
-                        Profile
-                      </div>
+              {showMenu && (
+                <div className="profile-dropdown">
+                  <div className="prof-btn-username">{user.username}</div>
+                  {/* <div className='profile-dropdown-contents'> */}
+                  <div className="profile-btn-container-with-icon" onClick={() => history.push(`/users/${userId}`)}>
+                    <i className="fa-regular fa-circle-user"></i>
+                    Profile
+                  </div>
 
-                      <div className="about-site-creators-container" onClick={() => history.push(`/about`)}>
-                        <i className="fa-solid fa-users"></i>
-                        About the Site Creators!
-                      </div>
+                  <div className="about-site-creators-container" onClick={() => history.push(`/about`)}>
+                    <i className="fa-solid fa-users"></i>
+                    About the Site Creators!
+                  </div>
 
-                      <div className="logout-btn-container" onClick={logoutUser}>
-                      Log Out
-                      </div>
-                    </div>
-                  // </div>
+                  <div className="logout-btn-container" onClick={logoutUser}>
+                    Log Out
+                  </div>
+                </div>
+                // </div>
               )}
               {/* <i className="fa-solid fa-circle-question"></i> */}
             </div>
@@ -125,7 +177,7 @@ const NavBar = () => {
       </nav>
 
 
-        {modalOn && <PostFormPage closeModal={setModalOn} />}
+      {modalOn && <PostFormPage closeModal={setModalOn} />}
     </div>
   );
 }

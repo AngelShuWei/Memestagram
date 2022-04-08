@@ -44,6 +44,7 @@ function User() {
     return null;
   }
 
+  const followedYes = followedArray.filter(follower => follower.id === +userId)
 
   const handleFollowClick = (e) => {
     e.preventDefault()
@@ -55,7 +56,6 @@ function User() {
   }
 
 
-  const followedYes = followedArray.filter(follower => follower.id === +userId)
 
 
   return (

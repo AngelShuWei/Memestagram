@@ -27,6 +27,11 @@ def seed_posts():
     ten1= Post(user_id=4,caption='this is my caption',image_url='https://media.discordapp.net/attachments/959639042385936404/961038294412562442/IMG_0448.jpg?width=636&height=643',created_at=date.today(),updated_at=date.today())
     ten2= Post(user_id=3,caption='this is my caption',image_url='https://media.discordapp.net/attachments/959639042385936404/961038482325778432/IMG_0450.webp?width=731&height=644',created_at=date.today(),updated_at=date.today())
 
+    phil1= Post(user_id=3,caption='look at my meme',image_url='https://cdn.discordapp.com/attachments/959639042385936404/961288640321957978/f57a4a1b-dc6a-457a-8a03-937047f2f218.png',created_at=date.today(),updated_at=date.today())
+    phil2= Post(user_id=3,caption='this is my caption',image_url='https://news.artnet.com/app/news-upload/2019/01/conspiracy-theory-meme-salvator-mundi.jpg',created_at=date.today(),updated_at=date.today())
+    phil3= Post(user_id=3,caption='this is my caption',image_url='https://cdn.discordapp.com/attachments/959639042385936404/961040913252094012/tumblr_b1988db174c8b32b4b9c802b3cb9605a_96ef63cc_1280.jpg',created_at=date.today(),updated_at=date.today())
+    phil4= Post(user_id=3,caption='this is my caption',image_url='https://cdn.discordapp.com/attachments/959639042385936404/961041008517324830/tumblr_1e2c055fc4f66ddf68a1509307bdd5df_d3619f73_1280.jpg',created_at=date.today(),updated_at=date.today())
+    phil5= Post(user_id=3,caption='this is my caption',image_url='https://cdn.discordapp.com/attachments/959639042385936404/961037114202546286/IMG_0444.jpg',created_at=date.today(),updated_at=date.today())
 
     db.session.add(fst)
     db.session.add(sec)
@@ -50,6 +55,12 @@ def seed_posts():
     db.session.add(eig1)
     db.session.add(nin1)
     db.session.add(ten1)
+
+    db.session.add(phil1)
+    db.session.add(phil2)
+    db.session.add(phil3)
+    db.session.add(phil4)
+    db.session.add(phil5)
 
     db.session.commit()
 

@@ -166,7 +166,7 @@ function UsersList() {
       <ul>{userComponents}</ul>
 
       {
-        something
+        something.reverse()
       }
 
     </div >

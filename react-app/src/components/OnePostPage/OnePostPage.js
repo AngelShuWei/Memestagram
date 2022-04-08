@@ -131,7 +131,7 @@ function OnePostPage() {
 
                   <div className='img-thingy-username'>
                   <NavLink exact to={`/users/${postUser[0]?.id}`}><img className='poriflePostUserPic2' src={postUser[0]?.profile_pic}></img></NavLink>
-                    <p><span className='username-inthecomments'>{post?.username}</span> <span className='texts-inthecomments'>{post?.caption}</span></p>
+                    <p><span className='username-inthecomments'>{post?.username}</span> <span className='texts-inthecomments captionText'>{post?.caption}</span></p>
                   </div>
 
                 </div>

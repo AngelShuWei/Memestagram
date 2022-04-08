@@ -6,15 +6,15 @@ from datetime import date
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='demo', name='demo',profile_bio='heyyyyy', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='demo@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='demo', name='Mr. Demo',profile_bio='I am just a demo, leave me alone', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='demo@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     yavuz = User(
-        username='yavuz', name='yavuza', profile_bio='heyyyyy', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='yavuz@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='sifuhotman', name='yavuz', profile_bio='my fav champ is rakan', profile_pic='https://upload.wikimedia.org/wikipedia/en/3/3e/Prince_Zuko.jpg',email='yavuz@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     angel = User(
-        username='angel', name='angelw', profile_bio='heyyyyy', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='angel', name='angelw', profile_bio='hi my name angle', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     leah = User(
-        username='leah', name='leahk', profile_bio='heyyyyy', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='leah', name='leahk', profile_bio='im leah and i luv memes', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     philip = User(
-        username='philip', name='philr', profile_bio='heyyyyy', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='philip', name='phil', profile_bio='Its me phil. I am a huge influencer, millions look to me for their daily choices', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
 
 
 

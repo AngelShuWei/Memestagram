@@ -104,9 +104,9 @@ const userPostsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_POST:
             action.posts.forEach(post => {
-                return newState[post.id] = post;
+                newState[post.id] = post;
             });
-            return newState;
+            return {...newState};
         case CREATE_POST:
             newState[action.post.id] = action.post;
             return newState;

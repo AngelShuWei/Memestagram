@@ -13,7 +13,8 @@ import DeleteCommentModal from './DeleteCommentUpdateCommentModals/DeleteComment
 import UpdateModalComment from './DeleteCommentUpdateCommentModals/UpdateComment';
 import Picker from 'emoji-picker-react';
 import happyFace from '../IconPics/ig-happy-face.png';
-
+import { allUserPosts } from '../../store/post';
+import { getAllTheUsers } from '../../store/session';
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
   const [modalOn2, setModalOn2] = useState([false,0]);
@@ -56,6 +57,10 @@ function OnePostPage() {
     e.preventDefault();
     setModalOn(true);
   }
+
+  useEffect(()=>{
+    dispatch(getAllTheUsers());
+  },[user])
 
 
 

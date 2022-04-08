@@ -24,7 +24,7 @@ function User() {
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     return post.user_id === +userId;
   }))
-
+  const followed = useSelector(state => Object.values(state.followed));
 
   useEffect(() => {
     if (!userId) {
@@ -40,6 +40,12 @@ function User() {
   }, [dispatch,userId]);
 
 
+  // useEffect(()=>{
+  //   dispatch(getAllUserFollowers(userId));
+  //   dispatch(getAllUserFollowed(userId));
+  // },[dispatch, followed,userId])
+
+
 
 
   if (!user) {
@@ -51,12 +57,8 @@ function User() {
   const handleFollowClick = (e) => {
     e.preventDefault()
 
-
-    dispatch(getAllUserFollowers(userId));
-    dispatch(getAllUserFollowed(userId))
     dispatch(createFollower(userId));
   }
-
 
 
   return (

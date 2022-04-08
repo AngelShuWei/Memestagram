@@ -226,3 +226,9 @@
     padding-top: 10px;
     padding-right: 6px;
 }
+
+.captionText {
+    color: #262626;
+    font-weight: 425;
+    word-break: normal;
+}

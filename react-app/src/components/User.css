@@ -24,6 +24,7 @@
   grid-gap: 100px;
   gap: 100px;
   min-height: 25vh;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .profile-info-right {

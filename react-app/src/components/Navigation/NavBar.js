@@ -1,9 +1,10 @@
+import './Navbar.css'
+import { homeIcon } from '../Styles';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../Authorization/LogoutButton';
 import PostFormPage from '../PostFormPage/PostFormPage';
-import './Navbar.css'
 import { logout } from '../../store/session';
 
 
@@ -128,7 +129,8 @@ const NavBar = () => {
             </div>
 
             <div className='navbar-things'>
-              <i className="fa-solid fa-house" onClick={() => history.push('/')}></i>
+              <div className='home-icon' onClick={() => history.push('/')}>{ homeIcon }</div>
+              {/* <i className="fa-solid fa-house" onClick={() => history.push('/')}></i> */}
               <i className="fa-regular fa-paper-plane"></i>
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>

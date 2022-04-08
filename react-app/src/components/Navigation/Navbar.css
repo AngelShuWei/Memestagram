@@ -73,12 +73,19 @@
     outline: none;
 }
 
-.navbar-things{
+.navbar-things {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-left: 55px;
 }
-.navbar-things i{
+
+.home-icon {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-things i, .home-icon {
     font-size:22px;
     cursor: pointer;
 }

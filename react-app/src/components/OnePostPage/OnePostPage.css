@@ -156,10 +156,10 @@
 }
 
 .somestuff {
-    display: flex;
+    /* display: flex;
     align-items: center;
     margin-left: 15px;
-    line-height: 30px;
+    line-height: 30px; */
 }
 
 .input-caption2::-webkit-scrollbar {
@@ -211,4 +211,18 @@
 .notclicklabel{
     opacity: .4;
     pointer-events: none;
+}
+
+.adding-emoji-comment-post {
+    cursor: pointer;
+}
+
+.one-pg-form-comment {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.adding-emoji-comment-post {
+    padding-top: 10px;
+    padding-right: 6px;
 }

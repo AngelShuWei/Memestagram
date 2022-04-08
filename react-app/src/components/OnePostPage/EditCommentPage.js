@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateUserComment } from "../../store/comments";
 
-
 function EditCommentPage(){
     const dispatch = useDispatch();
     const history = useHistory();
@@ -12,7 +11,6 @@ function EditCommentPage(){
   const comment = useSelector(state => state.comments[+commentId])
 
   const [text, setText] = useState(comment?.text);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

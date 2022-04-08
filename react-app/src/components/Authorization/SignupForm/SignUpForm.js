@@ -5,8 +5,6 @@ import { signUp } from '../../../store/session';
 import { login } from '../../../store/session';
 import './SignupForm.css'
 
-
-
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
@@ -15,14 +13,27 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [image, setImage] = useState(null);
+  const [imageLoading, setImageLoading] = useState(false);
 
   const onSignUp = async (e) => {
+
     e.preventDefault();
+    const formData = new FormData()
+    formData.append('image', image)
+    formData.append('username', username)
+    formData.append('email', email)
+    formData.append('password', password)
+    formData.append('confirm_password', confirmPassword)
+    console.log(formData)
+    setImageLoading(true)
     // if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password, confirmPassword));
+      const data = await dispatch(signUp(formData));
       if (data) {
-        setErrors(data)
+        // setErrors(data)
       // }
+    } else {
+      setImageLoading(false)
     }
   };
 
@@ -48,6 +59,11 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -58,8 +74,6 @@ const SignUpForm = () => {
       <div className='form-div-signup-promise'>
         <div className='daddy-form-signup'>
           <div className='middle-form-signup'>
-
-
             <div>
               <h1 className='memestagram'>
                 Memestagram
@@ -120,19 +134,25 @@ const SignUpForm = () => {
 
                     />
                   </div>
-                  <div className='inputs'>
 
+                  <div className='imgdivdiv'>
+                    <input className='input-form-modal' placeholder='Photo pls...'
+                      type="file"
+                      accept="image/*"
+                      onChange={updateImage}
+                    />
+                    <p>Select From Computer</p>
+                  </div>
+
+                  <div className='inputs'>
                     <button className='login-button' type="submit">Sign Up</button>
                   </div>
                 </div>
-
-
               </form>
-              <ul>
-                {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-              </ul>
+                {/* <ul>
+                  {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+                </ul> */}
             </div>
-
           </div>
 
           <div className='small-container-login'>

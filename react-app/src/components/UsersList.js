@@ -156,14 +156,12 @@ function UsersList() {
                 required
                 onChange={(e) => setText(e.target.value)}
               />
-
             </form>
           </div>
         </div>
         <button className='share-submit-form-post' onClick={(e) => handleSubmit(e, followedPost.id)} type='submit' >Post</button>
       </div>
     </div>
-
   )
   )
 

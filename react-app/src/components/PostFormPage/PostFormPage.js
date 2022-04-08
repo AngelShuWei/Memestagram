@@ -124,7 +124,7 @@ function PostFormPage({ closeModal }) {
                 <div className="post-form-p-wordcount">
                   <p>{caption.length}/500</p>
 
-                </div>
+              </div>
 
               </div>
               {/* <div className='bottom-part-grid'>

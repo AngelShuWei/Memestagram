@@ -16,7 +16,7 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
   const [imageUrl, setImageUrl] = useState(post?.image_url);
   const [showPicker, setShowPicker] = useState(false);
 
-  const emojiClick = (event, emojiObject) => {
+  const emojiClick = (e, emojiObject) => {
     setCaption(prevInput => prevInput + emojiObject.emoji);
     setShowPicker(false);
   };

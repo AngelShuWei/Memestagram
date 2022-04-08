@@ -212,3 +212,17 @@
     opacity: .4;
     pointer-events: none;
 }
+
+.adding-emoji-comment-post {
+    cursor: pointer;
+}
+
+.one-pg-form-comment {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.adding-emoji-comment-post {
+    padding-top: 10px;
+    padding-right: 6px;
+}

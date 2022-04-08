@@ -11,6 +11,7 @@ import EditPostForm from './EditPostPage';
 import EditDeleteCommentModal from './EditDeleteCommentModal/EditDeleteCommentModal';
 import DeleteCommentModal from './DeleteCommentUpdateCommentModals/DeleteComment';
 import UpdateModalComment from './DeleteCommentUpdateCommentModals/UpdateComment';
+import Picker from 'emoji-picker-react';
 
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
@@ -19,6 +20,7 @@ function OnePostPage() {
   const [updateModalOn, setUpdateModalOn] = useState(false)
   const [updateCommentModalOn, setUpdateCommentModalOn] = useState([false,0])
   const [deleteCommentModalOn, setDeleteCommentModalOn] = useState([false,0])
+  const [showPicker, setShowPicker] = useState(false);
 
   const dispatch = useDispatch();
   const { postId } = useParams();
@@ -26,6 +28,12 @@ function OnePostPage() {
   const [text, setText] = useState("")
 
   const realUserId = useSelector(state => state.session.user.id);
+
+  const emojiClick = (e, emojiObject) => {
+    setText(prevInput => prevInput + emojiObject.emoji);
+    setShowPicker(false);
+  };
+
 
 
   const handleSubmit = async (e) => {
@@ -47,7 +55,7 @@ function OnePostPage() {
     e.preventDefault();
     setModalOn(true);
   }
-  
+
 
 
   let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
@@ -90,10 +98,7 @@ function OnePostPage() {
   const postUser = users?.filter(asas => asas.id === post?.user_id);
   const likesNumber = allImgLikes.filter(like => like?.post_id === post?.id).length;
 
-
-
   const handleModalOn2 = (commentIdd) => {
-
 
     setModalOn2([true,commentIdd]);
   }
@@ -153,16 +158,23 @@ function OnePostPage() {
               </div>
               <div className='add-a-comment-form'>
                 <div className='somestuff'>
-
-                  <svg aria-label="Emoji" className="_8-yf5 " style={{ 'cursor': 'pointer' }} color="#8e8e8e" fill="#8e8e8e" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
-
-                  <form onSubmit={handleSubmit}>
+                  {/* <svg aria-label="Emoji" className="_8-yf5 " style={{ 'cursor': 'pointer' }} color="#8e8e8e" fill="#8e8e8e" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg> */}
+                  <form className="one-pg-form-comment"onSubmit={handleSubmit}>
                     <textarea className='input-caption2' placeholder='Add a comment...'
                       type="textarea"
                       value={text}
                       required
                       onChange={(e) => setText(e.target.value)}
                     />
+                    <div className="adding-emoji-comment-container">
+                      <img
+                        className="adding-emoji-comment-post"
+                        src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+                        onClick={() => setShowPicker(val => !val)} />
+                      {showPicker && <Picker
+                        pickerStyle={{ width: '100%' }}
+                        onEmojiClick={emojiClick} />}
+                    </div>
 
                   </form>
                 </div>

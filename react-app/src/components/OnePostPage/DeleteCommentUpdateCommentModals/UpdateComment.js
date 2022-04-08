@@ -56,28 +56,34 @@ const UpdateModalComment = ({closeModal2, commentId,updateModalSomeStuff}) => {
 
       <div ref={menuRef} className='modal-container-edit-delete-post-modal'>
         <div className="edit-modal-input-caption">
+          <div className="text-area-div">
 
-          <textarea className='input-caption-update' placeholder='Write a caption...'
-            type="textarea"
-            value={text}
-            required
-            onChange={updateText}
-          />
+            <textarea className='input-caption-update' placeholder='Write a caption...'
+              type="textarea"
+              value={text}
+              required
+              onChange={updateText}
+            />
+            <div>
+              <img
+                className="adding-emoji-post"
+                src={happyFace}
+                onClick={() => setShowPicker(val => !val)} />
+                {showPicker && <Picker
+                  pickerStyle={{ width: '100%' }}
+                  onEmojiClick={emojiClick} />}
+                <p className="some-caption">{text.length}/500</p>
+            </div>
 
-          <img
-            className="adding-emoji-post"
-            src={happyFace}
-            onClick={() => setShowPicker(val => !val)} />
-            {showPicker && <Picker
-              pickerStyle={{ width: '100%' }}
-              onEmojiClick={emojiClick} />}
-
-          <p className="some-caption">{text.length}/500</p>
+          </div>
 
         </div>
-        <div className="edit-modal-button" onClick={handleSubmit}>
-          <button className="update-button-blue">Edit Comment</button>
-        </div>
+          <div className="emoji-edit-btn-container">
+            <div className="edit-modal-button" onClick={handleSubmit}>
+              <button className="update-button-blue">Edit Comment</button>
+            </div>
+
+          </div>
         <div className="edit-delete-post-modal-divs" onClick={() => updateModalSomeStuff(false)}>
           Cancel
         </div>

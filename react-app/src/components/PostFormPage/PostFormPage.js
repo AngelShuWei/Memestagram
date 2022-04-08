@@ -111,7 +111,6 @@ function PostFormPage({ closeModal }) {
                   required
                   onChange={updateCaption}
                 />
-
               </div>
 
               <div className="adding-emoji-container">

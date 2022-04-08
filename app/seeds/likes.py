@@ -17,7 +17,7 @@ def seed_likes():
     nin= ImageLike(user_id=2,post_id=9,created_at=date.today(),updated_at=date.today())
     ten= ImageLike(user_id=2,post_id=11,created_at=date.today(),updated_at=date.today())
     elv= ImageLike(user_id=3,post_id=7,created_at=date.today(),updated_at=date.today())
-    twlv= ImageLike(user_id=,post_id=8,created_at=date.today(),updated_at=date.today())
+    twlv= ImageLike(user_id=5,post_id=8,created_at=date.today(),updated_at=date.today())
     thrt= ImageLike(user_id=2,post_id=9,created_at=date.today(),updated_at=date.today())
     frt= ImageLike(user_id=2,post_id=11,created_at=date.today(),updated_at=date.today())
 

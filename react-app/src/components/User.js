@@ -10,6 +10,7 @@ import { createFollower, deleteFollower } from '../store/followers';
 import { postsImg } from './Styles'
 import { getAllUserFollowed } from '../store/userFollowed';
 import { getAllUserFollowers } from '../store/userFollower';
+
 function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
@@ -17,8 +18,12 @@ function User() {
   const realUserId = useSelector(state => state.session.user.id);
   const followedArray = useSelector(state => Object.values(state.followed))
   const followersArray = useSelector(state => Object.values(state.followers))
-  const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
+  const followedTest = useSelector(state => Object.values(state.userSpecificFollowed))
+  const followersTest = useSelector(state => Object.values(state.userSpecificFollower))
+  console.log('followed -------------', followedTest);
+  console.log('follower ==============', followersTest);
 
+  const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     //+ is cheat way for parseInt
     return post.user_id === +userId;
   }))
@@ -29,17 +34,17 @@ function User() {
     if (!userId) {
       return;
     }
+    dispatch(getAllUserFollowed(userId));
+    dispatch(getAllUserFollowers(userId));
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
       setUser(user);
     })();
-  }, [userId]);
+  }, [dispatch, userId]);
 
-  useEffect(() => {
-    dispatch(getAllUserFollowed(userId));
-    dispatch(getAllUserFollowers(userId));
-  }, [dispatch, userId])
+  // useEffect(() => {
+  // }, [dispatch, userId])
 
 
   if (!user) {
@@ -87,8 +92,8 @@ function User() {
             </div>
             <div className='prof-stats'>
               <div><span className='prof-posts-num'>{userPosts.length}</span> posts</div>
-              <div><span className='prof-followers-num'>{followersArray.length}</span> followers</div>
-              <div><span className='prof-following-num'>{followedArray.length}</span> following</div>
+              <div><span className='prof-followers-num'>{followedTest.length}</span> followers</div>
+              <div><span className='prof-following-num'>{followersTest.length}</span> following</div>
             </div>
             <div className='prof-name'>{user.name}</div>
             <div className='prof-bio'>{user.profile_bio}</div>

@@ -30,28 +30,28 @@ function UsersList() {
   });
 
   return (
-    <div className='userlistdemo'>
-      <ul>{userComponents}</ul>
+    // <div className='userlistdemo'>
+    //   <ul>{userComponents}</ul>
 
-      {
-        followedPosts?.map(followedPost => (
-          <div>
-            <div className='comments-top-part'>
-              <div className='ikilistuff'>
-                <img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img>
-                <p>{postUser[0]?.username}</p>
-              </div>
-              <i onClick={handleModal} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
-            </div>
-            <img src={followedPost.image_url}></img>
-          </div>
+    //   {
+    //     followedPosts?.map(followedPost => (
+    //       <div>
+    //         <div className='comments-top-part'>
+    //           <div className='ikilistuff'>
+    //             <img className='poriflePostUserPic' src={`${postUser[0]?.profile_pic}`}></img>
+    //             <p>{postUser[0]?.username}</p>
+    //           </div>
+    //           <i onClick={handleModal} className={`fa-solid fa-ellipsis thinggylil ${realUserId === post?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
+    //         </div>
+    //         <img src={followedPost.image_url}></img>
+    //       </div>
 
-        )
-        )
-      }
+    //     )
+    //     )
+    //   }
 
-    </div >
-
+    // </div >
+    'test'
   );
 }
 

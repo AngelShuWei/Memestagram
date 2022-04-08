@@ -26,6 +26,8 @@
 .home-right-c {
     position: sticky;
     margin-top: 25px;
+    height: 395px;
+    width: 290px;
 }
 
 .home-right-c-user {
@@ -44,6 +46,14 @@
     color: #8e8e8e;
 }
 
+.switch, .follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #0095f6;
+    cursor: pointer;
+    margin-left: auto;
+}
+
 .home-bottom-c {
     margin-top: 20px;
 }
@@ -56,15 +66,12 @@
 .suggestions-lists {
     display: flex;
     flex-direction: column;
-    width: 293px;
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 .suggestions-list {
     display: flex;
     align-items: center;
-    width: 293px;
-    height: 38px;
     margin: 5px 0px;
 }
 
@@ -88,8 +95,9 @@
 .sug-user-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-left: 12px;
-    grid: 4px;
+    grid-gap: 4px;
 }
 
 .sug-username:hover {

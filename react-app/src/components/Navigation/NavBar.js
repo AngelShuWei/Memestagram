@@ -3,28 +3,25 @@ import { homeIcon } from '../Styles';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { logout } from '../../store/session';
 import LogoutButton from '../Authorization/LogoutButton';
 import PostFormPage from '../PostFormPage/PostFormPage';
-import { logout } from '../../store/session';
 
 
 const NavBar = () => {
-  const [modalOn, setModalOn] = useState(false)
+  const dispatch = useDispatch();
   const history = useHistory();
+
   const userId = useSelector((state) => state.session.user.id)
+  const user = useSelector((state) => state.session.user)
+  const userImg = useSelector((state) => state.session.user.profile_pic)
+  const users = useSelector(state => Object.values(state.session));
+  users.pop();
+
+  const [modalOn, setModalOn] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const [filterData, setFilter] = useState([]);
   const [search, setSearch] = useState('');
-
-
-  const dispatch = useDispatch();
-
-  const user = useSelector((state) => state.session.user)
-
-  const userImg = useSelector((state) => state.session.user.profile_pic)
-
-  const users = useSelector(state => Object.values(state.session));
-  users.pop();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -48,7 +45,6 @@ const NavBar = () => {
     history.push('/')
   };
 
-
   // useEffect(() => {
   //   document.addEventListener("click", () => {
   //     setModalOn(false)
@@ -64,12 +60,9 @@ const NavBar = () => {
 
   const handleFilter = (e) => {
     const search = e.target.value
-
-
     const newFilter = users.filter((val) => {
       return val?.username.toLowerCase().includes(search?.toLowerCase());
     })
-
 
     setSearch(search)
 
@@ -82,12 +75,9 @@ const NavBar = () => {
   }
 
   const handleClickSearch = (e) => {
-
     setSearch(e);
-
     setFilter([]);
   }
-
 
   return (
     <div>

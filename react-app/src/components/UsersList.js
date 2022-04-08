@@ -1,24 +1,27 @@
+import './UserList.css'
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
-import './UserList.css'
 import { getAllPostFollowed } from '../store/followedPosts';
+import { logout } from '../store/session';
 import Picker from 'emoji-picker-react';
 import happyFace from './IconPics/ig-happy-face.png';
 
 function UsersList() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const realUserId = useSelector(state => state.session.user.id);
+  const currentUser = useSelector(state => state.session.user);
+  const comments = useSelector(state => Object.values(state.comments));
+  const allImgLikes = useSelector(state => Object.values(state.likes))
+  const followedPosts = useSelector(state => Object.values(state.followedPosts));
 
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
   const [showPicker, setShowPicker] = useState(false);
-
-  const realUserId = useSelector(state => state.session.user.id);
-  const currentUser = useSelector(state => state.session.user);
-  const followedPosts = useSelector(state => Object.values(state.followedPosts));
-  const allImgLikes = useSelector(state => Object.values(state.likes))
 
   const emojiClick = (e, emojiObject) => {
     setText(prevInput => prevInput + emojiObject.emoji);
@@ -47,15 +50,18 @@ function UsersList() {
     }
   }
 
-  const comments = useSelector(state => Object.values(state.comments));
-
-
   const handleSubmit = async (e, postId) => {
     e.preventDefault();
 
     const data = await dispatch(createCommentThunk(text, realUserId, postId))
     setText("");
   }
+
+  const logoutUser = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    history.push('/')
+  };
 
 
   const followedUserPosts = followedPosts?.map(followedPost => (
@@ -147,6 +153,7 @@ function UsersList() {
             <NavLink to={`/users/${realUserId}`}><div className='sug-username'>{`${currentUser?.username}`}</div></NavLink>
             <div className='home-name'>{`${currentUser?.name}`}</div>
           </div>
+          <div className='switch' onClick={ logoutUser }>Switch</div>
         </div>
         <div className='home-bottom-c'>
           <div className='suggestions'>Suggestions For You</div>
@@ -159,6 +166,7 @@ function UsersList() {
                   <NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink>
                   <div className='sug-name'>{user.name}</div>
                 </div>
+                <div className='follow'>Follow</div>
               </div>
             ))}
           </div>

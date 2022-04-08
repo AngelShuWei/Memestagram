@@ -156,10 +156,10 @@
 }
 
 .somestuff {
-    display: flex;
+    /* display: flex;
     align-items: center;
     margin-left: 15px;
-    line-height: 30px;
+    line-height: 30px; */
 }
 
 .input-caption2::-webkit-scrollbar {

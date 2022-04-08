@@ -93,7 +93,7 @@ const LoginForm = () => {
                           value={credential}
                           onChange={updateEmail}
                           // required
-                          placeholder='Username or Email'
+                          placeholder='Username'
                         />
                       </div>
 

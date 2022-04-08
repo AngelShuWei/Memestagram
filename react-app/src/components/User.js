@@ -41,6 +41,7 @@ function User() {
   }, [dispatch,userId]);
 
 
+  
   useEffect(()=>{
     dispatch(getAllUserFollowers(userId));
     dispatch(getAllUserFollowed(userId));

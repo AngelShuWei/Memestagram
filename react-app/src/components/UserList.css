@@ -1,4 +1,11 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
 .home-container {
     position: absolute;
     top: 50px;
@@ -18,7 +25,70 @@
 
 .home-right-c {
     position: sticky;
-    margin-top: 60px;
+    margin-top: 25px;
+}
+
+.home-right-c-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-right-c-user #user {
+    height: 56px;
+    width: 56px;
+}
+
+.home-bottom-c {
+    margin-top: 20px;
+}
+
+.suggestions {
+    margin-bottom: 5px;
+    color: #8e8e8e;
+}
+
+.suggestions-lists {
+    display: flex;
+    flex-direction: column;
+    width: 293px;
+    margin-top: 15px;
+}
+
+.suggestions-list {
+    display: flex;
+    align-items: center;
+    width: 293px;
+    height: 38px;
+    margin: 5px 0px;
+}
+
+.suggestions {
+    font-size: 14px;
+    font-weight: 500;
+    width: 293px;
+}
+
+.sug-username {
+    font-size: 14px;
+    color: #262626;
+    font-weight: 500;
+}
+
+.sug-name {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.sug-user-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    grid: 4px;
+}
+
+.sug-username:hover {
+    text-decoration: underline;
 }
 
 .heart-likes{
@@ -56,14 +126,13 @@
 
 .input-caption22{
     border: none;
-  outline: none;
-  width: 570px;
-  height: 40px;
-  background: none;
-  margin-left: 9px;
-  padding-top: 16px;
-  resize: none;
-
+    outline: none;
+    width: 570px;
+    height: 40px;
+    background: none;
+    margin-left: 9px;
+    padding-top: 16px;
+    resize: none;
 }
 
 .commentText::-webkit-scrollbar {

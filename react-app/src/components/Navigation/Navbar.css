@@ -262,6 +262,7 @@
 
 .navbar-prof-pic-btn {
     border-radius: 100px;
+    cursor: pointer;
 }
 
 .prof-btn {

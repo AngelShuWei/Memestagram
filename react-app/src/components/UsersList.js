@@ -9,21 +9,21 @@ import Picker from 'emoji-picker-react';
 import happyFace from './IconPics/ig-happy-face.png';
 
 function UsersList() {
+  const dispatch = useDispatch();
+
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
   const [showPicker, setShowPicker] = useState(false);
 
   const realUserId = useSelector(state => state.session.user.id);
-
-  const dispatch = useDispatch();
-
+  const currentUser = useSelector(state => state.session.user);
+  const followedPosts = useSelector(state => Object.values(state.followedPosts));
+  const allImgLikes = useSelector(state => Object.values(state.likes))
 
   const emojiClick = (e, emojiObject) => {
     setText(prevInput => prevInput + emojiObject.emoji);
     setShowPicker(false);
   };
-
-
 
   useEffect(() => {
     async function fetchData() {
@@ -34,36 +34,9 @@ function UsersList() {
     }
     fetchData();
   }, []);
-  const followedPosts = useSelector(state => Object.values(state.followedPosts));
 
-
-
-  const userComponents = users.map((user) => {
-    return (
-      <div key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </div>
-    );
-  });
-
-  const allImgLikes = useSelector(state => Object.values(state.likes))
-
-
-  // let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
-
-
-  // let createLike.;
-
-  // if (userLike.length === 0) {
-  //   createLike = (
-  //     <>
-  //       <i key={post?.id} onClick={(e) => handleClick(e, post.id)} className={`fa-regular fa-heart littleHearts`}></i>
-  //     </>
-  //   )
-  // }
   const handleClick = (e, postId) => {
     e.preventDefault();
-
     const userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));
 
     if (userLike.length) {
@@ -72,8 +45,8 @@ function UsersList() {
     } else {
       dispatch(postImgLikes(realUserId, postId))
     }
-
   }
+
   const comments = useSelector(state => Object.values(state.comments));
 
 
@@ -124,8 +97,7 @@ function UsersList() {
 
       {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
       <div className='username-comment-thingy commentText'>
-
-         {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.text}
+        {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.text}
       </div>
       }
       </div>
@@ -141,7 +113,7 @@ function UsersList() {
               pickerStyle={{
                 position: "absolute",
                 width: '100%'
-               }}
+              }}
               onEmojiClick={emojiClick} />}
           </div>
           <div>
@@ -167,8 +139,32 @@ function UsersList() {
     <div className='home-container'>
       <div className='home-left-c'>{ followedUserPosts }</div>
       <div className='home-c'></div>
-      <div className='home-right-c'>{ userComponents }</div>
-    </div >
+
+      <div className='home-right-c'>
+        <div className='home-right-c-user'>
+          <img className='poriflePostUserPic' id='user' src={`${currentUser?.profile_pic}`}></img>
+          <div className='home-right-c-user-r'>
+            <div>{`${currentUser?.username}`}</div>
+            <div>{`${currentUser?.name}`}</div>
+          </div>
+        </div>
+        <div className='home-bottom-c'>
+          <div className='suggestions'>Suggestions For You</div>
+
+          <div className='suggestions-lists'>
+            {users.map(user => (
+              <div className='suggestions-list' key={user.id}>
+                <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={`${user.profile_pic}`}></img></NavLink>
+                <div className='sug-user-info'>
+                  <div><NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink></div>
+                  <div><NavLink to={`/users/${user.id}`}><div className='sug-name'>{user.name}</div></NavLink></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

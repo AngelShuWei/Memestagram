@@ -94,7 +94,7 @@ function User() {
                   <div className='prof-likes-count'>{post.image_likes.length}</div>
                 </div>
                 <div className='prof-comments'>
-                  <i class="fa-solid fa-comment"></i>
+                  <i className="fa-solid fa-comment"></i>
                   <div className='prof-comments-count'>{post.comments.length}</div>
                 </div>
               </div>

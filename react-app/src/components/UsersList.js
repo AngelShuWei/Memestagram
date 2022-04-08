@@ -5,13 +5,24 @@ import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
 import './UserList.css'
 import { getAllPostFollowed } from '../store/followedPosts';
+import Picker from 'emoji-picker-react';
+import happyFace from './IconPics/ig-happy-face.png';
+
 function UsersList() {
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
+  const [showPicker, setShowPicker] = useState(false);
 
   const realUserId = useSelector(state => state.session.user.id);
 
   const dispatch = useDispatch();
+
+
+  const emojiClick = (e, emojiObject) => {
+    setText(prevInput => prevInput + emojiObject.emoji);
+    setShowPicker(false);
+  };
+
 
 
   useEffect(() => {
@@ -125,9 +136,6 @@ function UsersList() {
 
       <div className='add-a-comment-forma'>
         <div className='somestuff'>
-
-          <svg aria-label="Emoji" className="_8-yf5 " style={{ 'cursor': 'pointer' }} color="#8e8e8e" fill="#8e8e8e" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
-
           <form onSubmit={handleSubmit}>
             <textarea className='input-caption22' placeholder='Add a comment...'
               type="textarea"
@@ -135,7 +143,15 @@ function UsersList() {
               required
               onChange={(e) => setText(e.target.value)}
             />
-
+            <div className="adding-emoji-comment-container">
+              <img
+                className="adding-emoji-comment-post"
+                src={happyFace}
+                onClick={() => setShowPicker(val => !val)} />
+              {showPicker && <Picker
+                pickerStyle={{ width: '100%' }}
+                onEmojiClick={emojiClick} />}
+            </div>
           </form>
         </div>
         <button className='share-submit-form-post' onClick={(e) => handleSubmit(e, followedPost.id)} type='submit' >Post</button>

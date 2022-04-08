@@ -144,8 +144,8 @@ function UsersList() {
         <div className='home-right-c-user'>
           <img className='poriflePostUserPic' id='user' src={`${currentUser?.profile_pic}`}></img>
           <div className='home-right-c-user-r'>
-            <div>{`${currentUser?.username}`}</div>
-            <div>{`${currentUser?.name}`}</div>
+            <NavLink to={`/users/${realUserId}`}><div className='sug-username'>{`${currentUser?.username}`}</div></NavLink>
+            <div className='home-name'>{`${currentUser?.name}`}</div>
           </div>
         </div>
         <div className='home-bottom-c'>
@@ -156,8 +156,8 @@ function UsersList() {
               <div className='suggestions-list' key={user.id}>
                 <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={`${user.profile_pic}`}></img></NavLink>
                 <div className='sug-user-info'>
-                  <div><NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink></div>
-                  <div><NavLink to={`/users/${user.id}`}><div className='sug-name'>{user.name}</div></NavLink></div>
+                  <NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink>
+                  <div className='sug-name'>{user.name}</div>
                 </div>
               </div>
             ))}

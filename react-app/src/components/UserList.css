@@ -39,6 +39,11 @@
     width: 56px;
 }
 
+.home-name {
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
 .home-bottom-c {
     margin-top: 20px;
 }

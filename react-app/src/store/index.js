@@ -5,13 +5,21 @@ import userPostsReducer from './post'
 import commentReducer from './comments';
 import likesReducer from './imglikes';
 import followedReducer from './followers';
+import followersReducer from './followerstwo';
+import getAllFollowedPostReducer from './followedPosts';
+import getAllUserFollowedReducer from './userFollowed';
+import getAllUserFollowerReducer from './userFollower';
 
 const rootReducer = combineReducers({
   session,
   posts: userPostsReducer,
   comments: commentReducer,
   likes: likesReducer,
-  followed: followedReducer
+  followed: followedReducer,
+  followers: followersReducer,
+  followedPosts:getAllFollowedPostReducer,
+  userSpecificFollowed:getAllUserFollowedReducer,
+  userSpecificFollower:getAllUserFollowerReducer,
 });
 
 

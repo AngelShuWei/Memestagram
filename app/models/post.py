@@ -24,4 +24,6 @@ class Post(db.Model, UserMixin):
             'user_id': self.user_id,
             'caption': self.caption,
             'image_url':self.image_url,
+            'user':self.user.to_dict(),
+            'comments': [comment.to_dict() for comment in self.comments]
         }

@@ -1,6 +1,6 @@
 const ADD_FOLLOWER = 'follower/ADD_FOLLOWER'
-const GET_FOLLOWED = 'follower/GET_FOLLOWER'
-const DELETE_FOLLOWER = 'follower/DELETE_FOLLOWER'
+const GET_FOLLOWED = 'follower/GET_FOLLOWED'
+// const DELETE_FOLLOWER = 'follower/DELETE_FOLLOWER'
 
 const addFollower = (followedUsers) => ({
     type: ADD_FOLLOWER,
@@ -12,10 +12,12 @@ const getFollowed = (followed) => ({
     followed
 })
 
-const removeFollower = (followedUsers) => ({
-    type: DELETE_FOLLOWER,
-    followedUsers
-})
+
+// const removeFollower = (followedUsers) => ({
+//     type: DELETE_FOLLOWER,
+//     followedUsers
+// })
+
 
 export const createFollower = (userid) => async (dispatch) => {
     const response = await fetch(`/api/followers/follow/${userid}`)
@@ -33,7 +35,6 @@ export const getAllFollowed = () => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log(data.followedUsers);
         dispatch(getFollowed(data.followedUsers))
 
     }
@@ -51,6 +52,7 @@ export const getAllFollowed = () => async (dispatch) => {
 //     return response
 
 // }
+
 
 const initialState = {};
 
@@ -74,7 +76,6 @@ const followedReducer = (state = initialState, action) => {
                 return newState[follower.id] = follower;
             });
             return newState;
-
         default:
             return state;
     }

@@ -18,6 +18,9 @@ import { getAllTheUsers } from './store/session';
 import ExplorePage from './components/ExplorePage/ExplorePage';
 import AboutPage from './components/AboutPage/AboutPage';
 import {getAllFollowed} from './store/followers'
+import { getAllFollowers } from './store/followerstwo';
+import { getAllPostFollowed } from './store/followedPosts';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -33,6 +36,9 @@ function App() {
       dispatch(allImgLikes());
       dispatch(getAllTheUsers());
       dispatch(getAllFollowed());
+      dispatch(getAllFollowers());
+      dispatch(getAllPostFollowed());
+      
     })();
   }, [dispatch]);
 

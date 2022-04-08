@@ -24,5 +24,31 @@ def add_followers(userid):
 
 @follower_routes.route('/followed/get')
 def get_followed():
+
     followed = {'followedUsers': [followedUser.to_dict() for followedUser in current_user.get_followed()]}
     return followed
+
+@follower_routes.route('/followers/get')
+def get_followers():
+    followers = {'followerUsers': [followerUser.to_dict() for followerUser in current_user.get_followers()]}
+    return followers
+
+
+@follower_routes.route('/followedPost/get')
+def followedPostGet():
+    posts = current_user.followed_posts()
+    print(posts, "==========================================")
+    return {'followedPostsGet': [post.to_dict() for post in posts]}
+
+
+@follower_routes.route('/followed/<userid>')
+def getUserFollowed(userid):
+    user = User.query.get(userid)
+
+    return {'userSpecificFollowed': [userFollowed.to_dict() for userFollowed in user.get_followed()]}
+
+@follower_routes.route('/follower/<userid>')
+def getUserFollowers(userid):
+    user = User.query.get(userid)
+
+    return {'userSpecificFollowers': [userFollowed.to_dict() for userFollowed in user.get_followers()]}

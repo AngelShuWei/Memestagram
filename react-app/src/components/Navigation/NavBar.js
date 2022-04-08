@@ -86,15 +86,15 @@ const NavBar = () => {
               </button  >
                 {showMenu && (
                   <div className="profile-dropdown">
-                    <div>{user.username}</div>
+                    <div className="prof-btn-username">{user.username}</div>
                     {/* <div className='profile-dropdown-contents'> */}
                       <div className="profile-btn-container-with-icon" onClick={() => history.push(`/users/${userId}`)}>
-                        <i className="fa-solid fa-user" ></i>
+                        <i className="fa-regular fa-circle-user"></i>
                         Profile
                       </div>
 
                       <div className="about-site-creators-container" onClick={() => history.push(`/about`)}>
-                        <i className="fa-solid fa-code"></i>
+                        <i className="fa-solid fa-users"></i>
                         About the Site Creators!
                       </div>
 

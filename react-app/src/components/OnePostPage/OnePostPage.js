@@ -47,6 +47,7 @@ function OnePostPage() {
     e.preventDefault();
     setModalOn(true);
   }
+  
 
 
   let userLike = allImgLikes.filter(like => (+realUserId === like?.user_id && +postId === like?.post_id));

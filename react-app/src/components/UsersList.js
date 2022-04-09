@@ -6,8 +6,6 @@ import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
 import { getAllPostFollowed } from '../store/followedPosts';
 import { logout } from '../store/session';
-import Picker from 'emoji-picker-react';
-import happyFace from './IconPics/ig-happy-face.png';
 
 function UsersList() {
   const dispatch = useDispatch();
@@ -21,12 +19,6 @@ function UsersList() {
 
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
-  const [showPicker, setShowPicker] = useState(false);
-
-  const emojiClick = (e, emojiObject) => {
-    setText(prevInput => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -109,18 +101,6 @@ function UsersList() {
 
       <div className='add-a-comment-forma'>
         <div className='somestuff'>
-          <div className="adding-emoji-comment-container">
-            <img
-              className="adding-emoji-comment-post"
-              src={happyFace}
-              onClick={() => setShowPicker(val => !val)} />
-            {showPicker && <Picker
-              pickerStyle={{
-                position: "absolute",
-                width: '100%'
-              }}
-              onEmojiClick={emojiClick} />}
-          </div>
           <div>
             <form onSubmit={handleSubmit}>
               <textarea className='input-caption22' placeholder='Add a comment...'

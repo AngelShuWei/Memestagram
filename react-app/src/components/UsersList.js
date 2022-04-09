@@ -5,24 +5,14 @@ import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
 import './UserList.css'
 import { getAllPostFollowed } from '../store/followedPosts';
-import Picker from 'emoji-picker-react';
-import happyFace from './IconPics/ig-happy-face.png';
-
+   
 function UsersList() {
   const [users, setUsers] = useState([]);
-  const [text, setText] = useState("")
-  const [showPicker, setShowPicker] = useState(false);
+  const [text, setText] = useState("");
 
   const realUserId = useSelector(state => state.session.user.id);
 
   const dispatch = useDispatch();
-
-
-  const emojiClick = (e, emojiObject) => {
-    setText(prevInput => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
-
 
 
   useEffect(() => {
@@ -35,8 +25,6 @@ function UsersList() {
     fetchData();
   }, []);
   const followedPosts = useSelector(state => Object.values(state.followedPosts));
-
-
 
   const userComponents = users.map((user) => {
     return (
@@ -98,8 +86,6 @@ function UsersList() {
 
       <div className={'heart-likes'}>
 
-
-
         {allImgLikes.filter(like => (+realUserId === like?.user_id && followedPost.id === like?.post_id)).length === 0 ? (
           <i onClick={(e) => handleClick(e, followedPost.id)} className={`fa-regular fa-heart littleHearts`}></i>
         ) : (
@@ -143,15 +129,6 @@ function UsersList() {
               required
               onChange={(e) => setText(e.target.value)}
             />
-            <div className="adding-emoji-comment-container">
-              <img
-                className="adding-emoji-comment-post"
-                src={happyFace}
-                onClick={() => setShowPicker(val => !val)} />
-              {showPicker && <Picker
-                pickerStyle={{ width: '100%' }}
-                onEmojiClick={emojiClick} />}
-            </div>
           </form>
         </div>
         <button className='share-submit-form-post' onClick={(e) => handleSubmit(e, followedPost.id)} type='submit' >Post</button>

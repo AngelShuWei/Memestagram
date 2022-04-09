@@ -118,7 +118,7 @@ const NavBar = () => {
                       <img className='profilepicIntheSearchBar' src={value.profile_pic} ></img>
                       <div>
                         <p className='asdadsa'>{value.username}</p>
-                        <p className='biothingy'>{value.profile_bio}</p>
+                        <p className='biothingy'>{value.name}</p>
                       </div>
                     </div>}
 

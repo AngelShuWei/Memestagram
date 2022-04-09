@@ -63,7 +63,6 @@ function UsersList() {
     history.push('/')
   };
 
-
   const followedUserPosts = followedPosts?.map(followedPost => (
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
       <div className='comments-top-part'>
@@ -130,17 +129,14 @@ function UsersList() {
                 required
                 onChange={(e) => setText(e.target.value)}
               />
-
             </form>
           </div>
         </div>
         <button className='share-submit-form-post' onClick={(e) => handleSubmit(e, followedPost.id)} type='submit' >Post</button>
       </div>
     </div>
-
   )
   )
-
   return (
     <div className='home-container'>
       <div className='home-left-c'>{ followedUserPosts }</div>

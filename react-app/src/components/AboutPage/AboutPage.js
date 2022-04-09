@@ -1,28 +1,30 @@
 import './AboutPage.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import yavuzPic from '../IconPics/sifu.jpeg';
 import angelPic from '../IconPics/disgusted.jpg';
 import leahPic from '../IconPics/images.jpg';
 import philipPic from '../IconPics/philip.jpg';
 import dogestagram from '../IconPics/dogestagram.png';
+import greyBg from '../IconPics/grey-bg.jpg';
 
 function AboutPage() {
-
-    const handleYavuzClick = () => {
-      window.open("https://github.com/yavuzabasiyanik");
-    };
-
     return(
         <>
       <div className='prof-page-container'>
         <div className='prof-info-container'>
           <div className='prof-info-left'>
-            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={dogestagram}></img>
+            <img className="doggo-meme"src={dogestagram}></img>
           </div>
           <div className='profile-info-right'>
-            <div className='prof-name'>Memestagram</div>
-            <div className='prof-bio'>?</div>
+            <div className='prof-username'>
+                Memestagram
+            </div>
+            <div className='prof-bio'>
+                <h3>Website Creators <br/></h3>
+                Welcome to Memestagram! <br/>
+                Meet the website creators below and click on the creators' post to visit their Github
+            </div>
           </div>
         </div>
         <div className='prof-posts-line'></div>
@@ -30,21 +32,65 @@ function AboutPage() {
 
         <div className="friends-container">
 
-            <div className="yavuz-div">
-                <a target="_blank"href='https://github.com/yavuzabasiyanik'><img src={yavuzPic} style={{width:'293px', height:'293px'}} ></img></a>
+            <div className="friend-div">
+                <img className="Sirv image-main"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/yavuzabasiyanik"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
 
+
+                {/* <img className="yavuz-img"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="yavuz-link"
+                target="_blank"
+                href='https://github.com/yavuzabasiyanik'
+                >
+                github
+                </a>
+
+                <a className="yavuz-link"
+                target="_blank"
+                href='https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/'
+                >
+                    linkedin
+                </a> */}
+                {/* <a  onMouseOver={(e) => e.target.src={leahPic} }
+                    // onMouseLeave={() => <img src={yavuzPic}></img>}
+                    className="yavuz-pic"
+                    target="_blank"
+                    href='https://github.com/yavuzabasiyanik'
+                    >
+                    <img src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
+
+                </a> */}
+                {/* <img src={yavuzPic} onMouseOver={(e) => e.target.src={leahPic}} onMouseLeave={(e) => e.target.src={yavuzPic}}/> */}
+                {/* <img src={leahPic} onMouseLeave={(e) => e.target.src={yavuzPic}}/> */}
+                {/* {isShown ?
+                    <a
+                    className="yavuz-pic"
+                    target="_blank"
+                    href='https://github.com/yavuzabasiyanik'
+                    >
+                    <img src={yavuzPic} style={{width:'293px', height:'293px'}} onMouseOver={() => setIsShown(true)}></img>
+
+                    </a>
+
+
+                :  <img src={leahPic} style={{width:'293px', height:'293px'}} onMouseLeave={() => setIsShown(false)}></img>
+                } */}
 
             </div>
-            <div className="angel-div">
-                <a target="_blank"href='https://github.com/AngelShuWei'> <img src={angelPic} style={{width:'293px', height:'293px'}}></img></a>
+            <div className="friend-div">
+                <img className="Sirv image-main"src={angelPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/AngelShuWei"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
-            <div className="leah-div">
-                <a target="_blank" href='https://github.com/Leahk1m'> <img src={leahPic} style={{width:'293px', height:'293px'}}></img></a>
+            <div className="friend-div">
+                <img className="Sirv image-main"src={leahPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/Leahk1m"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
-            <div className="philip-div">
-                <a target="_blank" href="https://github.com/philroberts13"><img src={philipPic} style={{width:'293px', height:'293px'}}></img></a>
+            <div className="friend-div">
+            <img className="Sirv image-main"src={philipPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/philroberts13"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
+
             </div>
         </div>
 

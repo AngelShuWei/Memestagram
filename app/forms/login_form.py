@@ -10,7 +10,6 @@ def user_exists(form, field):
     # email = field.data
     # username = field.data
     # credentials = form.data['credentials']
-    print("testing--------------------------------------", User.email)
     user = User.query.filter(User.email == credentials or User.username == credentials).first()
 
     if not user:

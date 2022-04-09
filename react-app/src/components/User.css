@@ -210,6 +210,11 @@
   color: white;
 }
 
+
+.thingythingy{
+  max-height: 180px ;
+}
+
 .prof-post-hover {
   width: 100%;
   height: 100%;

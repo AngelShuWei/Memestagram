@@ -117,6 +117,7 @@
     border: none;
     outline: none;
     background: none;
+    /* cursor: pointer; */
 }
 
 /* .profile-btn {
@@ -261,8 +262,13 @@
 
 .navbar-prof-pic-btn {
     border-radius: 100px;
+    cursor: pointer;
 }
 
 .prof-btn {
     margin-top: 3px;
+}
+
+.somestuff {
+    display: flex;
 }

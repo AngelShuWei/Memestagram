@@ -137,26 +137,15 @@
   grid-column-gap: 28px;
 }
 
-.userlistdemo {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
 .userFeedIndivBigDiv {
   width: 700px;
-  height: 950px;
+  height: 930px;
   margin-bottom: 50px;
   border: 0.5px solid #dbdbdb;
   background-color: white;
 }
 
 .indivImgFeed {
-
   min-width: 100%;
   max-width: 100%;
   height: 613px;

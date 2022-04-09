@@ -3,28 +3,25 @@ import { homeIcon } from '../Styles';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { logout } from '../../store/session';
 import LogoutButton from '../Authorization/LogoutButton';
 import PostFormPage from '../PostFormPage/PostFormPage';
-import { logout } from '../../store/session';
 
 
 const NavBar = () => {
-  const [modalOn, setModalOn] = useState(false)
+  const dispatch = useDispatch();
   const history = useHistory();
+
   const userId = useSelector((state) => state.session.user.id)
+  const user = useSelector((state) => state.session.user)
+  const userImg = useSelector((state) => state.session.user.profile_pic)
+  const users = useSelector(state => Object.values(state.session));
+  users.pop();
+
+  const [modalOn, setModalOn] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const [filterData, setFilter] = useState([]);
   const [search, setSearch] = useState('');
-
-
-  const dispatch = useDispatch();
-
-  const user = useSelector((state) => state.session.user)
-
-  const userImg = useSelector((state) => state.session.user.profile_pic)
-
-  const users = useSelector(state => Object.values(state.session));
-  users.pop();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -48,7 +45,6 @@ const NavBar = () => {
     history.push('/')
   };
 
-
   // useEffect(() => {
   //   document.addEventListener("click", () => {
   //     setModalOn(false)
@@ -64,12 +60,9 @@ const NavBar = () => {
 
   const handleFilter = (e) => {
     const search = e.target.value
-
-
     const newFilter = users.filter((val) => {
       return val?.username.toLowerCase().includes(search?.toLowerCase());
     })
-
 
     setSearch(search)
 
@@ -82,12 +75,9 @@ const NavBar = () => {
   }
 
   const handleClickSearch = (e) => {
-
     setSearch(e);
-
     setFilter([]);
   }
-
 
   return (
     <div>
@@ -133,10 +123,10 @@ const NavBar = () => {
             <div className='navbar-things'>
               <div className='home-icon' onClick={() => history.push('/')}>{ homeIcon }</div>
               {/* <i className="fa-solid fa-house" onClick={() => history.push('/')}></i> */}
-              <i className="fa-regular fa-paper-plane"></i>
+              {/* <i className="fa-regular fa-paper-plane"></i> */}
               <i className="fa-regular fa-square-plus" onClick={handleModal}></i>
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
-              <i className="fa-regular fa-heart"></i>
+              {/* <i className="fa-regular fa-heart"></i> */}
               <button className="prof-btn" onClick={openMenu}>
                   {user && userImg ? <img className="navbar-prof-pic-btn"src={userImg} style={{height:'22px'}}/>:  <i className="fa-regular fa-circle-user"></i>}
               </button  >
@@ -167,7 +157,7 @@ const NavBar = () => {
         {/* <ul>
           <li>
             <NavLink to='/' exact={true} activeClassName='active'>
-              Home
+              Home[](../../../../../../../../../external/jkEH93rJAlNe6fErFb2OU0-uRHNS2G1xCddvtJhqKms/?width=678&height=643/https/media.discordapp.net/attachments/900341135136923649/903118218531590144/IMG-20201231-WA0002.jpg)
             </NavLink>
           </li>
           <li>

@@ -6,7 +6,8 @@ import angelPic from '../IconPics/disgusted.jpg';
 import leahPic from '../IconPics/images.jpg';
 import philipPic from '../IconPics/philip.jpg';
 import dogestagram from '../IconPics/dogestagram.png';
-import greyBg from '../IconPics/grey-bg.jpg';
+import github from '../IconPics/github.png';
+import angycat from '../IconPics/angy-cat.jpg';
 
 function AboutPage() {
     return(
@@ -34,7 +35,7 @@ function AboutPage() {
 
             <div className="friend-div">
                 <img className="Sirv image-main"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/yavuzabasiyanik"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
+                <a className="friend-link" href="https://github.com/yavuzabasiyanik"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
 
 
                 {/* <img className="yavuz-img"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
@@ -69,27 +70,24 @@ function AboutPage() {
                     href='https://github.com/yavuzabasiyanik'
                     >
                     <img src={yavuzPic} style={{width:'293px', height:'293px'}} onMouseOver={() => setIsShown(true)}></img>
-
                     </a>
-
-
                 :  <img src={leahPic} style={{width:'293px', height:'293px'}} onMouseLeave={() => setIsShown(false)}></img>
                 } */}
 
             </div>
             <div className="friend-div">
                 <img className="Sirv image-main"src={angelPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/AngelShuWei"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
+                <a className="friend-link" href="https://github.com/AngelShuWei"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
             <div className="friend-div">
-                <img className="Sirv image-main"src={leahPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/Leahk1m"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main"src={angycat} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/Leahk1m"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
             <div className="friend-div">
-            <img className="Sirv image-main"src={philipPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/philroberts13"><img className="Sirv image-hover"src={greyBg} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main"src={philipPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" href="https://github.com/philroberts13"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
         </div>

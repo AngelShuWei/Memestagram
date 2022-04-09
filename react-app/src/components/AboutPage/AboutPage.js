@@ -37,43 +37,6 @@ function AboutPage() {
                 <img className="Sirv image-main"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
                 <a className="friend-link" href="https://github.com/yavuzabasiyanik"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
 
-
-                {/* <img className="yavuz-img"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="yavuz-link"
-                target="_blank"
-                href='https://github.com/yavuzabasiyanik'
-                >
-                github
-                </a>
-
-                <a className="yavuz-link"
-                target="_blank"
-                href='https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/'
-                >
-                    linkedin
-                </a> */}
-                {/* <a  onMouseOver={(e) => e.target.src={leahPic} }
-                    // onMouseLeave={() => <img src={yavuzPic}></img>}
-                    className="yavuz-pic"
-                    target="_blank"
-                    href='https://github.com/yavuzabasiyanik'
-                    >
-                    <img src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
-
-                </a> */}
-                {/* <img src={yavuzPic} onMouseOver={(e) => e.target.src={leahPic}} onMouseLeave={(e) => e.target.src={yavuzPic}}/> */}
-                {/* <img src={leahPic} onMouseLeave={(e) => e.target.src={yavuzPic}}/> */}
-                {/* {isShown ?
-                    <a
-                    className="yavuz-pic"
-                    target="_blank"
-                    href='https://github.com/yavuzabasiyanik'
-                    >
-                    <img src={yavuzPic} style={{width:'293px', height:'293px'}} onMouseOver={() => setIsShown(true)}></img>
-                    </a>
-                :  <img src={leahPic} style={{width:'293px', height:'293px'}} onMouseLeave={() => setIsShown(false)}></img>
-                } */}
-
             </div>
             <div className="friend-div">
                 <img className="Sirv image-main"src={angelPic} style={{width:'293px', height:'293px'}}></img>

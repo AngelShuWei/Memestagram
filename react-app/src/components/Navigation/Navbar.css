@@ -85,11 +85,6 @@
     align-items: center;
 }
 
-.home-icon:hover {
-
-}
-
-
 .navbar-things i, .home-icon {
     font-size:22px;
     cursor: pointer;

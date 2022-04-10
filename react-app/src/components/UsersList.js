@@ -20,7 +20,7 @@ function UsersList() {
 
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
-
+  console.log(users)
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
@@ -55,6 +55,13 @@ function UsersList() {
     dispatch(logout());
     history.push('/')
   };
+
+  // const shuffledArray =  function shuffleArray(user) {
+  //   for (let i = user.length - 1; i> 0; i--){
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [user[i], user[j]] = [user[j], user[i]];
+  //   }
+  // }
 
   const followedUserPosts = followedPosts?.map(followedPost => (
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
@@ -136,7 +143,7 @@ function UsersList() {
           <div className='suggestions'>Suggestions For You</div>
 
           <div className='suggestions-lists'>
-            {users.map(user => (
+            {users.slice(0, 5).map(user => (
               <div className='suggestions-list' key={user.id}>
                 <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={user.profile_pic || profilePicIcon }></img></NavLink>
                 <div className='sug-user-info'>

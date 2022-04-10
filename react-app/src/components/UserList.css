@@ -21,13 +21,15 @@
     flex-direction: column;
     position: relative;
     margin-top: 16px;
+    padding-left: 20px;
 }
 
 .home-right-c {
-    position: sticky;
+    position: fixed;
     margin-top: 25px;
     height: 395px;
     width: 290px;
+    margin-right: -1040px;
 }
 
 .home-right-c-user {

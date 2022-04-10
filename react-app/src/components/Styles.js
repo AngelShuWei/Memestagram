@@ -12,9 +12,9 @@ export const postsImg = (
       fill="none"
       height="18"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       width="18"
       x="3"
       y="3"
@@ -22,9 +22,9 @@ export const postsImg = (
     <line
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       x1="9.015"
       x2="9.015"
       y1="3"
@@ -33,9 +33,9 @@ export const postsImg = (
     <line
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       x1="14.985"
       x2="14.985"
       y1="3"
@@ -44,9 +44,9 @@ export const postsImg = (
     <line
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       x1="21"
       x2="3"
       y1="9.015"
@@ -55,9 +55,9 @@ export const postsImg = (
     <line
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       x1="21"
       x2="3"
       y1="14.985"
@@ -68,7 +68,7 @@ export const postsImg = (
 export const homeActive = (
   <svg
     aria-label="Home"
-    class="_8-yf5 "
+    className="_8-yf5 "
     color="#262626"
     fill="#262626"
     height="24"
@@ -83,7 +83,7 @@ export const homeActive = (
 export const homeIcon = (
   <svg
     aria-label="Home"
-    class="_8-yf5 "
+    className="_8-yf5 "
     color="#262626"
     fill="#262626"
     height="24"
@@ -95,8 +95,8 @@ export const homeIcon = (
       d="M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z"
       fill="none"
       stroke="currentColor"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinejoin="round"
+      strokeWidth="2"
     ></path>
   </svg>
 );

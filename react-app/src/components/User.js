@@ -1,4 +1,5 @@
 import './User.css'
+import profilePicIcon from '../assets/Profile-Pic.png'
 import followingIcon from '../assets/following-icon-transparent.png'
 import React, { useState, useEffect } from 'react';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
@@ -69,7 +70,7 @@ function User() {
       <div className='prof-page-container'>
         <div className='prof-info-container'>
           <div className='prof-info-left'>
-            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic}></img>
+            <img style={{ width: "150px", height: "150px", 'borderRadius': '100px' }} src={user?.profile_pic || profilePicIcon}></img>
           </div>
           <div className='profile-info-right'>
             <div className='prof-username'>
@@ -100,7 +101,7 @@ function User() {
                     <div className='prof-likes-count laka'>{post.image_likes.length}</div>
                   </div>
                   <div className='prof-comments'>
-                    <i class="fa-solid fa-comment laka"></i>
+                    <i className="fa-solid fa-comment laka"></i>
                     <div className='prof-comments-count laka'>{post.comments.length}</div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@
     font-family: "Open Sans", sans-serif;
     font-family: "Roboto", sans-serif;
     color: #555;
-  }
+}
 
 .about-pg-container {
     top: 60px;
@@ -17,8 +17,6 @@
     margin-top: 2%;
 
 }
-
-
 
 .friend-div {
     position: relative;
@@ -42,13 +40,11 @@
     opacity: 0.8;
 }
 
-
 .friends-container {
     display: flex;
-    margin-left: 62px;
+    margin-left: 150px;
 
 }
-
 
 .doggo-meme {
     width: 200px;

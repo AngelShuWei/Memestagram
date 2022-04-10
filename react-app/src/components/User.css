@@ -199,7 +199,7 @@
   opacity: 0;
 
   margin-top: -297px;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   background-color: rgba(0,0,0,.442);
 
   cursor: pointer;

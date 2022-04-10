@@ -1,4 +1,5 @@
 import './UserList.css'
+import profilePicIcon from '../assets/Profile-Pic.png'
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -124,7 +125,7 @@ function UsersList() {
 
       <div className='home-right-c'>
         <div className='home-right-c-user'>
-          <img className='poriflePostUserPic' id='user' src={`${currentUser?.profile_pic}`}></img>
+          <img className='poriflePostUserPic' id='user' src={currentUser?.profile_pic || profilePicIcon}></img>
           <div className='home-right-c-user-r'>
             <NavLink to={`/users/${realUserId}`}><div className='sug-username'>{`${currentUser?.username}`}</div></NavLink>
             <div className='home-name'>{`${currentUser?.name}`}</div>
@@ -137,12 +138,12 @@ function UsersList() {
           <div className='suggestions-lists'>
             {users.map(user => (
               <div className='suggestions-list' key={user.id}>
-                <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={`${user.profile_pic}`}></img></NavLink>
+                <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={user.profile_pic || profilePicIcon }></img></NavLink>
                 <div className='sug-user-info'>
                   <NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink>
                   <div className='sug-name'>{user.name}</div>
                 </div>
-                <div className='follow'>Follow</div>
+                <NavLink className='follow' to={`/users/${user.id}`}><div className='follow'>Follow</div></NavLink>
               </div>
             ))}
           </div>

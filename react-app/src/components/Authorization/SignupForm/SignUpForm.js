@@ -128,9 +128,9 @@ const SignUpForm = () => {
 
 
               </form>
-              <ul>
+              <div className='error-messages'>
                 {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-              </ul>
+              </div>
             </div>
 
           </div>

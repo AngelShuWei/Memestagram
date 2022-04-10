@@ -1,6 +1,8 @@
 .page-container {
     background-color: whitesmoke;
     height: 100vh;
+    display: flex;
+    align-items: center;
   }
 
   .main-container-login {
@@ -129,7 +131,14 @@
   .something {
     border-bottom: 1px solid #DBDBDB;
     width: 87px;
+  }
 
+  .error-messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    font-size: 13px;
   }
 
   .small-container-login {

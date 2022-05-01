@@ -1,7 +1,7 @@
 import './UserList.css'
 import profilePicIcon from '../assets/Profile-Pic.png'
 import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory} from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postImgLikes, deletingImgLike } from '../store/imglikes';
 import { createCommentThunk, commentDelete, updateUserComment } from '../store/comments';
@@ -67,7 +67,7 @@ function UsersList() {
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
       <div className='comments-top-part'>
         <div className='ikilistuff'>
-        <NavLink exact to={`/users/${followedPost?.user?.id}`}><img className='poriflePostUserPic' src={`${followedPost?.user?.profile_pic}`}></img></NavLink>
+          <NavLink exact to={`/users/${followedPost?.user?.id}`}><img className='poriflePostUserPic' src={`${followedPost?.user?.profile_pic}`}></img></NavLink>
           <NavLink exact to={`/users/${followedPost?.user?.id}`}><p>{followedPost?.user?.username}</p></NavLink>
         </div>
         <i className={`fa-solid fa-ellipsis thinggylil ${realUserId === followedPost?.user_id ? 'clickbale' : 'notclicklabel'}`}></i>
@@ -94,17 +94,17 @@ function UsersList() {
       }
       <div className='comment-box'>
 
-      {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
-      <div className='username-comment-thingy'>
-        <NavLink exact to={`/users/${comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.id}`}>{comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.user?.username}</NavLink>
-      </div>
-      }
+        {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
+          <div className='username-comment-thingy'>
+            <NavLink exact to={`/users/${comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length - 1]?.user?.id}`}>{comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length - 1]?.user?.username}</NavLink>
+          </div>
+        }
 
-      {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
-      <div className='username-comment-thingy commentText'>
-        {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length-1]?.text}
-      </div>
-      }
+        {comments.filter(some => some?.post_id === followedPost.id).length >= 1 &&
+          <div className='username-comment-thingy commentText'>
+            {comments.filter(some => some?.post_id === followedPost.id)[comments.filter(some => some?.post_id === followedPost.id).length - 1]?.text}
+          </div>
+        }
       </div>
 
       <div className='add-a-comment-forma'>
@@ -127,7 +127,13 @@ function UsersList() {
   )
   return (
     <div className='home-container'>
-      <div className='home-left-c'>{ followedUserPosts }</div>
+      <div className='home-left-c'>{
+        followedUserPosts.length > 0 ? followedUserPosts :
+          <div style={{marginTop:"20px"}}>
+            <h2 style={{textAlign:"center", marginBottom:"10px", color:"black"}}>You are currently not following anyone</h2>
+            <img style={{width:"450px"}} src='https://media.discordapp.net/attachments/959639042385936404/970445024573661254/unknown.png'></img>
+          </div>
+      }</div>
       <div className='home-c'></div>
 
       <div className='home-right-c'>
@@ -137,7 +143,7 @@ function UsersList() {
             <NavLink to={`/users/${realUserId}`}><div className='sug-username'>{`${currentUser?.username}`}</div></NavLink>
             <div className='home-name'>{`${currentUser?.name}`}</div>
           </div>
-          <div className='switch' onClick={ logoutUser }>Switch</div>
+          <div className='switch' onClick={logoutUser}>Switch</div>
         </div>
         <div className='home-bottom-c'>
           <div className='suggestions'>Suggestions For You</div>
@@ -145,7 +151,7 @@ function UsersList() {
           <div className='suggestions-lists'>
             {users.slice(0, 5).map(user => (
               <div className='suggestions-list' key={user.id}>
-                <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={user.profile_pic || profilePicIcon }></img></NavLink>
+                <NavLink to={`/users/${user.id}`}><img className='poriflePostUserPic' src={user.profile_pic || profilePicIcon}></img></NavLink>
                 <div className='sug-user-info'>
                   <NavLink to={`/users/${user.id}`}><div className='sug-username'>{user.username}</div></NavLink>
                   <div className='sug-name'>{user.name}</div>

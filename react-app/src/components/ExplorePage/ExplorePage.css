@@ -17,13 +17,13 @@
   padding-right: 350px;
   padding-top: 100px; */
   padding-top: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-self: center;
-    margin: 0 auto;
-    width: 1300px;
-    padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  margin: 0 auto;
+  width: 1300px;
+  padding-bottom: 30px;
 }
 
 .explore-imgs-container {

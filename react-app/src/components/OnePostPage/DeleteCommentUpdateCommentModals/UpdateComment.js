@@ -58,11 +58,12 @@ const UpdateModalComment = ({closeModal2, commentId,updateModalSomeStuff}) => {
         <div className="edit-modal-input-caption">
           <div className="text-area-div">
 
-            <textarea className='input-caption-update' placeholder='Write a caption...'
+            <textarea className='input-caption-update' placeholder='Write a comment...'
               type="textarea"
               value={text}
               required
               onChange={updateText}
+              maxLength={500}
             />
             <div>
               <img

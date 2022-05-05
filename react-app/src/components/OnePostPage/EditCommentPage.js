@@ -52,4 +52,4 @@ function EditCommentPage(){
   )
 }
 
-export default EditCommentPage
+export default EditCommentPage;

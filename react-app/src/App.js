@@ -21,6 +21,7 @@ import {getAllFollowed} from './store/followers'
 import { getAllFollowers } from './store/followerstwo';
 import { getAllPostFollowed } from './store/followedPosts';
 import { getAllUserFollowers } from './store/userFollower';
+import DirectMessage from './components/DirectMessage/DirectMessage';
 function App() {
 
   const [loaded, setLoaded] = useState(false);
@@ -37,7 +38,7 @@ function App() {
       dispatch(getAllTheUsers());
       dispatch(getAllFollowed());
       dispatch(getAllFollowers());
-      
+
       setLoaded(true);
 
     })();
@@ -85,6 +86,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/about'>
           <AboutPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/message'>
+          <DirectMessage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

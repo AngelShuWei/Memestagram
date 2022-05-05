@@ -63,7 +63,7 @@ function UsersList() {
   //   }
   // }
 
-  const followedUserPosts = followedPosts?.map(followedPost => (
+  const followedUserPosts = followedPosts?.reverse().map(followedPost => (
     <div className='userFeedIndivBigDiv' key={followedPost.id}>
       <div className='comments-top-part'>
         <div className='ikilistuff'>
@@ -116,6 +116,7 @@ function UsersList() {
                 value={text}
                 required
                 onChange={(e) => setText(e.target.value)}
+                maxLength={500}
               />
             </form>
           </div>

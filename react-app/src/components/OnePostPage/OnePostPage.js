@@ -171,6 +171,7 @@ function OnePostPage() {
                       value={text}
                       required
                       onChange={(e) => setText(e.target.value)}
+                      maxLength={500}
                     />
                     <div className="adding-emoji-comment-container">
                       <img

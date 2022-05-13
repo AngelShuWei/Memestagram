@@ -1,5 +1,7 @@
 # Memestagram
 
+This is our clone of Instagram with a focus on all memes, good and bad.
+
 Memestagram is a photo-sharing website where users can connect with others and share meme photos of their choice. Memestagram is inspired by Instagram.
 
 ## Application Architecture
@@ -46,6 +48,7 @@ SQLAlchemy was the ORM of choice for Memestagram. It made data seeding so easy.
 ## Important Screenshots
 
 TODO:
+
 
 # Technology Used
 <p float="left">
@@ -97,3 +100,12 @@ TODO:
   * npm start
 
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
+
+
+<img src="react-app/public/img/homePage.png" >
+
+<img src="react-app/public/img/onePostPage.png" >
+
+<img src="react-app/public/img/posting.png" >
+
+<img src="react-app/public/img/profilePage.png" >

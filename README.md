@@ -1,6 +1,6 @@
 # Memestagram
 
-This is our clone of Instagram with a focus on all memes, good and bad. 
+This is our clone of Instagram with a focus on all memes, good and bad.
 
 # Technology Used
 <p float="left">
@@ -52,3 +52,12 @@ This is our clone of Instagram with a focus on all memes, good and bad.
   * npm start
 
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
+
+
+<img src="react-app/public/img/homePage.png" >
+
+<img src="react-app/public/img/onePostPage.png" >
+
+<img src="react-app/public/img/posting.png" >
+
+<img src="react-app/public/img/profilePage.png" >

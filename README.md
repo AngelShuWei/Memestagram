@@ -2,6 +2,54 @@
 
 This is our clone of Instagram with a focus on all memes, good and bad.
 
+Memestagram is a photo-sharing website where users can connect with others and share meme photos of their choice. Memestagram is inspired by Instagram.
+
+## Application Architecture
+
+Memestagram is built on a React frontend with a Flask backend, using PostgreSQL as a database.
+
+## Frontend Overview
+
+Memestagram does the majority of its applcation logic and validations on the backend, but display/interaction logic on the frontend is managed using several technologies.
+
+### Frontend Technologies Used
+
+#### React 
+
+Memestagram is a React application. All display logic is handled by the React libraries.
+
+#### Redux 
+
+All state management in Memestagram is handled with Redux, with thunks making API calls to the backend server to handle the data.
+
+## Backend Overview
+
+Memestagram uses a Flask server with a Postgresql database.
+
+### Backend Technologies Used
+
+#### Flask
+
+The ability to play with the data so easly made Flask very efficent for me to use creating Memestagram. 
+
+#### PostgreSQL
+
+PostgreSQL was the database of choice because it is simple to work with, and is easily manipulable using Sequelize.
+
+#### WTForms
+
+WTForms made it very easy for me to implemetn validators into my app. 
+
+#### SQLAlchemy
+
+SQLAlchemy was the ORM of choice for Memestagram. It made data seeding so easy.
+
+
+## Important Screenshots
+
+TODO:
+
+
 # Technology Used
 <p float="left">
 <img src="react-app/public/img/python.png" width="100">

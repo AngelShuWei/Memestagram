@@ -190,14 +190,36 @@
     flex-direction: row-reverse;
 }
 
-.xMarkPostModal{
+.xMarkPostModal {
     font-size: 35px;
     position: absolute;
     right: 36%;
-    top:47px;
+    top: 47px;
     color: red;
 }
 
-.yesil{
+.yesil {
     color: green;
 }
+
+.imgshowshere {
+    width: 100%;
+    height: 50%;
+    border-bottom-right-radius: 8px;
+}
+
+.imgyay {
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 8px;
+    object-fit: cover;
+}
+
+
+.loadingiconi{
+    font-size: 60px;
+    position: absolute;
+    bottom: 20%;
+
+}
+

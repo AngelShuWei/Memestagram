@@ -63,6 +63,7 @@ const  EditPostForm = ({ updateModalSomeStuff, closeModal, postId }) => {
               value={caption}
               required
               onChange={updateCaption}
+              maxLength={500}
             />
           </div>
 

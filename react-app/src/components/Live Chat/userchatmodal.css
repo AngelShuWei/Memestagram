@@ -150,7 +150,7 @@
     z-index: 20;
 }
 
-.listnotselected2 {
+.listselected {
 
     background-color: initial;
     outline: none;
@@ -158,5 +158,19 @@
     cursor: pointer;
     margin-left: auto;
     z-index: 20;
+}
 
+
+.listnousers{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    color: #8e8e8e;
+    cursor: default;
+    font-weight: 500;
 }

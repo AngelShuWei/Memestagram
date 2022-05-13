@@ -61,7 +61,7 @@ const LiveChat = () => {
                 </div>
             </div>
             {userChatModal &&
-                <UserChatModal />
+                <UserChatModal closeModal={setUserchatmodal}/>
             }
         </>
     )

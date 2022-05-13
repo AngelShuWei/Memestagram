@@ -29,6 +29,9 @@ class User(db.Model, UserMixin):
     image_likes = relationship("ImageLike", back_populates="user")
     comment_likes = relationship("CommentLike", back_populates="user")
 
+    channels = relationship("Channel", back_populates="user")
+    
+
     followed = db.relationship(
     "User",
     secondary=followers,
@@ -37,6 +40,8 @@ class User(db.Model, UserMixin):
     backref=db.backref("followers", lazy="dynamic"),
     lazy="dynamic"
     )
+
+
 
     def to_dict(self):
         return {

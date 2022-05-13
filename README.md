@@ -102,10 +102,10 @@ TODO:
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
 
 
-<img src="app/react-app/public/image/homePage.png" >
+<img src="/react-app/public/image/homePage.png" >
 
-<img src="app/react-app/public/image/onePostPage.png" >
+<img src="/react-app/public/image/onePostPage.png" >
 
-<img src="app/react-app/public/image/posting.png" >
+<img src="/react-app/public/image/posting.png" >
 
-<img src="app/react-app/public/image/profilePage.png" >
+<img src="/react-app/public/image/profilePage.png" >

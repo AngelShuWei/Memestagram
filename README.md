@@ -14,7 +14,7 @@ Memestagram does the majority of its applcation logic and validations on the bac
 
 ### Frontend Technologies Used
 
-### JavaScript
+#### JavaScript
 <img src="/react-app/public/image/javascript.png" width="50">
 
 #### React
@@ -32,7 +32,7 @@ Memestagram uses a Flask server with a Postgresql database.
 
 ### Backend Technologies Used
 
-### Python
+#### Python
 <img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="50">
 
 #### Flask

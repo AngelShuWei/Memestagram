@@ -52,7 +52,7 @@ TODO:
 
 # Technology Used
 <p float="left">
-<img src="/react-app/public/img/python.png" width="100">
+<img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="100">
 <img src="/react-app/public/img/javascript.png" width="100">
 <img src="/react-app/public/img/react.png" width="100">
 <img src="/react-app/public/img/redux.png" width="100">

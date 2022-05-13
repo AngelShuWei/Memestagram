@@ -14,11 +14,11 @@ Memestagram does the majority of its applcation logic and validations on the bac
 
 ### Frontend Technologies Used
 
-#### React 
+#### React
 
 Memestagram is a React application. All display logic is handled by the React libraries.
 
-#### Redux 
+#### Redux
 
 All state management in Memestagram is handled with Redux, with thunks making API calls to the backend server to handle the data.
 
@@ -30,7 +30,7 @@ Memestagram uses a Flask server with a Postgresql database.
 
 #### Flask
 
-The ability to play with the data so easly made Flask very efficent for me to use creating Memestagram. 
+The ability to play with the data so easly made Flask very efficent for me to use creating Memestagram.
 
 #### PostgreSQL
 
@@ -38,7 +38,7 @@ PostgreSQL was the database of choice because it is simple to work with, and is 
 
 #### WTForms
 
-WTForms made it very easy for me to implemetn validators into my app. 
+WTForms made it very easy for me to implemetn validators into my app.
 
 #### SQLAlchemy
 
@@ -52,10 +52,10 @@ TODO:
 
 # Technology Used
 <p float="left">
-<img src="react-app/public/img/python.png" width="100">
-<img src="react-app/public/img/javascript.png" width="100">
-<img src="react-app/public/img/react.png" width="100">
-<img src="react-app/public/img/redux.png" width="100">
+<img src="app/react-app/public/img/python.png" width="100">
+<img src="app/react-app/public/img/javascript.png" width="100">
+<img src="app/react-app/public/img/react.png" width="100">
+<img src="app/react-app/public/img/redux.png" width="100">
 </p>
 
 ## Getting started finding the memes
@@ -102,10 +102,10 @@ TODO:
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
 
 
-<img src="react-app/public/img/homePage.png" >
+<img src="app/react-app/public/img/homePage.png" >
 
-<img src="react-app/public/img/onePostPage.png" >
+<img src="app/react-app/public/img/onePostPage.png" >
 
-<img src="react-app/public/img/posting.png" >
+<img src="app/react-app/public/img/posting.png" >
 
-<img src="react-app/public/img/profilePage.png" >
+<img src="app/react-app/public/img/profilePage.png" >

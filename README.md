@@ -14,12 +14,16 @@ Memestagram does the majority of its applcation logic and validations on the bac
 
 ### Frontend Technologies Used
 
+### JavaScript
+<img src="/react-app/public/image/javascript.png" width="50">
+
 #### React
+<img src="/react-app/public/image/react.png" width="50">
 
 Memestagram is a React application. All display logic is handled by the React libraries.
 
 #### Redux
-
+<img src="/react-app/public/image/redux.png" width="50">
 All state management in Memestagram is handled with Redux, with thunks making API calls to the backend server to handle the data.
 
 ## Backend Overview
@@ -27,6 +31,9 @@ All state management in Memestagram is handled with Redux, with thunks making AP
 Memestagram uses a Flask server with a Postgresql database.
 
 ### Backend Technologies Used
+
+### Python
+<img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="50">
 
 #### Flask
 
@@ -44,19 +51,6 @@ WTForms made it very easy for me to implemetn validators into my app.
 
 SQLAlchemy was the ORM of choice for Memestagram. It made data seeding so easy.
 
-
-## Important Screenshots
-
-TODO:
-
-
-# Technology Used
-<p float="left">
-<img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="50">
-<img src="/react-app/public/image/javascript.png" width="50">
-<img src="/react-app/public/image/react.png" width="50">
-<img src="/react-app/public/image/redux.png" width="50">
-</p>
 
 ## Getting started finding the memes
 
@@ -102,10 +96,16 @@ TODO:
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
 
 
+## ScreenShots
+
+### When the user logs in they are directed to a feed of the posts from users they follow
 <img src="/react-app/public/image/homePage.png" >
 
-<img src="/react-app/public/image/onePostPage.png" >
-
+### Users can create posts using this modal that utilizes AWS to upload the image
 <img src="/react-app/public/image/posting.png" >
 
+### Users can comment and like posts from the individual post page as well as on the feed
+<img src="/react-app/public/image/onePostPage.png" >
+
+### Users can see thier posts and thier following/follower count on thier profile page
 <img src="/react-app/public/image/profilePage.png" >

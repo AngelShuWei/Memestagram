@@ -52,10 +52,10 @@ TODO:
 
 # Technology Used
 <p float="left">
-<img src="app/react-app/public/img/python.png" width="100">
-<img src="app/react-app/public/img/javascript.png" width="100">
-<img src="app/react-app/public/img/react.png" width="100">
-<img src="app/react-app/public/img/redux.png" width="100">
+<img src="/react-app/public/img/python.png" width="100">
+<img src="/react-app/public/img/javascript.png" width="100">
+<img src="/react-app/public/img/react.png" width="100">
+<img src="/react-app/public/img/redux.png" width="100">
 </p>
 
 ## Getting started finding the memes

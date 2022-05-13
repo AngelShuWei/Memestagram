@@ -52,10 +52,10 @@ TODO:
 
 # Technology Used
 <p float="left">
-<img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="100">
-<img src="/react-app/public/image/javascript.png" width="100">
-<img src="/react-app/public/image/react.png" width="100">
-<img src="/react-app/public/image/redux.png" width="100">
+<img src="https://github.com/AngelShuWei/Memestagram/blob/main/react-app/public/image/python.png?raw=true" width="50">
+<img src="/react-app/public/image/javascript.png" width="50">
+<img src="/react-app/public/image/react.png" width="50">
+<img src="/react-app/public/image/redux.png" width="50">
 </p>
 
 ## Getting started finding the memes
@@ -102,10 +102,10 @@ TODO:
 10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
 
 
-<img src="app/react-app/public/img/homePage.png" >
+<img src="app/react-app/public/image/homePage.png" >
 
-<img src="app/react-app/public/img/onePostPage.png" >
+<img src="app/react-app/public/image/onePostPage.png" >
 
-<img src="app/react-app/public/img/posting.png" >
+<img src="app/react-app/public/image/posting.png" >
 
-<img src="app/react-app/public/img/profilePage.png" >
+<img src="app/react-app/public/image/profilePage.png" >

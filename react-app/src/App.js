@@ -21,6 +21,8 @@ import {getAllFollowed} from './store/followers'
 import { getAllFollowers } from './store/followerstwo';
 import { getAllPostFollowed } from './store/followedPosts';
 import { getAllUserFollowers } from './store/userFollower';
+import LiveChat from './components/Live Chat';
+import { allChannels } from './store/livechatting';
 function App() {
 
   const [loaded, setLoaded] = useState(false);
@@ -37,7 +39,8 @@ function App() {
       dispatch(getAllTheUsers());
       dispatch(getAllFollowed());
       dispatch(getAllFollowers());
-      
+      dispatch(allChannels());
+
       setLoaded(true);
 
     })();
@@ -85,6 +88,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/about'>
           <AboutPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/livechat'>
+          <LiveChat />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -12,6 +12,7 @@ from .api.post_routes import post_routes
 from .api.comments_routes import comments_routes
 from .api.image_likes_routes import image_likes_route
 from .api.followers_routes import follower_routes
+from .api.livechatting_routes import livechatting_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -38,6 +39,8 @@ app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(comments_routes, url_prefix='/api/comments')
 app.register_blueprint(image_likes_route, url_prefix='/api/imglikes')
 app.register_blueprint(follower_routes, url_prefix='/api/followers')
+app.register_blueprint(livechatting_routes, url_prefix='/api/livechat')
+
 db.init_app(app)
 Migrate(app, db)
 

@@ -1,0 +1,223 @@
+.livechatpagemaindiv {
+    position: absolute;
+    top: 59px;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+
+
+.livechattable {
+    width: 932px;
+    height: 841px;
+    display: flex;
+    flex-direction: row;
+    border: 0.5px solid #dbdbdb;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.leftchannel {
+    width: 349px;
+    border-right: 0.5px solid #dbdbdb;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightchannel {
+    width: 581px;
+    position: relative;
+}
+
+.top-leftthingy {
+    height: 60px;
+    border-bottom: 0.5px solid #dbdbdb;
+    width: 349px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.nametopleft {
+    font-size: 16px;
+    color: #262626;
+    font-weight: 500;
+    cursor: default;
+    width: 349px;
+    text-align: center;
+    margin: 0 auto 0 24px;
+}
+
+.toprightthingy {
+    height: 60px;
+    border-bottom: 0.5px solid #dbdbdb;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.profileimg {
+    height: 24px;
+    width: 24px;
+    -webkit-user-select: none;
+    user-select: none;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.somethingaswell {
+    text-decoration: none;
+    font-size: 16px;
+    color: #262626;
+    font-weight: 500;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.xicon {
+    height: 24px;
+    width: 24px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.messagediv {
+    padding: 20px 20px 0;
+    height: 695px !important;
+    overflow-y: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.channelmsg-inner {
+    height: -webkit-max-content;
+    height: max-content;
+    margin-top: auto;
+}
+
+.messageinput {
+    width: 583px;
+    height: 84px;
+    padding: 20px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.msg-box {
+    display: flex;
+    text-align: center;
+    border: 0.5px solid #dbdbdb;
+    width: 543px;
+    height: 44px;
+    padding: 10px 11px;
+    border-radius: 30px;
+}
+
+.emojis {
+    position: relative;
+    z-index: 0;
+}
+
+.imgemoji {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.textareainputmessage {
+    resize: none;
+    width: 430px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    margin-left: 20px;
+    color: #262626;
+    margin-top: 3px;
+    align-content: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.sendbuttonmessage {
+    color: #0095f6;
+    background-color: initial;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.bottom-leftthingy {
+    display: flex;
+    flex-direction: column;
+    height: 781px;
+    overflow-y: auto;
+}
+
+.userlivechatcard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.userlivecharcardimg {
+
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.userlivechatcarusername{
+    margin-left: 10px;
+    color: #262626;
+}
+
+.no-channel{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nochannelimg{
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+.no-msgs {
+    font-size: 22px;
+    color: #262626;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.no-msgs-desc {
+    color: #8e8e8e;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.no-channel-button {
+    color: #fff;
+    background-color: #0095f6;
+    width: 111.16px;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 14px;
+    font-weight: 500;
+}

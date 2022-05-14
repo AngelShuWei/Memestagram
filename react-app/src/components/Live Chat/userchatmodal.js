@@ -1,18 +1,22 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { channelCreate } from '../../store/livechatting';
 import './userchatmodal.css';
 
 const UserChatModal = ({ closeModal }) => {
 
 
 
-    const followed = useSelector(state => Object.values(state.followed));
     const [indivChecked, setIndivChecked] = useState([false, -1]);
 
+    const user = useSelector(state => state.session.user);
+    const followed = useSelector(state => Object.values(state.followed));
+    const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
 
     let menuRef = useRef();
 
+    const dispatch = useDispatch()
 
     useEffect(() => {
 
@@ -33,6 +37,29 @@ const UserChatModal = ({ closeModal }) => {
 
     });
 
+    const handleNext = (e) => {
+        e.preventDefault();
+
+
+        if (channels.filter(el => el?.user2_id === indivChecked[1]).length) {
+
+            closeModal(false)
+            return
+        } else {
+
+
+            const payload = {
+                'user2Id': indivChecked[1]
+            }
+
+            dispatch(channelCreate(payload))
+        }
+
+        closeModal(false)
+
+
+    }
+
     return (
         <div className='userchatmodalmaindiv'>
             <div ref={menuRef} className='modalContent'>
@@ -46,7 +73,7 @@ const UserChatModal = ({ closeModal }) => {
                     </div>
                     {
                         indivChecked[0] ?
-                            <button className='nextbutton'>Next</button>
+                            <button onClick={handleNext} className='nextbutton'>Next</button>
                             : <></>
                     }
 

@@ -117,8 +117,14 @@
     user-select: none;
 }
 
-.indivudualthingies:hover{
-    background-color:aliceblue;
+.indivudualthingies:hover {
+    background-color: #efefef;
+
+}
+
+.userlivechatcard:hover {
+    background-color: #efefef;
+
 }
 
 
@@ -130,7 +136,6 @@
     border-radius: 50%;
 }
 
-.nameusernamediv {}
 
 .usernamedivthing {
     color: #262626;
@@ -161,7 +166,7 @@
 }
 
 
-.listnousers{
+.listnousers {
     display: flex;
     align-items: center;
     width: 100%;
@@ -173,4 +178,68 @@
     color: #8e8e8e;
     cursor: default;
     font-weight: 500;
+}
+
+.channelmsg-inner {
+    height: -webkit-max-content;
+    height: max-content;
+    margin-top: auto;
+}
+
+.channel-msg-right {
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.msg-content-right {
+    padding: 16px;
+    max-width: 234px;
+    align-content: stretch;
+    align-items: stretch;
+    cursor: default;
+    border-radius: 20px;
+    background-color: #efefef;
+    font-size: 14px;
+    color: #262626;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-weight: 400;
+    min-height: 44px;
+}
+
+.channel-msg-left {
+
+    display: flex;
+    grid-gap: 10px;
+    gap: 10px;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.msg-left-img{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.msg-content{
+    padding: 16px;
+    max-width: 234px;
+    border: 0.5px solid #dbdbdb;
+    align-content: stretch;
+    align-items: stretch;
+    cursor: default;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #262626;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-height: 44px;
 }

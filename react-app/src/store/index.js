@@ -9,7 +9,7 @@ import followersReducer from './followerstwo';
 import getAllFollowedPostReducer from './followedPosts';
 import getAllUserFollowedReducer from './userFollowed';
 import getAllUserFollowerReducer from './userFollower';
-
+import livechatReducer from './livechatting';
 const rootReducer = combineReducers({
   session,
   posts: userPostsReducer,
@@ -20,6 +20,7 @@ const rootReducer = combineReducers({
   followedPosts:getAllFollowedPostReducer,
   userSpecificFollowed:getAllUserFollowedReducer,
   userSpecificFollower:getAllUserFollowerReducer,
+  livechat: livechatReducer
 });
 
 

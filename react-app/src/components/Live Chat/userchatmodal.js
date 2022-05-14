@@ -14,10 +14,10 @@ const UserChatModal = ({ closeModal }) => {
     const followed = useSelector(state => Object.values(state.followed));
     const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
 
-    let menuRef = useRef();
 
     const dispatch = useDispatch()
 
+    let menuRef = useRef();
     useEffect(() => {
 
         const handler = (event) => {

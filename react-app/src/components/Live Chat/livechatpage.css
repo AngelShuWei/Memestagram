@@ -178,12 +178,12 @@
     user-select: none;
 }
 
-.userlivechatcarusername{
+.userlivechatcarusername {
     margin-left: 10px;
     color: #262626;
 }
 
-.no-channel{
+.no-channel {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -191,11 +191,12 @@
     flex-direction: column;
 }
 
-.nochannelimg{
+.nochannelimg {
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
 }
+
 .no-msgs {
     font-size: 22px;
     color: #262626;
@@ -220,4 +221,82 @@
     cursor: pointer;
     margin-bottom: 14px;
     font-weight: 500;
+}
+
+
+.deletemodalmain {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 12px;
+    font-size: 14px;
+    /* -webkit-animation: popup .4s forwards;
+    animation: popup .4s forwards; */
+    height: 219px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+.topppart {
+
+    height: 123px;
+    padding: 32px 32px 16px;
+    border-bottom: 0.5px solid #dbdbdb;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.del-chan-title {
+
+
+    font-size: 18px;
+    color: #262626;
+    font-weight: 500;
+
+}
+
+
+.del-chan-desc {
+
+    width: 336px;
+    color: #8e8e8e;
+    padding-top: 10px;
+}
+
+.middleepart {
+
+    width: 100%;
+    text-align: center;
+    color: #ed4956;
+    padding: 16px;
+    height: 48px;
+    font-weight: 700;
+    cursor: pointer;
+    border-bottom: 0.5px solid #dbdbdb;
+}
+
+.middleepart:hover{
+    background-color: #efefef;
+}
+
+.unfollowcancel:hover{
+    background-color: #efefef;
+
+}
+
+.unfollowcancel {
+
+    width: 100%;
+    text-align: center;
+    color: #ed4956;
+    padding: 16px;
+    height: 48px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #262626;
+    border-radius: 0 0 12px 12px;
+
 }

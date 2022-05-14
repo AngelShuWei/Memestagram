@@ -5,13 +5,15 @@ import { NavLink } from 'react-router-dom';
 import { messageCreate } from '../../store/livechatting';
 import './livechatpage.css'
 import UserChatModal from './userchatmodal';
-
+import DeleteChatModal from './deleteChatModal';
 const LiveChat = () => {
 
     const [userChatModal, setUserchatmodal] = useState(false);
     const [active, setActive] = useState([false, -1]);
     const [message, setMessage] = useState('');
 
+    // const [something, setSomething] = useState([false, -1]);
+    const [deleteChatModal, setDeleteChatModal] = useState([false,-1])
 
     const user = useSelector(state => state.session.user);
     const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
@@ -27,14 +29,16 @@ const handleMessageSubmit = (e,channelId) => {
         'recieverId': active[1],
         'content': message
     }
-    dispatch(messageCreate(payload))
-    setMessage('')
+    dispatch(messageCreate(payload));
+    setMessage('');
 
 
 
 }
 
-console.log(channels.filter(el => el?.user2_id === active[1]));
+
+const channel = channels.filter(el => el?.user2_id === active[1])
+
     return (
         <>
 
@@ -69,7 +73,7 @@ console.log(channels.filter(el => el?.user2_id === active[1]));
                                 <div className='toprightthingy'>
                                     <img className='profileimg' src={user?.profile_pic} alt='something'></img>
                                     <NavLink className={'somethingaswell'} exact to={'/'}>{user?.username}</NavLink>
-                                    <img className='xicon' src='https://img.icons8.com/material-rounded/24/000000/delete-sign.png' alt='xthingy'></img>
+                                    <img  className='xicon' onClick={(e) => setDeleteChatModal([true,channel?.id])} src='https://img.icons8.com/material-rounded/24/000000/delete-sign.png' alt='xthingy'></img>
                                 </div>
                                 <div className='messagediv'>
                                     <div className='channelmsg-inner'>
@@ -115,6 +119,10 @@ console.log(channels.filter(el => el?.user2_id === active[1]));
             </div>
             {userChatModal &&
                 <UserChatModal closeModal={setUserchatmodal} />
+            }
+            {deleteChatModal[0] &&
+            <DeleteChatModal closeModal={setDeleteChatModal} />
+
             }
         </>
     )

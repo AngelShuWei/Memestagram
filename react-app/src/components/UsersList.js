@@ -11,7 +11,7 @@ import { logout } from '../store/session';
 function UsersList() {
   const dispatch = useDispatch();
   const history = useHistory();
-
+  //
   const realUserId = useSelector(state => state.session.user.id);
   const currentUser = useSelector(state => state.session.user);
   const comments = useSelector(state => Object.values(state.comments));

@@ -119,6 +119,8 @@
 .emojis {
     position: relative;
     z-index: 0;
+    width: 30px;
+    height: 25px;
 }
 
 .imgemoji {
@@ -137,7 +139,6 @@
     border: none;
     margin-left: 20px;
     color: #262626;
-    margin-top: 3px;
     align-content: center;
     overflow-wrap: break-word;
     word-break: break-word;

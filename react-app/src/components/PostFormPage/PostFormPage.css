@@ -183,6 +183,7 @@
 
 .adding-emoji-post {
     cursor: pointer;
+    width: 23px;
 }
 
 .post-form-p-wordcount {

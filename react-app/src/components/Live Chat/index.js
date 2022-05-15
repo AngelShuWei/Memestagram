@@ -5,18 +5,24 @@ import { NavLink } from 'react-router-dom';
 import { messageCreate } from '../../store/livechatting';
 import './livechatpage.css'
 import UserChatModal from './userchatmodal';
+import Picker from 'emoji-picker-react';
 
 const LiveChat = () => {
 
     const [userChatModal, setUserchatmodal] = useState(false);
     const [active, setActive] = useState([false, -1]);
     const [message, setMessage] = useState('');
-
+    const [showPicker, setShowPicker] = useState(false);
 
     const user = useSelector(state => state.session.user);
     const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
 
     const dispatch = useDispatch()
+
+    const emojiClick = (e, emojiObject) => {
+        setMessage(prevInput => prevInput + emojiObject.emoji);
+        setShowPicker(false);
+    };
 
 const handleMessageSubmit = (e,channelId) => {
     e.preventDefault();
@@ -90,9 +96,14 @@ console.log(channels.filter(el => el?.user2_id === active[1]));
                                 <div className='messageinput'>
 
                                     <div className='msg-box'>
-
                                         <div className='emojis'>
-                                            <img className='imgemoji' src='https://img.icons8.com/ios/50/000000/smiling.png' alt='something'></img>
+                                            <img
+                                                className="adding-emoji-post"
+                                                src={'https://img.icons8.com/ios/50/000000/smiling.png'}
+                                                onClick={() => setShowPicker(val => !val)} />
+                                                {showPicker && <Picker
+                                                pickerStyle={{ width: '300px' }}
+                                                onEmojiClick={emojiClick} />}
                                         </div>
                                         <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='textareainputmessage'></textarea>
                                         <button onClick={(e) => handleMessageSubmit(e,channels.filter(el => el?.user2_id === active[1])[0]?.id)} className='sendbuttonmessage'>Send</button>

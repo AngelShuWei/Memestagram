@@ -16,6 +16,7 @@ const DeleteChatModal = ({ closeModal, deleteChatModal }) => {
     }
 
     let menuRef = useRef();
+
     useEffect(() => {
 
         const handler = (event) => {

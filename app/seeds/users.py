@@ -10,11 +10,11 @@ def seed_users():
     yavuz = User(
         username='sifuhotman', name='yavuz', profile_bio='my fav champ is rakan', profile_pic='https://upload.wikimedia.org/wikipedia/en/3/3e/Prince_Zuko.jpg',email='yavuz@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     angel = User(
-        username='angel', name='angelw', profile_bio='hi my name angle', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='angel', name='angelw', profile_bio='hi my name angle', profile_pic='https://data.whicdn.com/images/345263677/original.jpg',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     leah = User(
-        username='leah', name='leahk', profile_bio='im leah and i luv memes', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='leah', name='leahk', profile_bio='im leah and i luv memes', profile_pic='https://media.discordapp.net/attachments/959639042385936404/975617167129202688/jr8a18v4c2s41.jpg',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     philip = User(
-        username='philip', name='phil', profile_bio='Its me phil. I am a huge influencer, millions look to me for their daily choices', profile_pic='https://i.kym-cdn.com/photos/images/original/001/561/371/77e.jpg',email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='philip', name='phil', profile_bio='Its me phil. I am a huge influencer, millions look to me for their daily choices', profile_pic='https://media.discordapp.net/attachments/700861319020019723/975618434660454440/phils-cat.jpeg?width=409&height=546',email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
 
 
 

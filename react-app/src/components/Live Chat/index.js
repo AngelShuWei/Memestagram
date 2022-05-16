@@ -4,16 +4,18 @@ import { NavLink } from 'react-router-dom';
 import { allChannels, messageCreate } from '../../store/livechatting';
 import './livechatpage.css'
 import UserChatModal from './userchatmodal';
+import Picker from 'emoji-picker-react';
 import DeleteChatModal from './deleteChatModal';
 import { getAllTheUsers } from '../../store/session';
 import { getAllUserFollowed } from '../../store/userFollowed';
 import { getAllUserFollowers } from '../../store/userFollower';
+
 const LiveChat = () => {
 
     const [userChatModal, setUserchatmodal] = useState(false);
     const [active, setActive] = useState([false, -1]);
     const [message, setMessage] = useState('');
-
+    const [showPicker, setShowPicker] = useState(false);
     const [deleteChatModal, setDeleteChatModal] = useState([false, -1])
 
     const followed = useSelector(state => state.followed);
@@ -27,22 +29,23 @@ const LiveChat = () => {
 
     const dispatch = useDispatch()
 
-
-
+    const emojiClick = (e, emojiObject) => {
+        setMessage(prevInput => prevInput + emojiObject.emoji);
+        setShowPicker(false);
+    };
 
     const handleMessageSubmit = (e, channelId) => {
         e.preventDefault();
 
-        const payload = {
-            channelId,
-            'senderId': user?.id,
-            'recieverId': active[1],
-            'content': message
-        }
-        dispatch(messageCreate(payload));
-        setMessage('');
-
-    }
+    const payload = {
+          channelId,
+          'senderId': user?.id,
+          'recieverId': active[1],
+          'content': message
+     }
+      dispatch(messageCreate(payload));
+      setMessage('');
+     }
 
     useEffect(() => {
         dispatch(getAllUserFollowed(user?.id));
@@ -119,9 +122,14 @@ const LiveChat = () => {
                                 <div className='messageinput'>
 
                                     <div className='msg-box'>
-
                                         <div className='emojis'>
-                                            <img className='imgemoji' src='https://img.icons8.com/ios/50/000000/smiling.png' alt='something'></img>
+                                            <img
+                                                className="adding-emoji-post"
+                                                src={'https://img.icons8.com/ios/50/000000/smiling.png'}
+                                                onClick={() => setShowPicker(val => !val)} />
+                                                {showPicker && <Picker
+                                                pickerStyle={{ width: '300px' }}
+                                                onEmojiClick={emojiClick} />}
                                         </div>
                                         <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='textareainputmessage'></textarea>
                                         <button onClick={(e) => handleMessageSubmit(e, channel?.id)} className='sendbuttonmessage'>Send</button>

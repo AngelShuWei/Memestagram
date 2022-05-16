@@ -51,3 +51,7 @@
     height: 200px;
     border-radius: 100px;
 }
+
+#friend-pic {
+    object-fit: cover;
+}

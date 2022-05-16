@@ -1,13 +1,11 @@
 import './AboutPage.css';
-import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import yavuzPic from '../IconPics/sifu.jpeg';
-import angelPic from '../IconPics/disgusted.jpg';
-import leahPic from '../IconPics/images.jpg';
-import philipPic from '../IconPics/philip.jpg';
+import React from 'react';
+import yavuzPic from '../IconPics/yavuz.jpg';
+import angelPic from '../IconPics/angel.png';
+import leahPic from '../IconPics/leah.jpg';
+import philipPic from '../IconPics/phil.jpg';
 import dogestagram from '../IconPics/dogestagram.png';
-import github from '../IconPics/github.png';
-import angycat from '../IconPics/angy-cat.jpg';
+import linkedin from '../IconPics/new-li.png';
 
 function AboutPage() {
     return(
@@ -24,7 +22,7 @@ function AboutPage() {
             <div className='prof-bio'>
                 <h3>Website Creators <br/></h3>
                 Welcome to Memestagram! <br/>
-                Meet the website creators below and click on the creators' post to visit their Github
+                Meet the website creators below and click on the creators' post to visit their Linkedin!
             </div>
           </div>
         </div>
@@ -34,23 +32,23 @@ function AboutPage() {
         <div className="friends-container">
 
             <div className="friend-div">
-                <img className="Sirv image-main"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/yavuzabasiyanik"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main" id="friend-pic"src={yavuzPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" target="_blank" href="https://www.linkedin.com/in/yavuzabasiyanik/"><img className="Sirv image-hover"src={linkedin} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
             <div className="friend-div">
-                <img className="Sirv image-main"src={angelPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/AngelShuWei"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main" id="friend-pic"src={angelPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" target="_blank" href="https://www.linkedin.com/in/angel-wei-21952b16a/"><img className="Sirv image-hover"src={linkedin} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
             <div className="friend-div">
-                <img className="Sirv image-main"src={angycat} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/Leahk1m"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main" id="friend-pic"src={leahPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" target="_blank" href="https://www.linkedin.com/in/leahk1m"><img className="Sirv image-hover"src={linkedin} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
             <div className="friend-div">
-                <img className="Sirv image-main"src={philipPic} style={{width:'293px', height:'293px'}}></img>
-                <a className="friend-link" href="https://github.com/philroberts13"><img className="Sirv image-hover"src={github} style={{width:'293px', height:'293px'}} ></img></a>
+                <img className="Sirv image-main" id="friend-pic"src={philipPic} style={{width:'293px', height:'293px'}}></img>
+                <a className="friend-link" target="_blank" href="https://www.linkedin.com/in/philip-roberts-app407/"><img className="Sirv image-hover"src={linkedin} style={{width:'293px', height:'293px'}} ></img></a>
 
             </div>
         </div>

@@ -26,6 +26,7 @@ const LiveChat = () => {
         || el?.user1_id === user?.id);
     const channel = channels.filter(el => (el?.user1_id === user?.id && el?.user2_id === active[1]) ||
         (el?.user2_id === user?.id && el?.user1_id === active[1]))[0]
+    const user2 = users.find(user => user?.id === active[1]) //gives user2 id and information
 
     const dispatch = useDispatch()
 
@@ -99,8 +100,8 @@ const LiveChat = () => {
 
                             <div className='rightchannel'>
                                 <div className='toprightthingy'>
-                                    <img className='profileimg' src={user?.profile_pic} alt='something'></img>
-                                    <NavLink className={'somethingaswell'} exact to={'/'}>{user?.username}</NavLink>
+                                    <img className='profileimg' src={user2?.profile_pic} alt='something'></img>
+                                    <NavLink className={'somethingaswell'} exact to={'/'}>{user2?.username}</NavLink>
                                     <img className='xicon' onClick={(e) => setDeleteChatModal([true, channel?.id])} src='https://img.icons8.com/material-rounded/24/000000/delete-sign.png' alt='xthingy'></img>
                                 </div>
                                 <div className='messagediv'>

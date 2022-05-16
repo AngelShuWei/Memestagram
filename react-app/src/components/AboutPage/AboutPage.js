@@ -1,9 +1,9 @@
 import './AboutPage.css';
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import yavuzPic from '../IconPics/sifu.jpeg';
+import yavuzPic from '../IconPics/yavuz.jpg';
 import angelPic from '../IconPics/angel.png';
-import leahPic from '../IconPics/leah.png';
+import leahPic from '../IconPics/leah.jpg';
 import philipPic from '../IconPics/phil.jpg';
 import dogestagram from '../IconPics/dogestagram.png';
 import linkedin from '../IconPics/new-li.png';

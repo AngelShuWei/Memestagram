@@ -18,11 +18,18 @@ const LiveChat = () => {
 
     const followed = useSelector(state => state.followed);
 
+    const users = useSelector(state => Object.values(state.session));
     const user = useSelector(state => state.session.user);
-    const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
-    const channel = channels.filter(el => el?.user2_id === active[1])[0]
+    const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user2_id === user?.id
+        || el?.user1_id === user?.id);
+    const channel = channels.filter(el => (el?.user1_id === user?.id && el?.user2_id === active[1]) ||
+        (el?.user2_id === user?.id && el?.user1_id === active[1]))[0]
 
     const dispatch = useDispatch()
+
+
+
+    console.log(channel);
 
     const handleMessageSubmit = (e, channelId) => {
         e.preventDefault();
@@ -39,7 +46,6 @@ const LiveChat = () => {
     }
 
     useEffect(() => {
-        // dispatch(getAllUserFollowers(user?.id));
         dispatch(getAllUserFollowed(user?.id));
         dispatch(allChannels());
     }, [dispatch, followed])
@@ -62,12 +68,25 @@ const LiveChat = () => {
                         </div>
                         <div className='bottom-leftthingy'>
                             {channels.map(el => {
-                                return (
-                                    <div onClick={() => setActive([true, el?.user?.id])} className='userlivechatcard' key={el?.id}>
-                                        <img className='userlivecharcardimg' src={el?.user?.profile_pic} alt='blahh'></img>
-                                        <div className='userlivechatcarusername'>{el?.user?.username}</div>
-                                    </div>
-                                )
+
+                                if (el?.user1_id === user?.id) {
+
+                                    return (
+                                        <div onClick={() => setActive([true, el?.user?.id])} className='userlivechatcard' key={el?.id}>
+                                            <img className='userlivecharcardimg' src={el?.user?.profile_pic} alt='blahh'></img>
+                                            <div className='userlivechatcarusername'>{el?.user?.username}</div>
+                                        </div>
+                                    )
+                                } else if (el?.user2_id === user?.id) {
+                                    let user3 = users.filter(el3 => el3?.id === el?.user1_id)[0];
+                                    return (
+                                        <div onClick={() => setActive([true, user3?.id])} className='userlivechatcard' key={el?.id}>
+                                            <img className='userlivecharcardimg' src={user3?.profile_pic} alt='blahh'></img>
+                                            <div className='userlivechatcarusername'>{user3?.username}</div>
+                                        </div>
+                                    )
+                                }
+
                             })}
                         </div>
 
@@ -84,10 +103,10 @@ const LiveChat = () => {
                                 </div>
                                 <div className='messagediv'>
                                     <div className='channelmsg-inner'>
-                                        {channels.filter(el => el?.user2_id === active[1])[0]?.messages.map(ele => {
+                                        {channel?.messages.map(ele => {
                                             return (
                                                 <div className={ele?.senderId === user?.id ? 'channel-msg-right' : 'channel-msg-left'} key={ele?.id}>
-                                                    {ele?.senderId !== user?.id && <img className='msg-left-img' src={channels.filter(el => el?.user2_id === active[1])[0]?.user?.profile_pic} alt='st'></img>}
+                                                    {/* {ele?.senderId !== user?.id && <img className='msg-left-img' src={channel?.user?.profile_pic} alt='st'></img>} */}
                                                     <div className={ele?.senderId === user?.id ? 'msg-content-right' : 'msg-content'}>
                                                         {ele?.content}
                                                         <br></br>
@@ -106,7 +125,7 @@ const LiveChat = () => {
                                             <img className='imgemoji' src='https://img.icons8.com/ios/50/000000/smiling.png' alt='something'></img>
                                         </div>
                                         <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='textareainputmessage'></textarea>
-                                        <button onClick={(e) => handleMessageSubmit(e, channels.filter(el => el?.user2_id === active[1])[0]?.id)} className='sendbuttonmessage'>Send</button>
+                                        <button onClick={(e) => handleMessageSubmit(e, channel?.id)} className='sendbuttonmessage'>Send</button>
                                     </div>
 
                                 </div>

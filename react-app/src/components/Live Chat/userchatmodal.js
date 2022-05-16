@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllFollowed } from '../../store/followers';
@@ -17,6 +16,7 @@ const UserChatModal = ({ closeModal }) => {
     const followed = useSelector(state => Object.values(state.userSpecificFollowed));
     const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === user?.id);
 
+    const allChannels = useSelector(state => Object.values(state.livechat));
 
     const dispatch = useDispatch()
 
@@ -49,10 +49,13 @@ const UserChatModal = ({ closeModal }) => {
 
         if (channels.filter(el => el?.user2_id === indivChecked[1]).length) {
 
-            closeModal(false)
+            closeModal(false);
             return
-        } else {
+        } else if (allChannels.filter(el => el?.user2_id === user?.id).length && allChannels.filter(el => el?.user1_id === indivChecked[1]).length) {
 
+            closeModal(false);
+            return
+        }else {
 
             const payload = {
                 'user2Id': indivChecked[1]
@@ -61,8 +64,7 @@ const UserChatModal = ({ closeModal }) => {
             dispatch(channelCreate(payload))
         }
 
-        closeModal(false)
-
+        closeModal(false);
 
     }
 

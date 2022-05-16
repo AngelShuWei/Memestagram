@@ -154,7 +154,7 @@ const LiveChat = () => {
                 <UserChatModal closeModal={setUserchatmodal} />
             }
             {deleteChatModal[0] &&
-                <DeleteChatModal closeModal={setDeleteChatModal} deleteChatModal={channel?.id} />
+                <DeleteChatModal closeModal={setDeleteChatModal} deleteChatModal={channel?.id} allChannels={channels} oneChannel={channel}/>
 
             }
         </>

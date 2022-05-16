@@ -29,7 +29,6 @@ const LiveChat = () => {
 
 
 
-    console.log(channel);
 
     const handleMessageSubmit = (e, channelId) => {
         e.preventDefault();

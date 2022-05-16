@@ -89,11 +89,11 @@ export const messageCreate = (payload) => async (dispatch) => {
 
     return 'sup'
 
-
 }
 
+
 export const channelDelete = (channelId) => async (dispatch) => {
-    const response = await fetch(`/api/livechat/${channelId}`, {
+    const response = await fetch(`/api/livechat/channels/delete/${channelId}`, {
         method: 'DELETE',
     });
 
@@ -104,6 +104,10 @@ export const channelDelete = (channelId) => async (dispatch) => {
     }
     return 'asdhkjajdhaslabn'
 }
+
+
+
+
 
 const initialState = {};
 

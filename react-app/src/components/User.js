@@ -11,6 +11,7 @@ import { createFollower, deleteFollower } from '../store/followers';
 import { postsImg } from './Styles'
 import { getAllUserFollowed } from '../store/userFollowed';
 import { getAllUserFollowers } from '../store/userFollower';
+import { allChannels, channelDelete } from '../store/livechatting';
 // import { allPostComments } from '../store/comments';
 
 function User() {
@@ -25,6 +26,7 @@ function User() {
   const userPosts = useSelector(state => Object.values(state.posts).filter(post => {
     return post.user_id === +userId;
   }))
+  const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === +realUserId);
   const followed = useSelector(state => state.followed);
 
   useEffect(() => {
@@ -46,6 +48,7 @@ function User() {
   useEffect(() => {
     dispatch(getAllUserFollowers(userId));
     dispatch(getAllUserFollowed(userId));
+    dispatch(allChannels());
   }, [dispatch, followed])
 
 
@@ -60,7 +63,16 @@ function User() {
   const handleFollowClick = (e) => {
     e.preventDefault()
 
-    dispatch(createFollower(userId));
+    dispatch(createFollower(+userId));
+
+    let channel = channels.find(el => el?.user2_id === +userId)
+
+    if(followedYes.length){
+      if(channel){
+        dispatch(channelDelete(channel?.id))
+      }
+
+    }
 
   }
 

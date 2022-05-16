@@ -15,6 +15,7 @@ import Picker from 'emoji-picker-react';
 import happyFace from '../IconPics/ig-happy-face.png';
 import { allUserPosts } from '../../store/post';
 import { getAllTheUsers } from '../../store/session';
+import { allChannels } from '../../store/livechatting';
 function OnePostPage() {
   const [modalOn, setModalOn] = useState(false);
   const [modalOn2, setModalOn2] = useState([false,0]);

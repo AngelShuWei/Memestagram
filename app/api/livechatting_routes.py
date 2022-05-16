@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_required
 from app.models import Post, db, User, Channel, Message
 from datetime import date
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room
 import os
 
 livechatting_routes = Blueprint('livechat', __name__)
@@ -68,9 +68,12 @@ def createChannel():
 
 @socketio.on("chat")
 def handle_chat(data):
+
     channelId = data['channelId']
     senderId = current_user.id
     recieverId = data['recieverId']
+    join_room(channelId)
+    sessionId = request.sid
 
     message = Message(
         channelId = channelId,
@@ -79,10 +82,10 @@ def handle_chat(data):
         content = data['content']
     )
 
-    print(data, '0-0-----')
     db.session.add(message)
     db.session.commit()
-    emit("chat", data, broadcast=True)
+    print(request.sid, 'sid----')
+    emit("chat", data, to=sessionId)
 
 
 @livechatting_routes.route('/channels/delete/<channelId>', methods=['DELETE'])

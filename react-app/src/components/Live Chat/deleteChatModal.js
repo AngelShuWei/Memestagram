@@ -4,12 +4,12 @@ import { channelDelete } from "../../store/livechatting";
 
 
 
-const DeleteChatModal = ({ closeModal, deleteChatModal, allChannels, oneChannel }) => {
+const DeleteChatModal = ({ closeModal, deleteChatModal }) => {
 
     const dispatch = useDispatch();
 
     const handleDeleteChat = () => {
-        console.log(allChannels.indexOf(oneChannel, '!!!!!!'));
+        dispatch(channelDelete(deleteChatModal));
         closeModal(false);
     }
 

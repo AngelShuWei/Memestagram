@@ -1,6 +1,5 @@
 import './AboutPage.css';
-import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React from 'react';
 import yavuzPic from '../IconPics/yavuz.jpg';
 import angelPic from '../IconPics/angel.png';
 import leahPic from '../IconPics/leah.jpg';

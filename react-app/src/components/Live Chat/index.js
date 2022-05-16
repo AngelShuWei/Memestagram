@@ -9,6 +9,9 @@ import DeleteChatModal from './deleteChatModal';
 import { getAllTheUsers } from '../../store/session';
 import { getAllUserFollowed } from '../../store/userFollowed';
 import { getAllUserFollowers } from '../../store/userFollower';
+import { io } from 'socket.io-client';
+
+let socket;
 
 const LiveChat = () => {
 
@@ -17,6 +20,7 @@ const LiveChat = () => {
     const [message, setMessage] = useState('');
     const [showPicker, setShowPicker] = useState(false);
     const [deleteChatModal, setDeleteChatModal] = useState([false, -1])
+    const [chats, setChats] = useState([]);
 
     const followed = useSelector(state => state.followed);
 
@@ -38,13 +42,18 @@ const LiveChat = () => {
     const handleMessageSubmit = (e, channelId) => {
         e.preventDefault();
 
-    const payload = {
-          channelId,
-          'senderId': user?.id,
-          'recieverId': active[1],
-          'content': message
-     }
-      dispatch(messageCreate(payload));
+    // const payload = {
+    //       channelId,
+    //       'senderId': user?.id,
+    //       'recieverId': active[1],
+    //       'content': message
+    //  }
+    //   dispatch(messageCreate(payload));
+     socket.emit("chat", {channelId,
+        'senderId': user?.id,
+        'recieverId': active[1],
+        'content': message});
+
       setMessage('');
      }
 
@@ -54,6 +63,22 @@ const LiveChat = () => {
     }, [dispatch, followed])
 
 
+    //useeffect for websocket connection
+    useEffect(() => {
+        //create websocket connection
+        socket = io();
+
+        //listen for chat events
+        socket.on("chat", (chat) => {
+            setChats(message => [...message, chat])
+        })
+
+        return (() => {
+            socket.disconnect()
+        });
+    },[]);
+
+    console.log(chats,'using chats :))');
 
     return (
         <>
@@ -106,7 +131,7 @@ const LiveChat = () => {
                                 </div>
                                 <div className='messagediv'>
                                     <div className='channelmsg-inner'>
-                                        {channel?.messages.map(ele => {
+                                        {chats.map(ele => {
                                             return (
                                                 <div className={ele?.senderId === user?.id ? 'channel-msg-right' : 'channel-msg-left'} key={ele?.id}>
                                                     {/* {ele?.senderId !== user?.id && <img className='msg-left-img' src={channel?.user?.profile_pic} alt='st'></img>} */}

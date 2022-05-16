@@ -2,10 +2,22 @@ from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_required
 from app.models import Post, db, User, Channel, Message
 from datetime import date
-
+from flask_socketio import SocketIO, emit
+import os
 
 livechatting_routes = Blueprint('livechat', __name__)
+socketio = SocketIO()
 
+if os.environ.get("FLASK_ENV") == "production":
+  origins = [
+    "http://memestagram-group-project.herokuapp.com/"
+    "https://memestagram-group-project.herokuapp.com/.com",
+  ]
+else:
+  origins = "*"
+
+#initialize socket instance
+socketio = SocketIO(cors_allowed_origins=origins)
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -54,30 +66,23 @@ def createChannel():
     return channel.to_dict()
 
 
-@livechatting_routes.route('/messages/create', methods=['POST'])
-def createMessage():
-
-
-    req = request.json
-
-
-
-    channelId = req['channelId']
+@socketio.on("chat")
+def handle_chat(data):
+    channelId = data['channelId']
     senderId = current_user.id
-    recieverId = req['recieverId']
+    recieverId = data['recieverId']
 
     message = Message(
         channelId = channelId,
         senderId = senderId,
         recieverId = recieverId,
-        content = req['content']
+        content = data['content']
     )
 
+    print(data, '0-0-----')
     db.session.add(message)
     db.session.commit()
-
-    return message.to_dict()
-
+    emit("chat", data, broadcast=True)
 
 
 @livechatting_routes.route('/channels/delete/<channelId>', methods=['DELETE'])

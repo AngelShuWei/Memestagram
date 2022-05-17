@@ -10,6 +10,7 @@ import { getAllTheUsers } from '../../store/session';
 import { getAllUserFollowed } from '../../store/userFollowed';
 import { getAllUserFollowers } from '../../store/userFollower';
 import { io } from 'socket.io-client';
+import { allMessages } from '../../store/messages';
 
 let socket;
 
@@ -54,6 +55,8 @@ const LiveChat = () => {
     //  }
     //   dispatch(messageCreate(payload));
 
+
+
      socket.emit("chat", {channelId,
         'senderId': user?.id,
         'recieverId': active[1],
@@ -71,12 +74,9 @@ const LiveChat = () => {
     }, [dispatch, followed])
 
 
-    //useeffect for websocket connection
     useEffect(() => {
-        //create websocket connection
         socket = io();
 
-        //listen for chat events
         socket.on("chat", (chat) => {
             setChats(message => [...message, chat])
         })
@@ -88,9 +88,10 @@ const LiveChat = () => {
 
     useEffect(() => {
 
-        console.log(chats);
+        dispatch(allMessages())
+        dispatch(getAllTheUsers())
         setChats([...messages.filter(el => el?.channelId === channel?.id)])
-    },[active[1],user,dispatch])
+    },[active[1],user,dispatch,channel])
 
 
     return (
@@ -171,7 +172,11 @@ const LiveChat = () => {
                                                 onEmojiClick={emojiClick} />}
                                         </div>
                                         <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='textareainputmessage'></textarea>
+                                        {message.length>0 ?
                                         <button onClick={(e) => handleMessageSubmit(e, channel?.id)} className='sendbuttonmessage'>Send</button>
+                                        :
+                                        <button className='sendbuttonmessage'>Send</button>
+                                        }
                                     </div>
 
                                 </div>

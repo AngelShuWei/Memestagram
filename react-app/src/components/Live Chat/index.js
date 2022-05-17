@@ -31,6 +31,10 @@ const LiveChat = () => {
     const channel = channels.filter(el => (el?.user1_id === user?.id && el?.user2_id === active[1]) ||
         (el?.user2_id === user?.id && el?.user1_id === active[1]))[0]
     const user2 = users.find(user => user?.id === active[1]) //gives user2 id and information
+    const messages = useSelector(state => Object.values(state.messages));
+
+
+
 
     const dispatch = useDispatch()
 
@@ -49,10 +53,14 @@ const LiveChat = () => {
     //       'content': message
     //  }
     //   dispatch(messageCreate(payload));
+
      socket.emit("chat", {channelId,
         'senderId': user?.id,
         'recieverId': active[1],
         'content': message});
+
+
+
 
       setMessage('');
      }
@@ -78,7 +86,12 @@ const LiveChat = () => {
         });
     },[]);
 
-    console.log(chats,'using chats :))');
+    useEffect(() => {
+
+        console.log(chats);
+        setChats([...messages.filter(el => el?.channelId === channel?.id)])
+    },[active[1],user,dispatch])
+
 
     return (
         <>
@@ -131,7 +144,7 @@ const LiveChat = () => {
                                 </div>
                                 <div className='messagediv'>
                                     <div className='channelmsg-inner'>
-                                        {chats.map(ele => {
+                                        {chats?.filter(el=> el?.channelId === channel?.id)?.map(ele => {
                                             return (
                                                 <div className={ele?.senderId === user?.id ? 'channel-msg-right' : 'channel-msg-left'} key={ele?.id}>
                                                     {/* {ele?.senderId !== user?.id && <img className='msg-left-img' src={channel?.user?.profile_pic} alt='st'></img>} */}

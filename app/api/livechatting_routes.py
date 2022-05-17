@@ -84,8 +84,7 @@ def handle_chat(data):
 
     db.session.add(message)
     db.session.commit()
-    print(request.sid, 'sid----')
-    emit("chat", data, to=sessionId)
+    emit("chat", data, broadcast="True")
 
 
 @livechatting_routes.route('/channels/delete/<channelId>', methods=['DELETE'])

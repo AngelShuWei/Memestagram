@@ -128,7 +128,7 @@ const NavBar = () => {
               <i className="fa-regular fa-compass" onClick={() => history.push(`/explore`)}></i>
               {/* <i className="fa-regular fa-heart"></i> */}
               <button className="prof-btn" onClick={openMenu}>
-                  {user && userImg ? <img className="navbar-prof-pic-btn"src={userImg} style={{height:'22px'}}/>:  <i className="fa-regular fa-circle-user"></i>}
+                  {user && userImg ? <img className="navbar-prof-pic-btn"src={userImg} style={{height:'22px',width:"22px"}}/>:  <i className="fa-regular fa-circle-user"></i>}
               </button  >
               {showMenu && (
                 <div className="profile-dropdown">

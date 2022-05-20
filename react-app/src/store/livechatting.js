@@ -1,7 +1,6 @@
 const LOAD_CHANNELS = 'channel/LOAD';
 const CREATE_CHANNEL = 'channel/CREATE';
 const DELETE_CHANNEL = 'channel/DELETE';
-const LOAD_MESSAGES = 'message/LOAD';
 const CREATE_MESSAGES = 'message/CREATE';
 
 
@@ -10,10 +9,6 @@ const loadChannels = (channels) => ({
     channels
 })
 
-const loadMessage = (messages) => ({
-    type: LOAD_MESSAGES,
-    messages
-})
 
 const createChannel = (channel) => ({
     type: CREATE_CHANNEL,
@@ -43,17 +38,7 @@ export const allChannels = () => async (dispatch) => {
     return 'sup'
 }
 
-export const allMessages = () => async (dispatch) => {
-    const response = await fetch('/api/livechat/messages')
 
-    if (response.ok) {
-
-        const data = await response.json();
-        dispatch(loadMessage(data.allMessages))
-    }
-
-    return 'sup'
-}
 
 export const channelCreate = (payload) => async (dispatch) => {
     const response = await fetch('/api/livechat/channels/create', {
@@ -122,27 +107,19 @@ const livechatReducer = (state = initialState, action) => {
             });
 
             return { ...newState }
-        case LOAD_MESSAGES:
-            action.messages.forEach(el => {
-                newState[el.id] = el
-
-            });
-
-            return { ...newState }
-
         case DELETE_CHANNEL:
             delete newState[action.id]
-            return {...newState}
+            return { ...newState }
 
         case CREATE_CHANNEL:
             newState[action.channel.id] = action.channel
-            return {...newState}
+            return { ...newState }
 
         case CREATE_MESSAGES:
             newState[action.message.id] = action.message;
-            return {...newState}
+            return { ...newState }
         default:
-            return {...newState}
+            return { ...newState }
 
     }
 

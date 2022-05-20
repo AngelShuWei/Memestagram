@@ -17,12 +17,11 @@ import { allImgLikes } from './store/imglikes';
 import { getAllTheUsers } from './store/session';
 import ExplorePage from './components/ExplorePage/ExplorePage';
 import AboutPage from './components/AboutPage/AboutPage';
-import {getAllFollowed} from './store/followers'
+import { getAllFollowed } from './store/followers'
 import { getAllFollowers } from './store/followerstwo';
-import { getAllPostFollowed } from './store/followedPosts';
-import { getAllUserFollowers } from './store/userFollower';
 import LiveChat from './components/Live Chat';
 import { allChannels } from './store/livechatting';
+import { allMessages } from './store/messages';
 function App() {
 
   const [loaded, setLoaded] = useState(false);
@@ -40,6 +39,7 @@ function App() {
       dispatch(getAllFollowed());
       dispatch(getAllFollowers());
       dispatch(allChannels());
+      dispatch(allMessages());
 
       setLoaded(true);
 

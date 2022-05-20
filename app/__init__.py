@@ -12,8 +12,9 @@ from .api.post_routes import post_routes
 from .api.comments_routes import comments_routes
 from .api.image_likes_routes import image_likes_route
 from .api.followers_routes import follower_routes
-from .api.livechatting_routes import livechatting_routes
+from .api.livechatting_routes import livechatting_routes, socketio
 from .seeds import seed_commands
+# from .api.livechatting_routes import socketio
 
 from .config import Config
 
@@ -43,6 +44,7 @@ app.register_blueprint(livechatting_routes, url_prefix='/api/livechat')
 
 db.init_app(app)
 Migrate(app, db)
+socketio.init_app(app)
 
 # Application Security
 CORS(app)
@@ -80,3 +82,6 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+if __name__ == 'app':
+    socketio.run(app)

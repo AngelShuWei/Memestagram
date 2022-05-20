@@ -9,8 +9,6 @@ const DeleteChatModal = ({ closeModal, deleteChatModal }) => {
     const dispatch = useDispatch();
 
     const handleDeleteChat = () => {
-
-
         dispatch(channelDelete(deleteChatModal));
         closeModal(false);
     }

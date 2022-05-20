@@ -9,6 +9,10 @@ import DeleteChatModal from './deleteChatModal';
 import { getAllTheUsers } from '../../store/session';
 import { getAllUserFollowed } from '../../store/userFollowed';
 import { getAllUserFollowers } from '../../store/userFollower';
+import { io } from 'socket.io-client';
+import { allMessages } from '../../store/messages';
+
+let socket;
 
 const LiveChat = () => {
 
@@ -17,6 +21,7 @@ const LiveChat = () => {
     const [message, setMessage] = useState('');
     const [showPicker, setShowPicker] = useState(false);
     const [deleteChatModal, setDeleteChatModal] = useState([false, -1])
+    const [chats, setChats] = useState([]);
 
     const followed = useSelector(state => state.followed);
 
@@ -26,6 +31,11 @@ const LiveChat = () => {
         || el?.user1_id === user?.id);
     const channel = channels.filter(el => (el?.user1_id === user?.id && el?.user2_id === active[1]) ||
         (el?.user2_id === user?.id && el?.user1_id === active[1]))[0]
+    const user2 = users.find(user => user?.id === active[1]) //gives user2 id and information
+    const messages = useSelector(state => Object.values(state.messages));
+
+
+
 
     const dispatch = useDispatch()
 
@@ -37,13 +47,24 @@ const LiveChat = () => {
     const handleMessageSubmit = (e, channelId) => {
         e.preventDefault();
 
-    const payload = {
-          channelId,
-          'senderId': user?.id,
-          'recieverId': active[1],
-          'content': message
-     }
-      dispatch(messageCreate(payload));
+    // const payload = {
+    //       channelId,
+    //       'senderId': user?.id,
+    //       'recieverId': active[1],
+    //       'content': message
+    //  }
+    //   dispatch(messageCreate(payload));
+
+
+
+     socket.emit("chat", {channelId,
+        'senderId': user?.id,
+        'recieverId': active[1],
+        'content': message});
+
+
+
+
       setMessage('');
      }
 
@@ -52,6 +73,25 @@ const LiveChat = () => {
         dispatch(allChannels());
     }, [dispatch, followed])
 
+
+    useEffect(() => {
+        socket = io();
+
+        socket.on("chat", (chat) => {
+            setChats(message => [...message, chat])
+        })
+
+        return (() => {
+            socket.disconnect()
+        });
+    },[]);
+
+    useEffect(() => {
+
+        dispatch(allMessages())
+        dispatch(getAllTheUsers())
+        setChats([...messages.filter(el => el?.channelId === channel?.id)])
+    },[active[1],user,dispatch,channel])
 
 
     return (
@@ -99,13 +139,13 @@ const LiveChat = () => {
 
                             <div className='rightchannel'>
                                 <div className='toprightthingy'>
-                                    <img className='profileimg' src={user?.profile_pic} alt='something'></img>
-                                    <NavLink className={'somethingaswell'} exact to={'/'}>{user?.username}</NavLink>
+                                    <img className='profileimg' src={user2?.profile_pic} alt='something'></img>
+                                    <NavLink className={'somethingaswell'} exact to={'/'}>{user2?.username}</NavLink>
                                     <img className='xicon' onClick={(e) => setDeleteChatModal([true, channel?.id])} src='https://img.icons8.com/material-rounded/24/000000/delete-sign.png' alt='xthingy'></img>
                                 </div>
                                 <div className='messagediv'>
                                     <div className='channelmsg-inner'>
-                                        {channel?.messages.map(ele => {
+                                        {chats?.filter(el=> el?.channelId === channel?.id)?.map(ele => {
                                             return (
                                                 <div className={ele?.senderId === user?.id ? 'channel-msg-right' : 'channel-msg-left'} key={ele?.id}>
                                                     {/* {ele?.senderId !== user?.id && <img className='msg-left-img' src={channel?.user?.profile_pic} alt='st'></img>} */}
@@ -132,7 +172,11 @@ const LiveChat = () => {
                                                 onEmojiClick={emojiClick} />}
                                         </div>
                                         <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='textareainputmessage'></textarea>
+                                        {message.length>0 ?
                                         <button onClick={(e) => handleMessageSubmit(e, channel?.id)} className='sendbuttonmessage'>Send</button>
+                                        :
+                                        <button className='sendbuttonmessage'>Send</button>
+                                        }
                                     </div>
 
                                 </div>

@@ -35,8 +35,6 @@ const LiveChat = () => {
     const messages = useSelector(state => Object.values(state.messages));
 
 
-
-
     const dispatch = useDispatch()
 
     const emojiClick = (e, emojiObject) => {
@@ -55,18 +53,12 @@ const LiveChat = () => {
     //  }
     //   dispatch(messageCreate(payload));
 
-
-
-     socket.emit("chat", {channelId,
+    socket.emit("chat", {channelId,
         'senderId': user?.id,
         'recieverId': active[1],
         'content': message});
-
-
-
-
-      setMessage('');
-     }
+        setMessage('');
+    }
 
     useEffect(() => {
         dispatch(getAllUserFollowed(user?.id));

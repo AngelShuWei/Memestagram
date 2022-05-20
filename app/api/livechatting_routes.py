@@ -9,8 +9,8 @@ livechatting_routes = Blueprint('livechat', __name__)
 
 if os.environ.get("FLASK_ENV") == "production":
     origins = [
-        "http://memestagram-group-project.herokuapp.com/",
-        "https://memestagram-group-project.herokuapp.com/.com"
+        "http://memestagram-group-project.herokuapp.com",
+        "https://memestagram-group-project.herokuapp.com"
     ]
 else:
     origins = "*"
@@ -84,6 +84,11 @@ def handle_chat(data):
     db.session.add(message)
     db.session.commit()
     emit("chat", data, broadcast="True")
+
+# @socketio.on('clientError')
+# def client_error(data, socket):
+#     print(data, '--------')
+#     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n')
 
 
 @livechatting_routes.route('/channels/delete/<channelId>', methods=['DELETE'])

@@ -6,15 +6,14 @@ from flask_socketio import SocketIO, emit, join_room
 import os
 
 livechatting_routes = Blueprint('livechat', __name__)
-socketio = SocketIO()
 
 if os.environ.get("FLASK_ENV") == "production":
-  origins = [
-    "http://memestagram-group-project.herokuapp.com/"
-    "https://memestagram-group-project.herokuapp.com/.com",
-  ]
+    origins = [
+        "http://memestagram-group-project.herokuapp.com/",
+        "https://memestagram-group-project.herokuapp.com/.com"
+    ]
 else:
-  origins = "*"
+    origins = "*"
 
 #initialize socket instance
 socketio = SocketIO(cors_allowed_origins=origins)

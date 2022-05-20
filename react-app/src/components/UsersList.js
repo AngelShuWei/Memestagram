@@ -21,7 +21,7 @@ function UsersList() {
   const [users, setUsers] = useState([]);
   const [text, setText] = useState("")
   console.log(users)
-  
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');

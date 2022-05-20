@@ -28,7 +28,7 @@ function User() {
   }))
   const channels = useSelector(state => Object.values(state.livechat)).filter(el => el?.user1_id === +realUserId);
   const followed = useSelector(state => state.followed);
-
+  //
   useEffect(() => {
     if (!userId) {
       return;

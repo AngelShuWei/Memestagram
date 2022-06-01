@@ -16,7 +16,7 @@ else:
     origins = "*"
 
 #initialize socket instance
-socketio = SocketIO(cors_allowed_origins=origin, engineio_logger=True, logger=True)
+socketio = SocketIO(cors_allowed_origins=origins, engineio_logger=True, logger=True)
 
 def validation_errors_to_error_messages(validation_errors):
     """

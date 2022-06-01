@@ -7,16 +7,16 @@ import os
 
 livechatting_routes = Blueprint('livechat', __name__)
 
-# if os.environ.get("FLASK_ENV") == "production":
-#     origins = [
-#         "http://memestagram-group-project.herokuapp.com/livechat",
-#         "https://memestagram-group-project.herokuapp.com/livechat"
-#     ]
-# else:
-#     origins = "*"
+if os.environ.get("FLASK_ENV") == "production":
+    origins = [
+        "http://memestagram-group-project.herokuapp.com",
+        "https://memestagram-group-project.herokuapp.com"
+    ]
+else:
+    origins = "*"
 
 #initialize socket instance
-socketio = SocketIO(cors_allowed_origins="*")
+socketio = SocketIO(cors_allowed_origins=origins)
 
 def validation_errors_to_error_messages(validation_errors):
     """

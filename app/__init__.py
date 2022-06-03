@@ -83,5 +83,5 @@ def react_root(path):
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
 
-if __name__ == '__main__':
+if __name__ == '__main__': ## NEED __main__ otherwise socket wouldn't enter if statement
     socketio.run(app)

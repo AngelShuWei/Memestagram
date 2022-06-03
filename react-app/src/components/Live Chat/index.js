@@ -73,9 +73,9 @@ const LiveChat = () => {
             setChats(message => [...message, chat])
         })
 
-        return (() => {
-            socket.disconnect()
-        });
+        // return (() => {
+        //     socket.disconnect()
+        // });
     },[]);
 
     useEffect(() => {

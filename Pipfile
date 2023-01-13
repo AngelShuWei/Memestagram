@@ -29,7 +29,6 @@ boto3 = "*"
 flask-socketio = "*"
 eventlet = "==0.30.2"
 psycopg2-binary = "*"
-dj-database-url = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

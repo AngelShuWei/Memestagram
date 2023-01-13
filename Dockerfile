@@ -5,7 +5,7 @@ FROM python:3.9
 # REACT_APP_BASE_URL -> Your deployment URL
 # FLASK_APP -> entry point to your flask app
 # FLASK_ENV -> Tell flask to use the production server
-# SQLALCHEMY_ECHO -> Just set it to true .
+# SQLALCHEMY_ECHO -> Just set it to true
 ENV REACT_APP_BASE_URL=https://memestagram-proj.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production

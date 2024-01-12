@@ -10,9 +10,9 @@ def seed_users():
     yavuz = User(
         username='sifuhotman', name='yavuz', profile_bio='my fav champ is rakan', profile_pic='https://upload.wikimedia.org/wikipedia/en/3/3e/Prince_Zuko.jpg',email='yavuz@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     angel = User(
-        username='angel', name='angelw', profile_bio='hi my name angle', profile_pic='https://data.whicdn.com/images/345263677/original.jpg',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='angel', name='angelw', profile_bio='hi my name angle', profile_pic='https://cdn.discordapp.com/attachments/938609911326179329/1195185526584639608/AngeHype.png?ex=65b31243&is=65a09d43&hm=9152178e8bd2f6bb15560d26e71b257e01cf95f743f1b6950ab50055e2426495&',email='angel@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     leah = User(
-        username='leah', name='leahk', profile_bio='im leah and i luv memes', profile_pic='https://media.discordapp.net/attachments/959639042385936404/975617167129202688/jr8a18v4c2s41.jpg',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
+        username='leah', name='leahk', profile_bio='im leah and i luv memes', profile_pic='https://cdn.discordapp.com/attachments/938609911326179329/1195185425543872624/image_1.png?ex=65b3122a&is=65a09d2a&hm=0e23decedb8648c8a25dd31f0ac6087d454bdbfe0f850d7ffe1a350a1a4285de&',email='leah@aa.io', password='password', created_at=date.today(), updated_at=date.today())
     philip = User(
         username='philip', name='phil', profile_bio='Its me phil. I am a huge influencer, millions look to me for their daily choices', profile_pic='https://media.discordapp.net/attachments/700861319020019723/975618434660454440/phils-cat.jpeg?width=409&height=546',email='philip@aa.io', password='password', created_at=date.today(), updated_at=date.today())
 

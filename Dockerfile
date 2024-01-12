@@ -11,8 +11,14 @@ ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=true
 
+# testing line below
+COPY requirements.txt/var/www/requirements.txt
+
 # Set the directory for upcoming commands to /var/www
 WORKDIR /var/www
+
+# testing line below
+RUN pip install -r requirements.txt
 
 # Copy all the files from your repo to the working directory
 COPY . .
